@@ -1,0 +1,14 @@
+.min-wth-201 {
+    min-width: 165px !important;
+    margin-top: 10px;
+}
+
+.payfield::-webkit-outer-spin-button,
+.payfield::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.payfield[type=number]{
+  -moz-appearance: textfield;
+}

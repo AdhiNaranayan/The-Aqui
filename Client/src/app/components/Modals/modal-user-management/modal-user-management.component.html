@@ -1,0 +1,568 @@
+<section *ngIf="Type && ( Type === 'View')">
+  <div class="limiter" style="display: block;">
+    <div class="custom-modal modal-container">
+      <form class="form-horizontal" [formGroup]="ViewFormGroup">
+        <div class="modal-close-btn" (click)="modalRef.hide();">
+          <div class="close-icon">
+            <span>
+              <i class="fa fa-close" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="content-area">
+          <h1>User Details</h1>
+          <div class="modal-content-body">
+            <div class="content">
+              <div class="col-sm-12">
+                <div class="row no-margin">
+                  <div class="form-group form-group-sm col-md-6">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Name:</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{UserOfInfo?.ContactName | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-6">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Email
+                        ID:</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{UserOfInfo?.Email | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-6">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Phone
+                        No:</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{UserOfInfo?.Mobile | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-6">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">CustomerType:</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{UserOfInfo?.CustomerType | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <!-- <div class="table-responsive tbl-shadow" *ngIf="ViewFormGroup.get('IfUserBranch').value === 'Yes'">
+                    <table class="table tbl-client">
+                      <thead>
+                        <tr>
+                          <th>S.No</th>
+                          <th> Branch Name
+                          </th>
+                          <th>Mobile</th>
+                          <th>GSTIN</th>
+                          <th>Address</th>
+                          <th>Created Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <ng-container *ngIf="BranchInfo.length > 0">
+                          <tr *ngFor="let Branch of BranchInfo;let j=index">
+                            <td>{{j+1}}</td>
+                            <td>{{Branch?.BranchName}}</td>
+                            <td>{{Branch?.Mobile}}</td>
+                            <td>{{Branch?.GSTIN}}</td>
+                            <td>{{Branch?.Address}}</td>
+                            <td> {{Branch?.createdAt | date: 'd-MMM-y'}}</td>
+                          </tr>
+                        </ng-container>
+                        <tr *ngIf="UserOfInfo?.BusinessAndBranches.length === 0">
+                          <td colspan="9"> No Records Found.... </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="modal-footer" style="width: 100%">
+                      <button class="btn-blue" style="border-radius: 15px; padding: 5px;" type="button"
+                        (click)="GoBack()">
+                        <span> Go Back </span>
+                        <span> <i class="fa fa-check" aria-hidden="true"></i> </span>
+                      </button>
+                    </div>
+                  </div> -->
+                  <div class="form-group form-group-sm col-md-6">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">State
+                        Name:</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{UserOfInfo?.State.State_Name | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-6">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Created
+                        Date:</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{UserOfInfo?.createdAt | date: 'd-MMM-y'}}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive tbl-shadow">
+                    <table class="table tbl-client">
+                      <thead>
+                        <tr>
+                          <th>S.No</th>
+                          <th> Business Name</th>
+                          <th>Industry</th>
+                          <th>Created Date</th>
+                          <!-- <th>Branches</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <ng-container *ngIf="UserOfInfo?.BusinessAndBranches.length > 0">
+                          <tr *ngFor="let user of UserOfInfo?.BusinessAndBranches;let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{user?.branch?.Business?.FirstName +' '+user?.branch?.Business?.LastName }}</td>
+                            <td>{{user?.Industry.Industry_Name}}</td>
+                            <td> {{user?.branch?.Business?.createdAt | date: 'd-MMM-y'}}
+                            </td>
+                            <!-- <td>
+                              <div class="action-icon-parent">
+                                <span class="col-action-icon bk-clr-info" (click)="ViewBranch(i)" matTooltip="View"><i
+                                    class="fa fa-eye" aria-hidden="true"></i></span>
+                              </div>
+                            </td> -->
+
+                          </tr>
+                        </ng-container>
+                        <tr *ngIf="UserOfInfo?.BusinessAndBranches.length === 0">
+                          <td colspan="9"> No Records Found.... </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </form>
+      <div class="modal-footer">
+        <button type="submit" (click)="modalRef.hide()" class="btn-blue" aria-label="">
+          <span>Close</span>
+          <span> <i class="fa fa-times" aria-hidden="true"></i> </span>
+        </button>
+      </div>
+      <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+
+      <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+    </div>
+  </div>
+</section>
+
+
+<div class="limiter" style="display: block;" *ngIf="Type && ( Type === 'Create')">
+  <div class="custom-modal modal-container">
+    <div class="modal-close-btn" (click)="modalRef.hide();">
+      <div class="close-icon">
+        <span>
+          <i class="fa fa-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="content-area">
+      <h1>Create User</h1>
+      <div class="modal-content-body">
+        <div class="content">
+          <form [formGroup]="UserGroup">
+            <div class="col-sm-12">
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput formControlName="ContactName" placeholder="Contact Name">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('ContactName')"></mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Contact Name</mat-label>
+                      <input matInput formControlName="ContactName" placeholder="Contact Name">
+                      <mat-icon matSuffix>badge</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('ContactName')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput formControlName="Mobile" placeholder="Number" maxlength="10">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('Mobile')"></mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Mobile Number</mat-label>
+                      <input matInput formControlName="Mobile" placeholder="Number" maxlength="10">
+                      <mat-icon matSuffix>call</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('Mobile')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput formControlName="Email" placeholder="Email">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('Email')"></mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Email</mat-label>
+                      <input matInput formControlName="Email" placeholder="Email">
+                      <mat-icon matSuffix>mail</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('Email')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-2" *ngIf="this.CustomerCategory === 'Seller'">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-9">
+                          <label>Allow User Approve Payment</label>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-slide-toggle formControlName="UserPaymentApprove"
+                            class="mat-slide-toggle approve mat-primary"></mat-slide-toggle>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-2" *ngIf="this.CustomerCategory === 'Buyer'">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-9">
+                          <label>Allow User Approve Invoice</label>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-slide-toggle formControlName="UserInvoiceApprove"
+                            class="mat-slide-toggle approve mat-primary"></mat-slide-toggle>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 form-group">
+                <div class="form-group">
+                  <div class="row ">
+                    <ng-container>
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-10" style="margin-top: 2px;">
+                            <ng-container formArrayName="BusinessAndBranches">
+                              <div class="row">
+                                <div class="col-md-12 ">
+                                  <div *ngFor="let Business of GetFormArray('BusinessAndBranches'); let i=index"
+                                    [formGroupName]="i" class="col-md-12">
+                                    <div class="form-group">
+                                      <div class="row">
+                                        <div class="col-md-10">
+                                          <!-- <input matInput formControlName="Business" placeholder="Business"
+                                            [matAutocomplete]="TitleAutocomplete"
+                                            (ngModelChange)="BusinessChanges($event)">
+                                          <mat-autocomplete #TitleAutocomplete="matAutocomplete"
+                                            [displayWith]="BusinessAssignedDisplay">
+                                            <mat-option *ngFor="let BusinessAssigned of BusinessAssigned"
+                                              [value]="BusinessAssigned">
+                                              {{BusinessAssigned.FirstName +' '+BusinessAssigned.LastName }}
+                                            </mat-option>
+
+                                          </mat-autocomplete> -->
+                                          <mat-form-field class="example-full-width" appearance="outline">
+                                            <mat-label>Business</mat-label>
+                                            <input matInput formControlName="Business" placeholder="Business"
+                                              [matAutocomplete]="TitleAutocomplete">
+                                            <mat-icon matSuffix>business_Center</mat-icon>
+                                            <mat-autocomplete #TitleAutocomplete="matAutocomplete"
+                                              [displayWith]="BusinessAssignedDisplay">
+                                              <mat-option *ngFor="let BusinessAssigned of BusinessAssigned"
+                                                [value]="BusinessAssigned">
+                                                {{BusinessAssigned.FirstName +' '+BusinessAssigned.LastName }}
+                                              </mat-option>
+                                            </mat-autocomplete>
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <span class="btn-remove-minus" (click)="RemoveBusiness(i)"><i
+                                              class="fa fa-minus"></i></span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <!-- <div class="row">
+                                      <div class="col-md-12">
+                                        <div class="row">
+                                          <div class="col-md-10">
+                                            <ng-container formArrayName="Branches">
+
+                                              <div *ngFor="let Branch of Business.get('Branches').controls; let j=index"
+                                                [formGroupName]="j">
+                                                <div class="form-group">
+                                                  <div class="row">
+                                                    <div class="col-md-10">
+                                                      <input matInput formControlName="Branch" placeholder="Branch"
+                                                        [matAutocomplete]="TitleAutocomplete">
+                                                      <mat-autocomplete #TitleAutocomplete="matAutocomplete"
+                                                        [displayWith]="BranchAssignedDisplay">
+                                                        <mat-option *ngFor="let BranchUnAssigned of BranchUnAssigned"
+                                                          [value]="BranchUnAssigned">
+                                                          {{BranchUnAssigned.BranchName}}
+                                                        </mat-option>
+                                                      </mat-autocomplete>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                      <span class="btn-remove-minus"
+                                                        (click)="RemoveBranch(Business, j)"><i
+                                                          class="fa fa-minus"></i></span>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </ng-container>
+                                          </div>
+                                          <div class="col-md-2 " style="margin-top: -17px;">
+                                            <span style="font-size: 10px; font-weight: 400;">(Branch)</span>
+                                            <span class="btn-add-plus" (click)="AddBranch(Business)"><i
+                                                class="fa fa-plus"></i></span>
+                                          </div>
+                                        </div>
+
+                                      </div>
+
+                                    </div> -->
+                                  </div>
+                                </div>
+                              </div>
+                            </ng-container>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="ADDBusiness" *ngIf="this.length == true"
+                              style="text-align: right; margin-left: 30px; margin-top: 5px;">
+                              <span style="font-size: 10px; font-weight: 400;">(Business)</span>
+                              <span class="btn-add-plus" (click)="AddBusiness()"><i class="fa fa-plus"></i></span>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="login-button btn-blue min-wth-200">
+              <span (click)="Submit()">Submit</span>
+            </div> -->
+            <div class="container btn-submit">
+              <div class="row">
+                <div class="col-md-12">
+                  <button mat-fab extended color="primary" (click)="Submit()">
+                    <mat-icon>done</mat-icon>
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+    <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+
+    <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+  </div>
+</div>
+
+<div class="limiter" style="display: block;" *ngIf="Type && ( Type === 'Update')">
+  <div class="custom-modal modal-container">
+    <div class="modal-close-btn" (click)="modalRef.hide();">
+      <div class="close-icon">
+        <span>
+          <i class="fa fa-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="content-area">
+      <h1>Update User</h1>
+      <div class="modal-content-body">
+        <div class="content">
+          <form [formGroup]="UserGroup">
+            <div class="col-sm-12">
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput formControlName="ContactName" placeholder="Contact Name">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('ContactName')"></mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Contact Name</mat-label>
+                      <input matInput formControlName="ContactName" placeholder="Contact Name">
+                      <mat-icon matSuffix>person</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('ContactName')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput formControlName="Mobile" placeholder="Number" maxlength="10">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('Mobile')"></mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Mobile Number</mat-label>
+                      <input matInput formControlName="Mobile" placeholder="Number" maxlength="10">
+                      <mat-icon matSuffix>call</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('Mobile')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput formControlName="Email" placeholder="Email">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('Email')"></mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>E-mail</mat-label>
+                      <input matInput formControlName="Email" placeholder="Email">
+                      <mat-icon matSuffix>mail</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('Email')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-2" *ngIf="this.CustomerCategory === 'Seller'">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-9">
+                          <label>Allow User Approve Payment</label>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-slide-toggle formControlName="UserPaymentApprove"
+                            class="mat-slide-toggle approve mat-primary"></mat-slide-toggle>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-2" *ngIf="this.CustomerCategory === 'Buyer'">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-9">
+                          <label>Allow User Approve Invoice</label>
+                        </div>
+                        <div class="col-md-3">
+                          <mat-slide-toggle formControlName="UserInvoiceApprove"
+                            class="mat-slide-toggle approve mat-primary"></mat-slide-toggle>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 form-group">
+                <div class="form-group">
+                  <div class="row ">
+                    <ng-container>
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-10" style="margin-top: 30px;">
+                            <ng-container formArrayName="BusinessAndBranches">
+                              <div class="row">
+                                <div class="col-md-12 ">
+                                  <div *ngFor="let Business of GetFormArray('BusinessAndBranches'); let i=index"
+                                    [formGroupName]="i" class="col-md-12">
+                                    <div class="form-group">
+                                      <div class="row">
+                                        <div class="col-md-10">
+                                          <!-- <input matInput formControlName="Business" placeholder="Business"
+                                            [matAutocomplete]="TitleAutocomplete"
+                                            (ngModelChange)="BusinessChanges($event)">
+                                          <mat-autocomplete #TitleAutocomplete="matAutocomplete"
+                                            [displayWith]="BusinessAssignedDisplay">
+                                            <mat-option *ngFor="let BusinessAssigned of BusinessAssigned"
+                                              [value]="BusinessAssigned">
+                                              {{BusinessAssigned.FirstName +' '+BusinessAssigned.LastName}}
+                                            </mat-option>
+
+                                          </mat-autocomplete> -->
+                                          <mat-form-field class="example-full-width" appearance="outline">
+                                            <mat-label>Business</mat-label>
+                                            <input matInput formControlName="Business" placeholder="Business"
+                                              [matAutocomplete]="TitleAutocomplete"
+                                              (ngModelChange)="BusinessChanges($event)">
+                                            <mat-autocomplete #TitleAutocomplete="matAutocomplete"
+                                              [displayWith]="BusinessAssignedDisplay">
+                                              <mat-option *ngFor="let BusinessAssigned of BusinessAssigned"
+                                                [value]="BusinessAssigned">
+                                                {{BusinessAssigned.FirstName +' '+BusinessAssigned.LastName}}
+                                              </mat-option>
+
+                                            </mat-autocomplete>
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="col-md-2">
+                                          <span class="btn-remove-minus" (click)="RemoveBusiness(i)"><i
+                                              class="fa fa-minus"></i></span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </ng-container>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="ADDBusiness" *ngIf="this.length == true"
+                              style="text-align: right; margin-left: 30px; margin-top: 10px;">
+                              <span style="font-size: 10px; font-weight: 400;">(Business)</span>
+                              <span class="btn-add-plus" (click)="AddBusiness()"><i class="fa fa-plus"></i></span>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="login-button btn-blue min-wth-200">
+              <span (click)="Update()">Update</span>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+    <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+
+    <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+  </div>
+</div>

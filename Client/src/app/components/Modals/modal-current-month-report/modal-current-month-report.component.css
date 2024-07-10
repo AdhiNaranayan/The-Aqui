@@ -1,0 +1,101 @@
+
+.logo {
+  width: 80px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+table .TopBranches-Header.Branches {
+  background-color: #f2940c;
+  
+}
+tr.Branches {
+  background-color: #f2940c;
+  color: #fff;
+  font-size: 13px;
+}
+
+  tr.branchTotal {
+  background-color: #FFE082;
+  font-size: 13px;
+  }
+
+  h1.Branch-Header {
+      margin-top: 24px;
+      font-size: 18px;
+      margin-left: 15px;
+  }
+
+  .column {
+  float: left;
+  width: 47%;
+  padding: 10px;
+  height: 43px;
+  color: #fff;
+  margin-left: 14px;
+  background-color: #313a64;
+    }
+
+  h2.branch-wise-word {
+      font-size: 15px;
+  }
+
+  h1.Invoices-header {
+      color: #f2940c;
+      text-align: center;
+      font-size: 20px;
+  }
+
+  h1.Payment-header {
+      color: #313a64;
+      text-align: center;
+      font-size: 20px;
+  }
+
+  table .TopBranches-payment.Branches {
+      background-color: #313a64;        
+    }
+
+    tr.payment-Branches {
+      background-color: #313a64;
+      color: #fff;
+      font-size: 13px;
+    }
+
+
+    tr.Payment-total {
+      background-color: #adb0bf;
+      font-size: 13px;
+      }
+
+      table.Calendar-Table {
+        width: 96%;
+        margin-top: 29px;
+        margin-left: 14px;
+    }
+
+    tr.Calendar-View {
+      margin-top: -26px;
+      background-color: #f2940c !important;
+      width: 54%;
+  }
+
+
+  .payment-amount {
+    display: block;
+  font-style: italic;
+  }
+
+  td.No-Data-Found {
+    text-align: center;
+}

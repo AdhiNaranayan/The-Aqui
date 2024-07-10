@@ -1,0 +1,334 @@
+<div class="limiter" style="display: block;">
+  <div class="content-wrapper">
+    <div class="default-container">
+      <div class="table-head-title mt-1" *ngIf="CustomerCategory === 'Seller'">
+        <h4 *ngIf="this.CustomerCategory === 'Seller'">Buyers </h4>
+      </div>
+      <div class="Buyer-head-title mt-1" *ngIf="CustomerCategory === 'Buyer'">
+        <h4 *ngIf="this.CustomerCategory === 'Buyer'">Sellers </h4>
+      </div>
+    </div>
+    <br>
+   
+    <div class="tbl-filter-container" *ngIf="CustomerCategory === 'Seller'">
+      <div class="col-md-12">
+        <div class="filter-parent">
+          <ng-container *ngFor="let Filter of FiltersArray; let i=index">
+            <div *ngIf="Filter.Active" class="filter-result">
+              <div class="filter-info">
+                <div class="filter-info" *ngFor="let itemName of BusinessName">
+                <span class="label"> {{Filter.DisplayName}} </span>
+                <span *ngIf="Filter.Type === 'Object' && Filter.Key === 'Business'" class="value" > {{
+                  itemName.FirstName +' '+ itemName.LastName }} </span>
+                  </div>
+                  <div class="filter-info" *ngFor="let itemName of BuyerBusinessName">
+                <span *ngIf="Filter.Type === 'Object' && Filter.Key === 'BuyerBusiness'" class="value"> {{
+                  itemName.FirstName +' '+ itemName.LastName }} </span>
+                <!-- <span *ngIf="Filter.Type === 'Object' && Filter.Key === 'Branch'" class="value">
+                  {{ Filter.Value.Industry_Name }} </span> -->
+                </div>
+              </div>
+              <span class="Filter-close">
+                <i class="fa fa-close" (click)="RemoveFilter(i)"></i>
+              </span>
+            </div>
+          </ng-container>
+          <div class="filter-icon mb-2"><span><i class="fa fa-filter" (click)="openFilterModal(template)"
+                aria-hidden="true"></i></span></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="tbl-filter-container" *ngIf="CustomerCategory === 'Buyer'">
+      <div class="col-md-12">
+        <div class="filter-parent">
+          <ng-container *ngFor="let Filter of FiltersArray; let i=index">
+            <div *ngIf="Filter.Active" class="filter-result">
+              <div class="filter-info">
+                <div class="filter-info" *ngFor="let itemName of BusinessName">
+                <span class="label"> {{Filter.DisplayName}} </span>
+                <span *ngIf="Filter.Type === 'Object' && Filter.Key === 'Business'" class="value" > {{
+                  itemName.FirstName +' '+ itemName.LastName }} </span>
+                  </div>
+                  <div class="filter-info" *ngFor="let itemName of SellerBusinessName">
+                <span *ngIf="Filter.Type === 'Object' && Filter.Key === 'BuyerBusiness'" class="value"> {{
+                  itemName.FirstName +' '+ itemName.LastName }} </span>
+                <!-- <span *ngIf="Filter.Type === 'Object' && Filter.Key === 'Branch'" class="value">
+                  {{ Filter.Value.Industry_Name }} </span> -->
+                </div>
+              </div>
+              <span class="Filter-close">
+                <i class="fa fa-close" (click)="RemoveFilter(i)"></i>
+              </span>
+            </div>
+          </ng-container>
+          <div class="filter-icon mb-2"><span><i class="fa fa-filter" (click)="openFilterModal(template)"
+                aria-hidden="true"></i></span></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="wrapper" *ngIf="ChartArr.length > 0 ">
+      <ng-container *ngFor="let Customer of ChartArr;let i=index">
+        <div class="box">
+          <div class="d-flex full-area">
+            <div class="card right-card">
+              <div class="wd-header">{{Customer?.ContactName}}</div>
+              <div class="wd-header">Total Credit Balance:</div>
+              <span> ₹ {{Customer?.CreditLimit}}</span>
+            </div>
+
+
+            <div class="card right-card">
+              <div class="wd-header">Available Credit Balance:</div>
+              <span> ₹ {{Customer?.AvailableCreditLimit}}</span>
+              <div class="wd-header">Payment Cycle Days:</div>
+              <span> {{Customer?.BuyerPaymentCycle}} Days</span>
+            </div>
+
+          </div>
+
+          <div class="card">
+            <div class="grid-container mt-3">
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <canvas baseChart [data]="Customer.ChData" [labels]="Customer.ChLabel" [colors]="chartColors"
+                      [chartType]="Customer.ChType" [options]="Customer.ChOptions" [plugins]="Customer.ChPlugins"
+                      [legend]="Customer.ChLegend">
+                    </canvas>
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-sm-4 OverDue">
+                    <span style="font-size: 13px;">Overdue : ₹ {{Customer?.OverDueAmounts}}</span>
+                    <mat-progress-bar mode="determinate" value="{{Customer?.OverDuePercentages}}">
+                    </mat-progress-bar>
+                  </div>
+                  <div class="col-sm-4 DueToday">
+                    <span style="font-size: 13px;">DueToday : ₹ {{Customer?.DueTodayAmounts}}</span>
+                    <mat-progress-bar mode="determinate" value="{{Customer?.DueTodayPercentages}}">
+                    </mat-progress-bar>
+                  </div>
+                  <div class="col-sm-4 Upcoming">
+                    <span style="font-size: 13px;">UpComing : ₹ {{Customer?.UpComingAmounts}}</span>
+                    <mat-progress-bar mode="determinate" value="{{Customer?.UpComingPercentages}}">
+                    </mat-progress-bar>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <!-- <div class="col-sm-8 mb-3" *ngIf="this.CustomerCategory === 'Buyer'">
+                    <button class="request-temporary-credit" (click)="BuyerRequestToTemporary(i)">Request Temporary
+                      Credit</button>
+                  </div> -->
+                  <div class="col-sm-4 mb-3" *ngIf="this.CustomerCategory === 'Seller'">
+                    <button class="Seller" (click)="SellerUpdateToBuyerCreditLimit(i)">Edit Buyer Credit Limit</button>
+                  </div>
+                  <!-- <div class="col-sm-2">
+                  <button class="Seller">Whatsapp</button>
+                </div>
+                <div class="col-sm-2">
+                  <button class="Seller">Message</button>
+                </div>
+                <div class="col-sm-2">
+                  <button class="Seller">Phone</button>
+                </div> -->
+                  <!-- <div class="col-sm-4" *ngIf="this.CustomerCategory === 'Seller'">
+                  <button class="Seller" (click)="BuyerDetails(i)">Buyer</button>
+                </div>
+                <div class="col-sm-4" *ngIf="this.CustomerCategory === 'Buyer'">
+                  <button class="buyer" (click)="BuyerDetails(i)">Seller</button>
+                </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-template #template>
+    <div class="limter" style="display: block;">
+      <div class="custom-modal modal-container">
+        <div class="modal-close-btn" (click)="modalReference.hide();">
+          <div class="close-icon">
+            <span>
+              <i class="fa fa-close" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="content-area" *ngIf="CustomerCategory === 'Seller'">
+          <h1>Buyers Filters</h1>
+          <div class="modal-content-body">
+            <div class="content">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <form [formGroup]="CustomerForm">
+                      <div class="col-md-12">
+                        <div class="row">
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <mat-form-field appearance="outline" class="business-input">
+                                <mat-label>Business</mat-label>
+                                <mat-select matInput formControlName="Business" required placeholder="Business"
+                                  (ngModelChange)="BusinessChanges($event)">
+                                  <mat-option>-Select-</mat-option>
+                                  <mat-option *ngFor="let Business of BusinessList; let i=index"
+                                    [value]="Business._id">{{Business.FirstName + " " + Business.LastName}}</mat-option>
+                                </mat-select>
+                                <mat-icon matSuffix>business_center</mat-icon>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <!-- <div class="col-md-6">
+                            <div class="form-group">
+                              <mat-form-field appearance="outline" class="business-input">
+                                <mat-label>Buyer||Branch</mat-label>
+                                <mat-select matInput formControlName="Branch" required placeholder="Buyer"
+                                  (ngModelChange)="BuyerBusinessChanges($event)">
+                                  <mat-option>-Select-</mat-option>
+                                    <mat-option *ngFor="let Business of BuyerList; let i=index"
+                                    [value]="Business._id">{{Business.FirstName + " " + Business.LastName}}</mat-option>
+                                </mat-select>
+                                <mat-icon matSuffix>business_center</mat-icon>
+                              </mat-form-field>
+                  
+                            </div>
+                          </div> -->
+                  
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <mat-form-field appearance="outline" class="business-input">
+                                <mat-label>Buyer Business</mat-label>
+                                <mat-select matInput formControlName="BuyerBusiness" required placeholder="Buyer Business"
+                                  (ngModelChange)="BuyerBusinessChanges($event)">
+                                  <mat-option>-Select-</mat-option>
+                                  <mat-option *ngFor="let Business of BuyerBusinessList; let i=index"
+                                    [value]="Business._id">{{Business.FirstName + " " + Business.LastName}}</mat-option>
+                                </mat-select>
+                                <mat-icon matSuffix>business_center</mat-icon>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-area" *ngIf="CustomerCategory === 'Buyer'">
+          <h1>Sellers Filters</h1>
+          <div class="modal-content-body">
+            <div class="content">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-18">
+                    <form [formGroup]="CustomerForm">
+                      <div class="col-md-12">
+                        <div class="row">
+                          
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <mat-form-field appearance="outline" class="business-input">
+                                <mat-label>Business</mat-label>
+                                <mat-select matInput formControlName="Business" required placeholder="Business"
+                                  (ngModelChange)="BusinessChanges($event)">
+                                  <mat-option>-Select-</mat-option>
+                                  <mat-option *ngFor="let Business of BusinessList; let i=index"
+                                    [value]="Business._id">{{Business.FirstName + " " + Business.LastName}}</mat-option>
+                                </mat-select>
+                                <mat-icon matSuffix>business_center</mat-icon>
+                              </mat-form-field>
+                            </div>
+                          </div>
+
+                          <!-- <div class="col-md-6">
+                            <div class="form-group">
+                              <mat-form-field appearance="outline" class="business-input">
+                                <mat-label>Seller||Branch</mat-label>
+                                <mat-select matInput formControlName="Seller" placeholder="Seller Business"
+                                  (ngModelChange)="BuyerBusinessChanges($event)">
+                                  <mat-option>-Select-</mat-option>
+                                  <mat-option *ngFor="let Business of SellerList; let i=index"
+                                    [value]="Business._id">{{Business.FirstName + " " + Business.LastName}}
+                                  </mat-option>
+                                </mat-select>
+                                <mat-icon matSuffix>business_center</mat-icon>
+                              </mat-form-field>
+                            </div>
+                          </div> -->
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <mat-form-field appearance="outline" class="business-input">
+                                <mat-label>Seller Business</mat-label>
+                                <!-- Once conform change the formControlName as SellerBusiness from Business -->
+                                <mat-select matInput formControlName="BuyerBusiness" required placeholder="Seller Business"
+                                  (ngModelChange)="BranchChanges($event)">
+                                  <mat-option>-Select-</mat-option>
+                                  <mat-option *ngFor="let Business of SellerBusinessList; let i=index"
+                                    [value]="Business._id">{{Business.FirstName + " " + Business.LastName}}
+                                  </mat-option>
+                                </mat-select>
+                                <mat-icon matSuffix>business_center</mat-icon>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button class="btn-blue" *ngIf="FilterFGroupStatus" type="button" (click)="ResetFilters()" aria-label="">
+            <span>Reset</span>
+            <span> <i class="fa fa-times" aria-hidden="true"></i> </span>
+          </button> -->
+          <button mat-fab extended color="warn" *ngIf="FilterFGroupStatus" (click)="ResetFilters()">
+            <mat-icon>close_small</mat-icon>
+            Reset
+          </button>
+  
+          <button mat-fab extended color="primary" [disabled]="!FilterFGroupStatus"
+            [ngClass]="{'disabled': !FilterFGroupStatus}" (click)="SubmitFilters()">
+            <!-- <mat-icon>search</mat-icon> -->
+            Submit
+          </button>
+  
+          <!-- <button mat-fab extended color="warn" *ngIf="FilterFGroupStatus" (click)="ResetFilters()">
+            <mat-icon>close_small</mat-icon>
+            Reset
+          </button>
+  
+          <button mat-fab extended color="primary" [disabled]="!FilterFGroupStatus"
+            [ngClass]="{'disabled': !FilterFGroupStatus}" (click)="SubmitFilters()">
+            <mat-icon>search</mat-icon>
+            Submit
+          </button> -->
+          <!-- <button class="btn-blue" type="button" [disabled]="!FilterFGroupStatus"
+            [ngClass]="{'disabled': !FilterFGroupStatus}" (click)="SubmitFilters()">
+            <span> Search </span>
+            <span> <i class="fa fa-search" aria-hidden="true"></i> </span>
+          </button> -->
+        </div>
+        <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+  
+        <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+      </div>
+    </div>
+  </ng-template>

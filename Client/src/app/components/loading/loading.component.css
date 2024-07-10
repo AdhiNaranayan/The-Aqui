@@ -1,0 +1,19 @@
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 10vh; /* Adjust the height as needed */
+}
+
+img {
+  width: 50px; /* Adjust the width as needed */
+  height: 50px; /* Adjust the height as needed */
+}
+
+.loading{
+  color: grey;
+  font-size: 12px;
+  margin-left: 6px;
+
+}

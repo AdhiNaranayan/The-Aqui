@@ -1,0 +1,365 @@
+.content-wrapper {
+    padding: 10px;
+    margin: 10px;
+    /* margin-left: 22%; */
+    margin-top: -80px;
+    z-index: 2;
+    position: relative;
+}
+.wrapper-slide {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(130px,1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    float: left;
+    border-radius: 0;
+    cursor: pointer;
+    display: -webkit-inline-box;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-flow: wrap;
+
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* background-color: #fff; */
+    color: #444;
+    position: relative;
+    z-index: 1;
+}
+
+.box-paid {
+    background-color: #f9f9f9;
+    color: rgb(49, 58, 100);
+    border: 5px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 15px;
+    min-height: 220px;
+    box-shadow: 3px 3px 10px #2323233d;
+    border-left: 4px solid #4fcd4f;
+}
+
+.box-unpaid {
+  background-color: #f9f9f9;
+  color: rgb(49, 58, 100);
+  border: 5px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 15px;
+  min-height: 220px;
+  box-shadow: 3px 3px 10px #2323233d;
+  border-left: 4px solid #cd4f4f;
+}
+.wd-header {
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.wd-icon {
+    position: absolute;
+    right: 7px;
+    top: 0px;
+    font-weight: bold;
+    /* background-color: #f2940c; */
+    border-radius: 3px;
+    margin: -7px;
+    color: rgb(49, 58, 101);
+    padding: 0px 5px 0px 2px;
+}
+
+.wd-icon i {
+    color: rgb(49, 58, 101);
+    font-size: 20px;
+    line-height: 22px;
+    margin: 0 4px;
+    cursor: pointer;
+    display: none;
+}
+
+.sts-icon {
+  margin: -21px 0px 0px 128px;
+}
+
+span.material-icons {
+  color: rgb(49, 58, 101);
+  line-height: 24px;
+  cursor: pointer;
+  font-size: 22px;
+  margin:  6px 2px 0px -2px;
+  transition: 0.5s;
+  padding: 0px 3px 0px 6px;
+}
+span.material-icons:last-child {
+    margin-right: 0;
+}
+span.material-icons:hover {
+    color: #313a64;
+}
+table.wd-table {
+    width: 100%;
+}
+table.wd-table tbody tr td {
+    border-bottom: 1px solid #efefef;
+    padding: 5px;
+}
+
+.filter-info .value {
+    margin-left: 10px;
+    font-size: 11px;
+    line-height: 15px;
+    margin-right: 5px;
+    color: #3d8cd8;
+    letter-spacing: .3px;
+}
+
+.side-field-title {
+  padding: 7px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  width: 100%;
+  }
+  .side-field-title b {
+    font-size: 1.20rem;
+    color: rgb(49, 58, 100) !important;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  .mat-checkbox-inner-container {
+    display: inline-block;
+    height: 20px;
+    line-height: 0;
+    margin: auto;
+    margin-right: 27px;
+    order: 0;
+    position: relative;
+    margin-left: -101px;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 20px;
+    flex-shrink: 0;
+}
+
+  .boxStatus {
+    background: #efefef;
+    padding: 3px;
+    letter-spacing: 2px;
+    grid-template-columns: auto 25px;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 3px 5px;
+    border: 1px solid #d3d3d3;
+    border-radius: 8px;
+    min-width: 60px;
+    color: #000;
+    font-size: 12px;
+    padding: 5px 5px;
+  }
+
+  /* .generate-btn:hover{
+    background-color: #f2940c;
+    border-radius: 5px;
+    padding: 5px 5px;
+  } */
+
+  .boxStatus.active .btn-delivery-lst  {
+    color: #fff;
+  }
+  .boxStatus :hover{
+    /* background-color: #f2940c; */
+    /* font-size: 14px; */
+    color: #fff;
+  }
+  .boxStatus:hover .btn-delivery-lst {
+    transition: 0s;
+  }
+  .boxStatus.active {
+    background: #f2940c;
+  }
+
+
+  table.wd-table tbody tr td {
+    border-bottom: 1px solid #efefef;
+    padding: 5px;
+    text-align: left;
+    font-size: 12px;
+}
+
+
+.No-data-found {
+  font-size: 20px;
+  text-align: center;
+  font-style: oblique;
+  padding: 100px;
+}
+
+.title-inv{
+  border-bottom: 1px solid #efefef;
+  padding: 10px 0px;
+  margin-bottom: 0.2rem;
+  width: 100%;
+  background: rgb(242, 148, 12);
+  transform: skew(30deg);
+  margin-top: 124px;
+}
+
+.btn-lst {
+  border: none;
+  background-color: transparent;
+  color: #545050;
+  font-size: 13px;
+  font-weight: 450;
+  cursor: pointer;
+}
+
+/* .btn-lst:active {
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 450;
+}
+
+.btn-lst:visited {
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 450;
+} */
+
+.Invoice-sts-btn {
+  border: none;
+  color: black;
+  font-size: 14px;
+  border-radius: 20px;
+  padding: 2px 20px;
+}
+
+.Invoice-sts-btn :hover {
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  border-radius: 20px;
+  padding: 2px 20px;
+}
+
+.btn{
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 2px;
+  color:black;
+  font-size: 12px;
+  border: 0;
+  cursor: pointer;
+  padding: 3px 11px;
+  border: 1px solid rgba(143,144,145,0.2);
+  background-color: rgba(143,144,145,0.1);
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+}
+.btn:focus {
+	color: #fff;
+	outline:none;
+}
+.btn:before {
+	position: absolute;
+	top: 0;
+	left: -75%;
+	z-index: 2;
+	display: block;
+	content: '';
+	width: 50%;
+	height: 100%;
+	background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,.3) 100%);
+	-webkit-transform: skewX(-25deg);
+	transform: skewX(-25deg);
+}
+.btn:hover{
+	color:#fff;
+  background-color: #435585;
+}
+.btn:hover::before {
+	-webkit-animation: shine .75s;
+	animation: shine .75s;
+}
+@-webkit-keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+@keyframes shine {
+	100% {
+		left: 125%;
+	}
+}
+
+
+.badge-seller{
+  font-size: 13px;
+  background-color: #f2940c;
+  color: #fff;
+  border-radius: 18px;
+  font-weight: 500;
+}
+
+.badge-buyer{
+  font-size: 13px;
+  background-color: #1B1A55;
+  color: #fff;
+  border-radius: 18px;
+  font-weight: 500;
+}
+
+.example-full-width{
+  width: 100%;
+}
+
+
+/* Tabb */
+.inv-tab {
+  margin: 10px 80px;
+  padding: 0px 20px;
+}
+
+
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #FAA300; /* Change the background color */
+
+}
+
+/* Change the font color of the tab labels */
+::ng-deep .mat-tab-group.mat-primary .mat-tab-label,
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-tab-label {
+  color: #1B1A55;;
+  transition: color 0.3s ease;  /* Smooth transition for color change */
+}
+
+/* Change the font color on hover */
+::ng-deep .mat-tab-group.mat-primary .mat-tab-label:hover,
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-tab-label:hover {
+  color: #1B1A55;/* Color on hover */
+}
+
+/* Change the font color when tab is active */
+::ng-deep .mat-tab-group.mat-primary .mat-tab-label.mat-tab-label-active,
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-tab-label.mat-tab-label-active {
+  color: #FAA300;;  /* Color when the tab is active */
+}
+
+/* Change the ripple effect color on click */
+/* ::ng-deep .mat-tab-group.mat-primary .mat-tab-label.mat-tab-label-active .mat-ripple-element,
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-tab-label.mat-tab-label-active .mat-ripple-element {
+  background-color:  #FFDD95;;
+} */
+
+
+

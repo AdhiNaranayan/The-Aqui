@@ -1,0 +1,113 @@
+.user-profile-wrapper{
+    background-color: #ffffff;
+}
+.profile-background {
+    background: #f2940c;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 410px;
+    border-bottom-right-radius: 170px;
+    border-bottom-left-radius: 170px;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+.profile-container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+.profile-container .input-container {
+    width: 100%;
+    box-shadow: 0px 0px 5px #9e9e9e80;
+    background-color: #ffffff;
+    max-width: 70%;
+    min-height: 410px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.profile-container .input-container input {
+    display: block;
+    width: 100%;
+}
+.profile-header div {
+    display: inline-block;
+}
+.profile-header {
+    background: #e68910;
+    color: #fff;
+    text-align: center;
+    padding: 18px;
+    border-bottom: 2px solid #a96a17;
+}
+.profile-header .title h4 {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.back-arrow-img {
+    float: left;
+    z-index: 1;
+    text-align: left;
+    width: 30px;
+}
+.back-arrow-img img {
+    width: 100%;
+    max-width: 100%;
+}
+
+.profile-user-img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin: 2em auto;
+    margin-bottom: 1em;
+    padding: 8px;
+    background: #fff;
+    box-shadow: 0px 0px 5px 4px #795548ad;
+}
+.profile-user-img img {
+    max-width: 100%;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid rgb(49, 58, 100);
+}
+.profile-container .input-container form .form-group .us-icon img {
+    width: 47px;
+    height: 47px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+.profile-container .input-container input {
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #f2940c;
+    background: #f9f9f9;
+    transition: 0.5s;
+}
+.profile-container .input-container input:focus {
+    outline: 0 !important;
+    box-shadow: none !important;
+    border-bottom: 2px solid #f2940c;
+    transition: 0.5s;
+}
+
+.button-box {
+    margin-bottom: 2em;
+}
+.button-box .btn-blue {
+    margin-top: 0;
+}

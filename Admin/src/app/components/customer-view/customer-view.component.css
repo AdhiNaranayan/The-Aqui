@@ -1,0 +1,47 @@
+/* .DefaultClass.ExpandClass {
+    border-bottom: 0px;
+    background-color:#f2940c;
+}
+.mat-toggle.active {
+  background:#f2940c;
+  color: #fff !important;
+  font-weight: 600;
+  border-color: #fff;
+}
+
+.mat-toggle :hover {
+  background: #f2940c;
+  color: #fff !important;
+  font-weight: 600;
+  border-color: #fff;
+}
+
+
+table.tbl-child-client {
+   box-shadow: 1px 1px 14px #f2940c;
+   margin: 10px 0px;
+   width: 100%;
+}
+.tbl-child-client th {
+  border: 0px !important;
+  background: lightgray !important;
+  color: #000 !important;
+  text-transform: capitalize !important;
+}
+
+.tbl-child-client tr th span i.material-icons {
+  display: none;
+}
+
+tr.child-row {
+   display: none;
+   transition: all .5s ease-in-out;
+   transform: scale(0, 0);
+   border: 1px #f2940c;
+   border-bottom-width: 0 !important;
+   background-color: #ddebcc;
+}
+tr.child-row.ExpandClass {
+   display: table-row;
+   transform: scale(1, 1);
+} */

@@ -1,0 +1,173 @@
+/* .btn-blue, .btn-yellow {
+    color: #fff;
+    transition: all 0.5s;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 15px 20px;
+    min-width: 130px;
+    margin: 0 100px;
+    margin-top: 42px;
+    display: inline-block;
+    box-shadow: 4px 4px 7px 0px #9e9e9e8c;
+    border-radius: 0;
+    letter-spacing: 0.5px;
+} */
+
+.btn-blue, .btn-yellow {
+  color: #fff;
+  transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 15px 20px;
+  min-width: 130px;
+  margin: 0 100px;
+  margin-top: 42px;
+  display: inline-block;
+  box-shadow: 4px 4px 7px 0px #9e9e9e8c;
+  /* border-radius: 8px; */
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+
+
+.payfield::-webkit-outer-spin-button,
+.payfield::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.payfield[type=number]{
+  -moz-appearance: textfield;
+}
+
+.icon-valid {
+  color: green;
+}
+
+.create-Business{
+  width: 411px;
+  /* margin: 16px;
+  padding: 2px; */
+}
+
+
+.form-group{
+  margin: 10px 10px;
+}
+.rupee {
+  font-size: 17px;
+  margin-left: -6px;
+}
+
+
+
+
+/* Change Mat-Input Color & Background & Font-Size On Focus */
+::ng-deep .mdc-text-field--focused:not(.mdc-text-field--disabled).mdc-floating-label {
+color: orangered; /* lable color*/
+background-color: yellow; /* lable background*/
+font-size: 14px !important;
+padding: 0 10px; /* // add padding in lable*/
+}
+
+
+/* Change Mat-Input Floating-Lable Byefault Color */
+::ng-deep .mdc-text-field:not(.mdc-text-field-disabled) .mdc-floating-label {
+color:rgb(226, 130, 41);
+}
+
+ /* Change Lable Font Position */
+/* ::ng-deep .mat-mdc-text-field-wrapper.mat-mdc-form-field-flex.mat-mdc-floating-label {
+top: 13px !important;
+left: 0px;
+font-size:12px;
+} */
+
+
+
+/* // Change Kable Color, Background & Font-Size When Focus After Change Lable Position */
+/* ::ng-deep .mat-mdc-form-field .mdc-text-field--outlined.mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+color:rgb(255, 255, 255);
+top: 28px !important;
+position: relative !important;
+font-weight: 300 !important;
+background-color: rgb(0, 182, 182);
+--mat-mdc-form-field-floating-label-scale: 0.8;
+} */
+
+/* // Change Mat-Input Value Color */
+/* ::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field_input {
+color: rgb(238, 9, 198) // change input inside font color
+} */
+
+/* // Change Mat-Input Placeholder Color */
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field_input::placeholder{
+ color: rgb(241, 117, 0) !important;  /* // change placeholder color */
+font-size:13px !important;
+}
+
+/* change caret color on focus (1) */
+::ng-deep .mdc-text-field .mdc-text-field_input {
+caret-color: rgb(0, 182, 182)
+}
+
+/* // Change Mat-Input Border Color & Width */
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-notched-outline_leading,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline_notch,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-notched-outline_trailing {
+border-color: rgb(255, 81, 0);
+border-width: 2px;
+}
+
+/* // Hover To Change Outline Color Same as Border Color in Mat-Input */
+::ng-deep.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline.mdc-notched-outline_leading,
+::ng-deep.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline.mdc-notched-outline_notch,
+::ng-deep.mdc-text-field--outlined:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline.mdc-notched-outline_trailing {
+border-color:rgb(255, 81, 0);
+}
+
+
+
+/* // Focus To Change Border Color in Mat-Input: */
+/* ::ng-deep.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused.mdc-notched-outline_leading,
+::ng-deep.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused.mdc-notched-outline_notch,
+::ng-deep.mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused.mdc-notched-outline_trailing {
+border-color:green;
+border-width: 2px;
+} */
+
+
+/* // Change Mat-Form-Field Input Height: */
+
+:ng-deep.mat-mdc-text-field-wrapper {
+height: 35px !important;
+}
+
+/* // Change Mat-Form-Field Inside Input With text Position */
+::ng-deep.mat-mdc-input-element {
+top: 10px !important;
+color: chartreuse;
+position: relative !important;
+}
+
+
+
+/* .business-input{
+  height: 30px;
+} */
+
+
+.pm-btn{
+  font-size: 16px;
+  margin: 0px 113px;
+  padding: 24px 71px;
+}

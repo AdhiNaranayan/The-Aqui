@@ -1,0 +1,125 @@
+<div class="limiter" style="display: block;">
+  <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="bk-waves-gray" data-name="Layer 1"
+    viewBox="0 0 990.63 1151.42">
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #e8e8e8;
+          opacity: 0.35;
+        }
+
+        .cls-2 {
+          fill: #efefef;
+        }
+      </style>
+    </defs>
+    <title>web bg images</title>
+    <path class="cls-1"
+      d="M990.63,0V1151.42L922.26,999.76C891.54,931.63,872.07,841.21,866,738.27c-5.92-99.5.79-205.82,19.41-307.47,5.38-29.4,2.61-50.9-8.24-63.91-17.14-20.57-61.47-33.35-115.67-33.35-12.72,0-21.32.76-22.49.87l-3.63.41h-3.24c-5.5.07-11.09.1-16.6.1h-.08c-112.1,0-217.5-14.74-313.29-43.83C324.29,267.45,252.6,234.35,189,192.7,79.66,121.05,31.25,48.59,26.08,40.57L0,0Z">
+    </path>
+    <path class="cls-2"
+      d="M990.63,0V968.93c-55.15-122.33-67.18-329.76-31.5-524.63,39-213-228-184.49-228-184.49-471,6-642-259.81-642-259.81Z">
+    </path>
+  </svg>
+  <div class="content-wrapper">
+    <div class="default-container">
+      <!-- <div class="table-head-title" *ngIf="CustomerCategory === 'Seller'">
+        <h4>Payments</h4>
+      </div> -->
+      <!-- <div class="Buyer-head-title" *ngIf="CustomerCategory === 'Buyer'">
+        <h4>Payments</h4>
+      </div> -->
+      <div class="wrapper" *ngFor="let Business of BusinessAndBranch;let i=index">
+        <ng-container *ngIf="BusinessAndBranch.length > 0 ">
+          <div class="box">
+            <div class="wd-header">{{Business?.FirstName + ' ' +Business?.LastName}}
+              <div class="wd-icon">
+                <span class="material-icons" (click)="MoveInvoiceManagement(i)">zoom_out_map</span>
+              </div>
+            </div>
+            <div class="wd-content">
+              <table class="wd-table">
+                <tbody>
+                  <tr>
+                    <td>Mobile</td>
+                    <td>:</td>
+                    <td>{{Business?.Mobile}}</td>
+                  </tr>
+                  <tr>
+                    <td>Total Credit Limit</td>
+                    <td>:</td>
+                    <td>{{Business?.BusinessCreditLimit}}</td>
+                  </tr>
+                  <tr>
+                    <td>Available Credit Limit</td>
+                    <td>:</td>
+                    <td>{{Business?.AvailableCreditLimit}}</td>
+                  </tr>
+                  <tr>
+                    <td>Pending Invoice Count</td>
+                    <td>:</td>
+                    <td>{{Business?.BusinessInvoice}}</td>
+                  </tr>
+                  <tr>
+                    <td>Pending Payment Count</td>
+                    <td>:</td>
+                    <td>{{Business?.BusinessPayment}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- <ng-container *ngIf="Business.Branches.length > 0 && Business.BranchExpand">
+            <div class="wrapper" *ngFor="let branch of Business.Branches;let j=index">
+              <div class="box">
+                <div class="wd-header">{{branch?.BranchName}}
+                  <div class="wd-icon">
+                    <span class="material-icons" (click)="MoveInvoiceManagement(i, j)">zoom_out_map</span>
+
+                  </div>
+                </div>
+                <div class="wd-content">
+                  <table class="wd-table">
+                    <tbody>
+                      <tr>
+                        <td>Mobile</td>
+                        <td>:</td>
+                        <td>{{branch?.Mobile}}</td>
+                      </tr>
+                      <tr>
+                        <td>Address</td>
+                        <td>:</td>
+                        <td>{{branch?.Address}}</td>
+                      </tr>
+                      <tr>
+                        <td>Total Credit Limit</td>
+                        <td>:</td>
+                        <td>{{branch?.BranchCreditLimit}}</td>
+                      </tr>
+                      <tr>
+                        <td>Total Payment Amount</td>
+                        <td>:</td>
+                        <td>{{branch?.TotalPaymentAmount}} </td>
+                      </tr>
+                      <tr>
+                        <td>Pending Invoice Count</td>
+                        <td>:</td>
+                        <td>{{branch?.PaymentCount}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </ng-container> -->
+        </ng-container>
+      </div>
+      <div class="No-data-found" *ngIf="BusinessAndBranch.length === 0 ">No Payments To Display</div>
+
+
+    </div>
+    <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+
+    <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+  </div>
+</div>

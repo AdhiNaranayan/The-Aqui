@@ -1,0 +1,107 @@
+<div class="container-fluid  mt-5">
+  <div class="row">
+    <div class="col-md-12 mt-5">
+      <div class="page-content page-container" id="page-content">
+        <div class="padding">
+          <div class="row container d-flex justify-content-center">
+            <div class="col-xl-8 col-md-12">
+              <div class="card user-card-full">
+                <div class="row m-l-0 m-r-0">
+                  <div class="col-sm-4 bg-c-lite-green user-profile">
+                    <div class="card-block text-center text-white">
+                      <div class="form">
+                        <label for="fileToUpload">
+                          <div class="profile-pic" [ngStyle]="{'background-image': 'url('+userProfile+')'}">
+                            <span class="glyphicon glyphicon-camera"></span>
+                            <span>Edit Image</span>
+                          </div>
+                        </label>
+                        <input type="file" name="fileToUpload" id="fileToUpload" (change)="profileUpload($event)"
+                          accept="image/png, image/jpeg, image/jpg, image/gif">
+                      </div>
+                      <!-- <div class="m-b-25">
+                        <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
+                          alt="User-Profile-Image">
+                      </div> -->
+                      <h3 class="f-w-600 uname">{{UserInfo?.ContactName}}</h3>
+                      <p>{{UserInfo?.CustomerCategory}}</p>
+                      <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="card-block">
+                      <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Profile</h6>
+                      <div class="row">
+
+                        <form [formGroup]="OwnerForm">
+                          <div class="form-group">
+                            <div class="col-sm-12">
+                              <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Contact Name</mat-label>
+                                <input type="text" matInput formControlName="ContactName" placeholder="Contact Name">
+                                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                <mat-error [innerHTML]="GetFormControlErrorMessage('ContactName')"></mat-error>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-12">
+                              <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Email</mat-label>
+                                <input type="text" matInput formControlName="Email" placeholder="pat@example.com"
+                                  required>
+                                <mat-error [innerHTML]="GetFormControlErrorMessage('Email')"></mat-error>
+                                <mat-icon matSuffix>mail</mat-icon>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-12">
+                              <mat-form-field appearance="outline" class="example-full-width">
+                                <mat-label>Phone number</mat-label>
+                                <input matInput type="text" formControlName="Mobile" placeholder="Mobile Number"
+                                  (click)="MobileNumberChange()" required>
+                                <mat-icon matSuffix>phone</mat-icon>
+                                <mat-error [innerHTML]="GetFormControlErrorMessage('Mobile')"></mat-error>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-md-10">
+                                  <label for="">Switch to Both Seller and Buyer</label>
+                                </div>
+                                <div class="col-md-2">
+                                  <mat-slide-toggle class="mat-primary"
+                                    [checked]="UserInfo.CustomerCategory === 'BothBuyerAndSeller'"
+                                    [disabled]="UserInfo.CustomerCategory === 'BothBuyerAndSeller'"
+                                    (change)="onToggle($event.checked)"></mat-slide-toggle>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- <div class="profile-update-btn"><span (click)="UpdateProfile()">Update Profile</span></div>
+                          <div class="profile-dereg-btn mt-2" (click)="Deregister()"><span>Deregister Device</span> -->
+                          <div class="row mt-2">
+                            <div class="col-sm-6">
+                              <button mat-raised-button color="primary" (click)="UpdateProfile()">Update</button>
+                            </div>
+                            <div class="col-sm-6">
+                              <button mat-raised-button color="warn" (click)="Deregister()">De Register</button>
+                            </div>
+                          </div>
+                          <!-- </div> -->
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,434 @@
+<div class="limiter" style="display: block;" *ngIf="Type &&  Type === 'SellerUpdate'">
+  <div class="custom-modal modal-container">
+    <div class="modal-close-btn" (click)="modalRef.hide();">
+      <div class="close-icon">
+        <span>
+          <i class="fa fa-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="content-area">
+      <h1>Edit Temporary Credit</h1>
+      <div class="modal-content-body">
+        <div class="content">
+          <form [formGroup]="UserGroup">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Approve Limit</label>
+                    <input matInput formControlName="ApproveLimit" placeholder="Approve Limit">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('ApproveLimit')">
+                    </mat-error>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Approve Period</label>
+                    <input matInput formControlName="ApprovedPeriod" placeholder="Approved Period">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('ApprovedPeriod')">
+                    </mat-error>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Remarks</label>
+                    <input matInput formControlName="SellerRemarks" placeholder="Remarks">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('SellerRemarks')">
+                    </mat-error>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Payment Type</label>
+                    <mat-select matInput formControlName="PaymentType" placeholder="Payment Type">
+                      <mat-option>Select Payment Type </mat-option>
+                      <mat-option *ngFor="let Session of CreditTypes; let i=index"
+                        [value]="Session.Key">{{Session.Name}}</mat-option>
+                    </mat-select>
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('PaymentType')">
+                    </mat-error>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="login-button btn-blue min-wth-201">
+                    <span (click)="RejectUpdate()">Reject</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="login-button btn-blue min-wth-201">
+                    <span (click)="AcceptUpdate()">Accept</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="bk-waves-yellow" data-name="Layer 1"
+      viewBox="0 0 1920 80.97">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #f2940c;
+          }
+
+          .cls-2 {
+            fill: #efaa0f;
+          }
+
+          .cls-3 {
+            fill: #e58910;
+          }
+        </style>
+      </defs>
+      <title>web bg images</title>
+      <path class="cls-1" d="M0,26.27q8.58-1.56,17-3-8.43,1.9-17,4Z"></path>
+      <path class="cls-2"
+        d="M1920,26.27V81H0V26.27q13-2.36,25.59-4.39C211.19,59,361.59,64.1,465.42,61.8c36.44-.81,68.89-2.57,98.36-4.92C731,43.52,802.22,10.9,960,23.16c17.07,1.32,35.15,3.17,54.48,5.63,119.59,15.21,185.88,40.8,321,30,7.32-.59,14.21-1.23,20.71-1.92,101.7-10.79,110-33.76,237.32-46.09C1631.11,7.15,1745.7-2,1894.41,21.88Q1907,23.92,1920,26.27Z">
+      </path>
+      <path class="cls-1"
+        d="M1920,16.61V81H0V26.27q13-2.36,25.59-4.39C174.3-2,288.89,7.15,326.46,10.79c127.33,12.33,135.62,35.3,237.32,46.09,6.5.69,13.39,1.33,20.71,1.92,135.15,10.79,201.44-14.8,321-30,19.33-2.46,37.41-4.31,54.48-5.63,157.78-12.26,229,20.36,396.22,33.72,29.47,2.35,61.92,4.11,98.36,4.92,103.83,2.3,254.23-2.79,439.83-39.92Q1907.1,19.35,1920,16.61Z">
+      </path>
+      <path class="cls-3"
+        d="M905.52,28.79c18.66-2.37,36.16-4.18,52.7-5.49-16.54,1.76-34,4.19-52.7,7.39-119.59,20.49-185.88,55-321,40.42-7.32-.79-14.21-1.66-20.71-2.58C490.87,58.11,466,39.26,410.79,23.3c55.18,11.85,80.08,25.84,153,33.58,6.5.69,13.39,1.33,20.71,1.92C719.64,69.59,785.93,44,905.52,28.79Z">
+      </path>
+      <path class="cls-3"
+        d="M1887.31,23.29C1705,71.56,1557.08,78.21,1454.58,75.15c-36.44-1.09-68.89-3.46-98.36-6.62-112.67-12.13-181.75-36-263.08-45.27,81.33,6.88,150.41,24.62,263.08,33.62,29.47,2.35,61.92,4.11,98.36,4.92C1557.08,64.07,1705,59.14,1887.31,23.29Z">
+      </path>
+      <path class="cls-2"
+        d="M326.46,6.45C362.5,11.15,389,17,410.79,23.3c-21.78-4.68-48.29-9-84.33-12.51C288.89,7.15,174.3-2,25.59,21.88q-4.28.69-8.58,1.42c2.87-.66,5.73-1.29,8.58-1.91C174.3-10.79,288.89,1.55,326.46,6.45Z">
+      </path>
+      <path class="cls-1"
+        d="M1093.14,23.26c-39.39-3.32-81.66-4.1-133.14-.1l-1.78.14,1.78-.19C1011.48,17.72,1053.75,18.77,1093.14,23.26Z">
+      </path>
+      <path class="cls-1" d="M1920,14.29v2.32q-12.9,2.75-25.59,5.27l-7.1,1.41,7.1-1.9Q1907.1,18,1920,14.29Z">
+      </path>
+    </svg>
+  </div>
+</div>
+
+<div class="limiter" style="display: block;" *ngIf="Type &&  Type === 'BuyerRequestToTemporary'">
+  <div class="custom-modal modal-container">
+    <div class="modal-close-btn" (click)="modalRef.hide();">
+      <div class="close-icon">
+        <span>
+          <i class="fa fa-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="content-area">
+      <h1>Create Temporary Request</h1>
+      <div class="modal-content-body">
+        <div class="content">
+          <form [formGroup]="UserGroup">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label style="margin: auto;">Buyer Business <span class="text-danger">*</span></label>
+                    <!-- <mat-select matInput formControlName="BuyerBusiness" placeholder="Buyer Business"
+                      (ngModelChange)="BuyerBusinessChanges($event)">
+                      <mat-option>Select Buyer Business </mat-option>
+                      <mat-option *ngFor="let Business of BuyerBusinessList; let i=index"
+                        [value]="Business._id">{{Business.FirstName+ ' '+Business.LastName}}</mat-option>
+                    </mat-select> -->
+                    <input matInput formControlName="BuyerBusiness" placeholder="Buyer Business">
+                    <mat-error class="mat-error-full margin-top0"
+                      [innerHTML]="GetFormControlErrorMessage('BuyerBusiness')"> </mat-error>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label style="margin: auto;">Buyer Branch</label>
+                    <mat-select matInput formControlName="BuyerBranch" placeholder="Buyer Branch"
+                      (ngModelChange)="BuyerBranchChanges($event)">
+                      <mat-option>Select Buyer Branch </mat-option>
+                      <mat-option *ngFor="let Branch of BuyerBranchList; let i=index"
+                        [value]="Branch._id">{{Branch.BranchName}}</mat-option>
+                    </mat-select>
+                    <mat-error class="mat-error-full margin-top0"
+                      [innerHTML]="GetFormControlErrorMessage('BuyerBranch')"> </mat-error>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label style="margin: auto;">Seller Business<span class="text-danger">*</span></label>
+                      <!-- <mat-select matInput formControlName="Business" placeholder="Seller Business"
+                        (ngModelChange)="SellerBusinessChanges($event)">
+                        <mat-option>Select Seller Business</mat-option>
+                        <mat-option *ngFor="let Business of SellerBusinessList; let i=index"
+                          [value]="Business._id">{{Business.FirstName+' '+Business.LastName}}</mat-option>
+                      </mat-select> -->
+                      <input matInput formControlName="Business" placeholder="Seller Business">
+                      <mat-error class="mat-error-full margin-top0"
+                        [innerHTML]="GetFormControlErrorMessage('Business')"> </mat-error>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label style="margin: auto;">Seller Branch</label>
+                      <mat-select matInput formControlName="Branch" placeholder="Seller Branch">
+                        <mat-option>Select Seller Branch</mat-option>
+                        <mat-option *ngFor="let Branch of SellerBranchList; let i=index"
+                          [value]="Branch._id">{{Branch.BranchName}}</mat-option>
+                      </mat-select>
+                      <mat-error class="mat-error-full margin-top0" [innerHTML]="GetFormControlErrorMessage('Branch')">
+                      </mat-error>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label style="margin: auto;">Temporary Credit Limit<span class="text-danger">*</span></label>
+                      <input matInput type="number" class="payfield" formControlName="RequestLimit"
+                        placeholder="Temporary Credit Limit" (change)="tracktempAmount($event)">
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('RequestLimit')"></mat-error>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label style="margin: auto;">Credit Period<span class="text-danger">*</span></label>
+                      <input matInput type="number" class="payfield" formControlName="RequestPeriod"
+                        placeholder="Credit Period" (change)="tracktempCycleAmount($event)">
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('RequestLimit')"></mat-error>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label style="margin: auto;">Remarks</label>
+                      <input matInput formControlName="BuyerRemarks" placeholder="Enter Your Remarks">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="login-button btn-blue min-wth-200" style="margin-left: 105px;">
+              <span (click)="Submit()">Submit</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="bk-waves-yellow" data-name="Layer 1"
+      viewBox="0 0 1920 80.97">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #f2940c;
+          }
+
+          .cls-2 {
+            fill: #efaa0f;
+          }
+
+          .cls-3 {
+            fill: #e58910;
+          }
+        </style>
+      </defs>
+      <title>web bg images</title>
+      <path class="cls-1" d="M0,26.27q8.58-1.56,17-3-8.43,1.9-17,4Z"></path>
+      <path class="cls-2"
+        d="M1920,26.27V81H0V26.27q13-2.36,25.59-4.39C211.19,59,361.59,64.1,465.42,61.8c36.44-.81,68.89-2.57,98.36-4.92C731,43.52,802.22,10.9,960,23.16c17.07,1.32,35.15,3.17,54.48,5.63,119.59,15.21,185.88,40.8,321,30,7.32-.59,14.21-1.23,20.71-1.92,101.7-10.79,110-33.76,237.32-46.09C1631.11,7.15,1745.7-2,1894.41,21.88Q1907,23.92,1920,26.27Z">
+      </path>
+      <path class="cls-1"
+        d="M1920,16.61V81H0V26.27q13-2.36,25.59-4.39C174.3-2,288.89,7.15,326.46,10.79c127.33,12.33,135.62,35.3,237.32,46.09,6.5.69,13.39,1.33,20.71,1.92,135.15,10.79,201.44-14.8,321-30,19.33-2.46,37.41-4.31,54.48-5.63,157.78-12.26,229,20.36,396.22,33.72,29.47,2.35,61.92,4.11,98.36,4.92,103.83,2.3,254.23-2.79,439.83-39.92Q1907.1,19.35,1920,16.61Z">
+      </path>
+      <path class="cls-3"
+        d="M905.52,28.79c18.66-2.37,36.16-4.18,52.7-5.49-16.54,1.76-34,4.19-52.7,7.39-119.59,20.49-185.88,55-321,40.42-7.32-.79-14.21-1.66-20.71-2.58C490.87,58.11,466,39.26,410.79,23.3c55.18,11.85,80.08,25.84,153,33.58,6.5.69,13.39,1.33,20.71,1.92C719.64,69.59,785.93,44,905.52,28.79Z">
+      </path>
+      <path class="cls-3"
+        d="M1887.31,23.29C1705,71.56,1557.08,78.21,1454.58,75.15c-36.44-1.09-68.89-3.46-98.36-6.62-112.67-12.13-181.75-36-263.08-45.27,81.33,6.88,150.41,24.62,263.08,33.62,29.47,2.35,61.92,4.11,98.36,4.92C1557.08,64.07,1705,59.14,1887.31,23.29Z">
+      </path>
+      <path class="cls-2"
+        d="M326.46,6.45C362.5,11.15,389,17,410.79,23.3c-21.78-4.68-48.29-9-84.33-12.51C288.89,7.15,174.3-2,25.59,21.88q-4.28.69-8.58,1.42c2.87-.66,5.73-1.29,8.58-1.91C174.3-10.79,288.89,1.55,326.46,6.45Z">
+      </path>
+      <path class="cls-1"
+        d="M1093.14,23.26c-39.39-3.32-81.66-4.1-133.14-.1l-1.78.14,1.78-.19C1011.48,17.72,1053.75,18.77,1093.14,23.26Z">
+      </path>
+      <path class="cls-1" d="M1920,14.29v2.32q-12.9,2.75-25.59,5.27l-7.1,1.41,7.1-1.9Q1907.1,18,1920,14.29Z">
+      </path>
+    </svg>
+  </div>
+</div>
+
+
+<div class="limiter" style="display: block;" *ngIf="Type &&  Type === 'SellerUpdateToBuyerCreditLimit'">
+  <div class="custom-modal modal-container">
+    <div class="modal-close-btn" (click)="modalRef.hide();">
+      <div class="close-icon">
+        <span>
+          <i class="fa fa-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="content-area">
+      <h1>Edit Buyer Credit Limit</h1>
+      <div class="modal-content-body">
+        <div class="content">
+          <form [formGroup]="UserGroup">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <!-- <label style="margin: auto;">Buyer Credit Amount <span class="text-danger">*</span></label>
+                      <input matInput type="number" class="payfield" formControlName="BuyerCreditLimit"
+                        placeholder="Buyer Credit Limit" (change)="trackBusinessAmount($event)">
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerCreditLimit')"></mat-error> -->
+                      <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Total Credit Amount</mat-label>
+                        <input matInput type="number" class="payfield" formControlName="BuyerCreditLimit"
+                          placeholder="Buyer Credit Limit" (change)="trackBusinessAmount($event)">
+                        <mat-icon matSuffix>currency_rupee</mat-icon>
+                        <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerCreditLimit')"></mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <!-- <label style="margin: auto;">Credit Type<span class="text-danger">*</span></label>
+                      <mat-select matInput formControlName="BuyerPaymentType" placeholder="Payment Type">
+                        <mat-option>Select Credit Type </mat-option>
+                        <mat-option *ngFor="let Session of CreditTypes; let i=index"
+                          [value]="Session.Key">{{Session.Name}}</mat-option>
+                      </mat-select>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentType')"></mat-error> -->
+                      <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Credit Type</mat-label>
+                        <mat-select matInput formControlName="BuyerPaymentType" placeholder="Payment Type">
+                          <mat-option>Select Credit Type </mat-option>
+                          <mat-option *ngFor="let Session of CreditTypes; let i=index"
+                            [value]="Session.Key">{{Session.Name}}</mat-option>
+                        </mat-select>
+                        <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentType')"></mat-error>
+                      </mat-form-field>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <!-- <label style="margin: auto;">Payment Cycle<span class="text-danger">*</span></label>
+                      <input matInput type="number" class="payfield" formControlName="BuyerPaymentCycle"
+                        placeholder="Payment Cycle" (change)="trackPaymentCycle($event)">
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentCycle')"></mat-error> -->
+                      <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Payment Cycle</mat-label>
+                        <input matInput type="number" class="payfield" formControlName="BuyerPaymentCycle"
+                          placeholder="Payment Cycle" (change)="trackPaymentCycle($event)">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentCycle')"></mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="login-button btn-blue min-wth-201">
+                    <span (click)="SellerUpdateToBuyerCreditLimitCancel()">Cancel</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="login-button btn-blue min-wth-201">
+                    <span (click)="SellerUpdateToBuyerCreditLimit()">Accept</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="bk-waves-yellow" data-name="Layer 1"
+      viewBox="0 0 1920 80.97">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #f2940c;
+          }
+
+          .cls-2 {
+            fill: #efaa0f;
+          }
+
+          .cls-3 {
+            fill: #e58910;
+          }
+        </style>
+      </defs>
+      <title>web bg images</title>
+      <path class="cls-1" d="M0,26.27q8.58-1.56,17-3-8.43,1.9-17,4Z"></path>
+      <path class="cls-2"
+        d="M1920,26.27V81H0V26.27q13-2.36,25.59-4.39C211.19,59,361.59,64.1,465.42,61.8c36.44-.81,68.89-2.57,98.36-4.92C731,43.52,802.22,10.9,960,23.16c17.07,1.32,35.15,3.17,54.48,5.63,119.59,15.21,185.88,40.8,321,30,7.32-.59,14.21-1.23,20.71-1.92,101.7-10.79,110-33.76,237.32-46.09C1631.11,7.15,1745.7-2,1894.41,21.88Q1907,23.92,1920,26.27Z">
+      </path>
+      <path class="cls-1"
+        d="M1920,16.61V81H0V26.27q13-2.36,25.59-4.39C174.3-2,288.89,7.15,326.46,10.79c127.33,12.33,135.62,35.3,237.32,46.09,6.5.69,13.39,1.33,20.71,1.92,135.15,10.79,201.44-14.8,321-30,19.33-2.46,37.41-4.31,54.48-5.63,157.78-12.26,229,20.36,396.22,33.72,29.47,2.35,61.92,4.11,98.36,4.92,103.83,2.3,254.23-2.79,439.83-39.92Q1907.1,19.35,1920,16.61Z">
+      </path>
+      <path class="cls-3"
+        d="M905.52,28.79c18.66-2.37,36.16-4.18,52.7-5.49-16.54,1.76-34,4.19-52.7,7.39-119.59,20.49-185.88,55-321,40.42-7.32-.79-14.21-1.66-20.71-2.58C490.87,58.11,466,39.26,410.79,23.3c55.18,11.85,80.08,25.84,153,33.58,6.5.69,13.39,1.33,20.71,1.92C719.64,69.59,785.93,44,905.52,28.79Z">
+      </path>
+      <path class="cls-3"
+        d="M1887.31,23.29C1705,71.56,1557.08,78.21,1454.58,75.15c-36.44-1.09-68.89-3.46-98.36-6.62-112.67-12.13-181.75-36-263.08-45.27,81.33,6.88,150.41,24.62,263.08,33.62,29.47,2.35,61.92,4.11,98.36,4.92C1557.08,64.07,1705,59.14,1887.31,23.29Z">
+      </path>
+      <path class="cls-2"
+        d="M326.46,6.45C362.5,11.15,389,17,410.79,23.3c-21.78-4.68-48.29-9-84.33-12.51C288.89,7.15,174.3-2,25.59,21.88q-4.28.69-8.58,1.42c2.87-.66,5.73-1.29,8.58-1.91C174.3-10.79,288.89,1.55,326.46,6.45Z">
+      </path>
+      <path class="cls-1"
+        d="M1093.14,23.26c-39.39-3.32-81.66-4.1-133.14-.1l-1.78.14,1.78-.19C1011.48,17.72,1053.75,18.77,1093.14,23.26Z">
+      </path>
+      <path class="cls-1" d="M1920,14.29v2.32q-12.9,2.75-25.59,5.27l-7.1,1.41,7.1-1.9Q1907.1,18,1920,14.29Z">
+      </path>
+    </svg>
+  </div>
+</div>

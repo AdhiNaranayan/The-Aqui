@@ -1,0 +1,648 @@
+<div class="limiter " style="display: block;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="bk-waves-gray" data-name="Layer 1"
+    viewBox="0 0 990.63 1151.42">
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #e8e8e8;
+          opacity: 0.35;
+        }
+
+        .cls-2 {
+          fill: #efefef;
+        }
+      </style>
+    </defs>
+    <title>web bg images</title>
+    <path class="cls-1"
+      d="M990.63,0V1151.42L922.26,999.76C891.54,931.63,872.07,841.21,866,738.27c-5.92-99.5.79-205.82,19.41-307.47,5.38-29.4,2.61-50.9-8.24-63.91-17.14-20.57-61.47-33.35-115.67-33.35-12.72,0-21.32.76-22.49.87l-3.63.41h-3.24c-5.5.07-11.09.1-16.6.1h-.08c-112.1,0-217.5-14.74-313.29-43.83C324.29,267.45,252.6,234.35,189,192.7,79.66,121.05,31.25,48.59,26.08,40.57L0,0Z">
+    </path>
+    <path class="cls-2"
+      d="M990.63,0V968.93c-55.15-122.33-67.18-329.76-31.5-524.63,39-213-228-184.49-228-184.49-471,6-642-259.81-642-259.81Z">
+    </path>
+  </svg>
+
+  <!-- <div class="content-wrappers" *ngIf="CustomerCategory === 'Seller'">
+    <div class="default-container tbl-client-container">
+      <div class="table-head-title">
+        <h4>Dashboard</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-wrappers" *ngIf="CustomerCategory === 'Buyer'">
+    <div class="default-container tbl-client-container">
+      <div class="Buyer-head-title">
+        <h4>Dashboard</h4>
+      </div>
+    </div>
+  </div> -->
+
+
+
+</div>
+
+<div class="container-fluid " *ngIf="CustomerCategory === 'Buyer'">
+  <div class="row">
+    <div class="col-md-10">
+      <!-- <p>
+        Welcome Useerr!
+      </p> -->
+    </div>
+    <div class="col-md-2 mt-5">
+      <button mat-button [matMenuTriggerFor]="menu" class="top-menu">Create/Send</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Invite Seller</button>
+        <button mat-menu-item>Create Payment</button>
+        <button mat-menu-item>Create User</button>
+        <button mat-menu-item>Create Business</button>
+      </mat-menu>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid " *ngIf="CustomerCategory === 'Seller'">
+  <div class="row">
+    <div class="col-md-10"></div>
+    <div class="col-md-2 mt-5">
+      <button mat-button [matMenuTriggerFor]="menu" class="top-menu">Create/Send</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Invite Buyer</button>
+        <button mat-menu-item>Create Invoice</button>
+        <button mat-menu-item>Create User</button>
+        <button mat-menu-item>Create Business</button>
+      </mat-menu>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid ">
+  <div class="row">
+    <div class="col-md-7 mt-2">
+      <div class="col-md-12" *ngIf="CustomerCategory === 'Seller' && UserInfo?.CustomerType === 'Owner'">
+        <mat-card class="example-card seller-card mb-3">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <!-- <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+          <mat-card-content>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-sm-12 dashboard-chart">
+                  <!-- <div class="content-wrapper"> -->
+                  <div class="chart">
+
+                    <canvas class="chart-canvas" baseChart [data]="pieChartData" [labels]="pieChartLabels"
+                      [colors]="chartColors" [chartType]="pieChartType" [options]="pieChartOptions"
+                      [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+                    </canvas>
+
+                  </div>
+                  <!-- <div class="No-data-found" >No Data Found</div> -->
+                  <!-- </div> -->
+                </div>
+              </div>
+            </div>
+
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+          </mat-card-actions> -->
+        </mat-card>
+      </div>
+
+      <div class="col-md-12" *ngIf="CustomerCategory === 'Seller' && UserInfo?.CustomerType === 'User'">
+        <mat-card class="example-card mb-3">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <!-- <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+          <mat-card-content>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-sm-12 dashboard-chart">
+                  <!-- <div class="content-wrapper"> -->
+
+                  <div class="chart">
+
+                    <canvas class="chart-canvas" baseChart [data]="pieChartData" [labels]="pieChartLabels"
+                      [colors]="chartColors" [chartType]="pieChartType" [options]="pieChartOptions"
+                      [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+                    </canvas>
+                  </div>
+                  <!-- </div> -->
+                </div>
+              </div>
+            </div>
+
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+          </mat-card-actions> -->
+        </mat-card>
+      </div>
+
+      <div class="col-md-12" *ngIf="CustomerCategory === 'Buyer' && UserInfo?.CustomerType === 'Owner'">
+        <mat-card class="example-card mb-3">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <!-- <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+          <mat-card-content>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-sm-12 dashboard-chart">
+                  <!-- <div class="content-wrapper"> -->
+                  <div class="chart">
+                    <canvas class="chart-canvas" baseChart [data]="pieChartData" [labels]="pieChartLabels"
+                      [colors]="chartColors" [chartType]="pieChartType" [options]="pieChartOptions"
+                      [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+                    </canvas>
+                  </div>
+                  <!-- </div> -->
+                </div>
+              </div>
+            </div>
+
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+          </mat-card-actions> -->
+        </mat-card>
+      </div>
+
+      <div class="col-md-12" *ngIf="CustomerCategory === 'Buyer' && UserInfo?.CustomerType === 'User'">
+        <mat-card class="example-card mb-3">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <!-- <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+          <mat-card-content>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-sm-12 dashboard-chart">
+                  <!-- <div class="content-wrapper"> -->
+                  <div class="chart">
+                    <canvas class="chart-canvas" baseChart [data]="pieChartData" [labels]="pieChartLabels"
+                      [colors]="chartColors" [chartType]="pieChartType" [options]="pieChartOptions"
+                      [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+                    </canvas>
+                  </div>
+                  <!-- </div> -->
+                </div>
+              </div>
+            </div>
+
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+          </mat-card-actions> -->
+        </mat-card>
+      </div>
+
+
+      <div class="col-md-12" *ngIf="CustomerCategory === 'Seller' && UserInfo?.CustomerType === 'Owner'">
+        <mat-card class="example-card seller-card mb-3">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <!-- <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+          <mat-card-content>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm">
+                  <div class="col">
+                    <p class="limit-shower"><span TextTranslate>Assigned_Credit</span> :
+                      ₹ {{DashBoard?.CreditLimit | number:'1.0-0'}}</p>
+                    <p class="sub-limit-shower"><span TextTranslate>Utililized_Credit</span> :
+                      ₹ {{DashBoard?.AvailableCreditLimit | number:'1.0-0' }}</p>
+                    <div class="progress">
+                      <mat-progress-bar mode="determinate" value={{AvailableCreditLimitPercentage}}></mat-progress-bar>
+                    </div>
+                    <!-- <p class="limit-shower"><span TextTranslate>Temproray_Assigned_Credit</span> :
+                      ₹ {{DashBoard?.TemporaryCreditAmount | number:'1.0-0' }}</p>
+                    <p class="sub-limit-shower"><span TextTranslate>Temproray_Utililized_Credit</span> :
+                      ₹ {{DashBoard?.AvailableTemporaryCreditAmount | number:'1.0-0' }}</p>
+                    <div class="progress">
+                      <mat-progress-bar mode="determinate"
+                        value={{AvailableTemprorayCreditLimitPercentage}}></mat-progress-bar>
+                    </div> -->
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+          </mat-card-actions> -->
+        </mat-card>
+        <mat-card class="example-card seller-card mb-3" (click)="calendarView()">
+          <mat-card-content>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="calendar-view">
+                    Monthly Invoice Calendar
+                  </p>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col-md-12" *ngIf="CustomerCategory === 'Seller' && UserInfo?.CustomerType === 'User'">
+        <mat-card class="example-card mb-3">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <!-- <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+          <mat-card-content>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm">
+                  <div class="col">
+                    <p class="limit-shower"><span TextTranslate>Assigned_Credit</span> :
+                      ₹ {{DashBoard?.CreditLimit}}</p>
+                    <p class="sub-limit-shower"><span TextTranslate>Utililized_Credit</span> :
+                      ₹ {{DashBoard?.AvailableCreditLimit}}</p>
+                    <div class="progress">
+                      <mat-progress-bar mode="determinate" value={{AvailableCreditLimitPercentage}}></mat-progress-bar>
+                    </div>
+                    <!-- <p class="limit-shower"><span TextTranslate>Temproray_Assigned_Credit</span> :
+                      ₹ {{DashBoard?.TemporaryCreditAmount}}</p>
+                    <p class="sub-limit-shower"><span TextTranslate>Temproray_Utililized_Credit</span> :
+                      ₹ {{DashBoard?.AvailableTemporaryCreditAmount}}</p>
+                    <div class="progress">
+                      <mat-progress-bar mode="determinate"
+                        value={{AvailableTemprorayCreditLimitPercentage}}></mat-progress-bar>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+          </mat-card-actions> -->
+        </mat-card>
+        <mat-card class="example-card seller-card mb-3" (click)="calendarView()">
+          <mat-card-content>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="calendar-view">
+                    Monthly Invoice Calendar
+                  </p>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col-md-12" *ngIf="CustomerCategory === 'Buyer' && UserInfo?.CustomerType === 'Owner'">
+        <mat-card class="example-card mb-3">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <!-- <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+          <mat-card-content>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm">
+                  <div class="col">
+                    <p class="limit-shower-buyer"><span TextTranslate>Buyer_Assigned_Credit</span> :
+                      ₹ {{DashBoard?.CreditLimit}}</p>
+                    <p class="sub-limit-shower-buyer"><span TextTranslate>Buyer_Utililized_Credit</span> :
+                      ₹ {{DashBoard?.AvailableCreditLimit}}</p>
+                    <div class="progress">
+                      <mat-progress-bar mode="determinate" value={{AvailableCreditLimitPercentage}}></mat-progress-bar>
+                    </div>
+                    <!-- <p class="limit-shower-buyer"><span TextTranslate>Buyer_Temproray_Assigned_Credit</span> :
+                      ₹ {{DashBoard?.TemporaryCreditAmount}}</p>
+                    <p class="sub-limit-shower-buyer"><span TextTranslate>Buyer_Temproray_Utililized_Credit</span> :
+                      ₹ {{DashBoard?.AvailableTemporaryCreditAmount}}</p>
+                    <div class="progress">
+                      <mat-progress-bar mode="determinate"
+                        value={{AvailableTemprorayCreditLimitPercentage}}></mat-progress-bar>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+          </mat-card-actions> -->
+        </mat-card>
+        <mat-card class="example-card  mb-3" (click)="calendarView()">
+          <mat-card-content>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="calendar-view">
+                    Monthly Invoice Calendar
+                  </p>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="col-md-12" *ngIf="CustomerCategory === 'Buyer' && UserInfo?.CustomerType === 'User'">
+        <mat-card class="example-card mb-3">
+          <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <!-- <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+          </mat-card-header>
+          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+          <mat-card-content>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm">
+                  <div class="col">
+                    <p class="limit-shower-buyer"><span TextTranslate>Buyer_Assigned_Credit</span> :
+                      ₹ {{DashBoard?.CreditLimit}}</p>
+                    <p class="sub-limit-shower-buyer"><span TextTranslate>Buyer_Utililized_Credit</span> :
+                      ₹ {{DashBoard?.AvailableCreditLimit}}</p>
+                    <div class="progress">
+                      <mat-progress-bar mode="determinate" value={{AvailableCreditLimitPercentage}}></mat-progress-bar>
+                    </div>
+                    <!-- <p class="limit-shower-buyer"><span TextTranslate>Buyer_Temproray_Assigned_Credit</span> :
+                      ₹ {{DashBoard?.TemporaryCreditAmount}}</p>
+                    <p class="sub-limit-shower-buyer"><span TextTranslate>Buyer_Temproray_Utililized_Credit</span> :
+                      ₹ {{DashBoard?.AvailableTemporaryCreditAmount}}</p>
+                    <div class="progress">
+                      <mat-progress-bar mode="determinate"
+                        value={{AvailableTemprorayCreditLimitPercentage}}></mat-progress-bar>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+          </mat-card-actions> -->
+        </mat-card>
+        <mat-card class="example-card mb-3" (click)="calendarView()">
+          <mat-card-content>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="calendar-view">
+                    Monthly Invoice Calendar
+                  </p>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+    </div>
+
+    <div class="col-md-5" *ngIf="CustomerCategory === 'Seller' && UserInfo?.CustomerType === 'Owner'">
+      <mat-card class="example-card tab-card mt-3">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title></mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+          <div class="container-fluid ">
+            <div class="row">
+              <div class="col-sm">
+                <div class="payment-acknowledgement btn btn position-relative">
+                  <div TextTranslate>Payment_Acknowledgement</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.PaymentAcknowledgement}}
+                    <!-- <span class="visually-hidden">unread messages</span> -->
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5 ">
+              <div class="col-sm">
+                <div class="payment-acknowledgement btn btn position-relative">
+                  <div TextTranslate>Disputed_Invoices</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.DisputedInvoice}}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-5">
+              <div class="col-sm">
+                <div class="payment-acknowledgement btn btn position-relative">
+                  <div TextTranslate>Buyer_Requests</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.BuyerPaymentCount}}
+                    <!-- <span class="visually-hidden">unread messages</span> -->
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="mb-3">
+          <!-- <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button> -->
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="col-md-5" *ngIf="CustomerCategory === 'Seller' && UserInfo?.CustomerType === 'User'">
+      <mat-card class="example-card tab-card mb-3">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title></mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm">
+                <div class="payment-acknowledgement btn btn position-relative">
+                  <div TextTranslate>Payment_Acknowledgement</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.PaymentAcknowledgement}}
+                    <!-- <span class="visually-hidden">unread messages</span> -->
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5 ">
+              <div class="col-sm">
+                <div class="payment-acknowledgement btn btn position-relative">
+                  <div TextTranslate>Disputed_Invoices</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.DisputedInvoice}}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-5">
+              <div class="col-sm">
+                <div class="payment-acknowledgement btn btn position-relative">
+                  <div TextTranslate>Buyer_Requests</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.BuyerPaymentCount}}
+                    <!-- <span class="visually-hidden">unread messages</span> -->
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="mb-3">
+          <!-- <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button> -->
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+
+    <div class="col-md-5" *ngIf="CustomerCategory === 'Buyer' && UserInfo?.CustomerType === 'Owner'">
+      <mat-card class="example-card buyr-tab-card mb-3">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title></mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm">
+                <div class="payment-acknowledgement-buyer btn btn position-relative">
+                  <div TextTranslate>Buyer_Payment_Acknowledgement</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.PendingInvoice}}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5 ">
+              <div class="col-sm">
+                <div class="payment-acknowledgement-buyer btn btn position-relative">
+                  <div TextTranslate>Buyer_Disputed_Invoices</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.PaymentDisputed}}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-5">
+              <div class="col-sm">
+                <div class="payment-acknowledgement-buyer btn btn position-relative">
+                  <div TextTranslate>Buyer_Buyer_Requests</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.CustomerRequest}}
+                    <!-- <span class="visually-hidden">unread messages</span> -->
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="mb-3">
+          <!-- <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button> -->
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div class="col-md-5" *ngIf="CustomerCategory === 'Buyer' && UserInfo?.CustomerType === 'User'">
+      <mat-card class="example-card buyr-tab-card mb-3">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title></mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm">
+                <div class="payment-acknowledgement-buyer btn btn position-relative">
+                  <div TextTranslate>Buyer_Payment_Acknowledgement</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.PendingInvoice}}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5 ">
+              <div class="col-sm">
+                <div class="payment-acknowledgement-buyer btn btn position-relative">
+                  <div TextTranslate>Buyer_Disputed_Invoices</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.PaymentDisputed}}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-5">
+              <div class="col-sm">
+                <div class="payment-acknowledgement-buyer btn btn position-relative">
+                  <div TextTranslate>Buyer_Buyer_Requests</div>
+                  <span class="position-absolute translate-middle badge rounded-pill">
+                    {{DashBoard?.CustomerRequest}}
+                    <!-- <span class="visually-hidden">unread messages</span> -->
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="mb-3">
+          <!-- <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button> -->
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </div>
+
+
+</div>

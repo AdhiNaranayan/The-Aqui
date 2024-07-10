@@ -1,0 +1,18 @@
+.login-button.btn-blue.min-wth-200 {
+  float: right;
+  margin-right: 25%;
+}
+
+.payfield::-webkit-outer-spin-button,
+.payfield::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.payfield[type=number] {
+  -moz-appearance: textfield;
+}
+
+.example-full-width {
+  width: 100%;
+}

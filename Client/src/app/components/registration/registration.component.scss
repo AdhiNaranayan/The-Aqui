@@ -1,0 +1,96 @@
+.hbtn {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 5px 72px;
+  margin: -2px;
+  text-align: center;
+  border: 1px solid rgb(242, 148, 12);
+  text-decoration: none;
+  color: grey;
+  white-space: nowrap;
+  z-index: 0;
+  display: table-cell;
+}
+
+.YesOrNoButton.disabled {
+  pointer-events: none;
+}
+
+.hb-fill-right,
+.hb-fill-left {
+  background: transparent;
+  /* color: #0ce8fe; */
+  transition: color 0.3s ease, background 0s 0.3s ease;
+  cursor: pointer;
+}
+
+.hb-fill-right:hover,
+.hb-fill-left:hover {
+  color: #fff;
+  /* background: #0ce8fe; */
+  transition: color 0.3s ease, background 0s 0.3s ease;
+}
+
+.hbtn.hb-fill-right:before {
+  position: absolute;
+  content: "";
+  transition-duration: 0.3s;
+  z-index: -1;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  width: 0;
+  height: 100%;
+  opacity: 1;
+
+  background: rgb(242, 148, 12);
+  background: linear-gradient(to top, rgb(242, 148, 12), rgb(242, 148, 12));
+  color: #ffffff !important;
+}
+
+.hbtn.hb-fill-left:before {
+  position: absolute;
+  content: "";
+  background: #ffffff;
+  transition-duration: 0.3s;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  width: 0;
+  height: 100%;
+  opacity: 1;
+  background: rgb(49, 58, 100);
+  background: linear-gradient(to top, rgb(49, 58, 100), rgb(49, 58, 100));
+  color: #ffffff !important;
+}
+
+.hbtn.hb-fill-right:hover:before,
+.hbtn.hb-fill-left:hover:before {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.hb-fill-right:hover,
+.hb-fill-left:hover {
+  color: #ffffff;
+  background: transparent;
+  transition: color 0.3s ease, background 0s 0.3s ease;
+}
+
+.hbtn.active {
+  color: #fff;
+  border: none;
+}
+
+.hbtn.active:before {
+  width: 100%;
+}
+
+.example-full-width {
+  width: 90%;
+}

@@ -1,0 +1,132 @@
+        <div class="content-wrapper">
+                <div class="default-container">
+                    <div class="table-head-title">
+                        <h4>Employee Table</h4>
+                    </div>
+                    <div class="tbl-filter-container">
+                        <div class="tbl-row-display">
+                            <span class="label-show-limits">
+                                show Limits
+                            </span>
+                            <mat-form-field>
+                                <mat-select>
+                                    <mat-option *ngFor="let LabelNumbers of numbers" [value]="LabelNumbers.value">
+                                    {{LabelNumbers.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>        
+                
+                        <div class="filter-icon">
+                            <i class="fa fa-filter" aria-hidden="true"></i>
+                            <span class="lbl-filter-txt">Filter</span>
+                        </div>
+                    </div>
+                    <div class="table-responsive tbl-shadow">
+                        <table class="table data-tbl">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Heading</th>
+                            <th scope="col">Heading</th>
+                            <th scope="col">Heading</th>
+                            <th scope="col">Heading</th>
+                            <th scope="col">Heading</th>
+                            <th scope="col">Heading</th>
+                            <th scope="col">Heading</th>
+                            <th scope="col">Heading</th>
+                            <th scope="col">Heading</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td scope="row">1</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            </tr>
+                            <tr>
+                            <td scope="row">2</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            </tr>
+                            <tr>
+                            <td scope="row">3</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            <td>Cell</td>
+                            </tr>
+                            <tr class="no-records"><td colspan="10"> No Records Found.... </td></tr>
+                        </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination-container">
+                        <div class="go-page" >
+                            <div class="number-go-page">
+                                <span class="lbl-go-page  label-show-limits">Go Page</span>
+                                <mat-form-field class="example-full-width">
+                                <input matInput value="">
+                                </mat-form-field>
+                                <span class="bnt-go-page">
+                                    <span class="txt">GO</span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                
+                        <div class="show-records">
+                            <div class="txt-show-records">Showing <span>1</span> to <span>5</span> out of <span>97</span>  entries</div>
+                        </div>
+                
+                        <div class="pagination-number">
+                            <ul class="pagination hidden-xs">
+                                <li>
+                                <a class="" matTooltip="Previous">
+                                    <p><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
+                                </a>
+                                </li>
+                                <li class=""> 
+                                <a><p>1</p></a>
+                                </li> 
+                                <li class="active">
+                                    <a><p>2</p></a>
+                                </li>
+                                <li class=""> 
+                                    <a><p>...</p></a>
+                                </li>
+                                <li class=""> 
+                                    <a><p>2</p></a>
+                                </li>
+                                <li>
+                                    <a class="" matTooltip="Previous">
+                                    <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+                                    </a>
+                                </li>
+                            </ul>
+                
+                
+                        </div>
+                
+                    </div>
+                </div>
+            
+        </div>

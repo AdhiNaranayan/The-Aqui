@@ -1,0 +1,164 @@
+/* .halfCircle-content-box {
+    background-image: url(../../../assets/images/set-2-01.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 400px;
+    position: relative;
+    box-shadow: none;
+}
+.half-blue-circle {
+    border-bottom-left-radius: 90px;
+    border-bottom-right-radius: 90px;
+    height: 98px;
+    width: 190px;
+    background: #313a65;
+    color: #fff;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(200px);
+    cursor: pointer;
+    text-align: center;
+}
+.half-yellow-circle {
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    height: 95px;
+    width: 190px;
+    background: #f2940c;
+    z-index: 1;
+    margin: auto;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    text-align: center;
+} */
+
+/* with background svg icon set half circle */
+/* .half-blue-circle {
+    background-image: url(../../../assets/images/icon/ic_seller_btn_bg.svg);
+    background-repeat: no-repeat;
+    background-size: 56%;
+    background-position-x: 90px;
+    height: 115px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(194px);
+}
+.half-yellow-circle {
+    background-image: url(../../../assets/images/icon/ic_buyer_btn_bg.svg);
+    background-repeat: no-repeat;
+    background-size: 56%;
+    background-position-x: 90px;
+    height: 115px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(192px);
+} */
+/* with background svg icon set half circle */
+
+/* 
+.half-blue-circle span, .half-yellow-circle span {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    font-size: 18px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.half-blue-circle img {
+    max-width: 22%;
+    width: 100%;
+    margin-top: -30px;
+}
+.half-yellow-circle img {
+    max-width: 22%;
+    width: 100%;
+    margin-top: 12px;
+}
+ */
+
+    
+
+
+/* 
+Date: 06-May-2020
+Auth: Manikandan UI-Dev
+Desc: Design change css */
+.inner-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7f7f7;
+    padding: 20px;
+    z-index: 1;
+    box-shadow: 0 0 4px 0px #9e9e9eb0;
+    border-radius: 20px;
+}
+.inner-layout .middle-logo {
+    width: 250px;
+}
+.inner-layout .left-side-seller{
+    background: rgb(49, 58, 100);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.inner-layout .right-side-buyer {
+    background: rgb(242, 148, 12);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.inner-layout .left-side-seller,
+.inner-layout .right-side-buyer {
+    width: 150px;
+    height: 400px;
+    box-shadow: 0 0 8px 2px #efefef;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.inner-layout .left-side-seller img,
+.inner-layout .right-side-buyer img {
+    max-width: 100%;
+    width: 50%;
+    margin-bottom: 10px;
+}
+.inner-layout .left-side-seller .icon p, 
+.inner-layout .right-side-buyer .icon p {
+    font-size: 18px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+.default-content-box {
+    min-height: 85vh;
+}
+
+
+/* 
+Date: 04-May-2020
+Auth: Manikandan UI-Dev
+Desc: Language Translate menu in set in screen bottom right side */
+.float-menu {
+    position: fixed;
+    z-index: 1;
+    bottom: 10px;
+    right: 0;
+}
+.material .profile .links img {
+    max-width: 50%;
+}

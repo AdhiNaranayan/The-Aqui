@@ -1,0 +1,124 @@
+<header class="main-header">
+    <div class="sub-header">
+        <ul>
+            <li>
+                <div class="notification">
+                    <span class="icon"><i class="fa fa-bell" aria-hidden="true"></i></span>
+                    <span class="new-notify">3</span>
+                    
+                    <div class="notify-panel-wrapper animated bounceInRight">
+                        <div class="arrow-up"></div>
+                        <div class="notify-panel">
+                            <div class="notify-header">
+                                <div class="notify-label">Notification</div>
+                                <div class="notify-new">3<span class="notify-lbl-new">New</span></div>
+                            </div>        
+                            <div class="notification-list">
+                                <ul>
+                                    <li class="withOut-read">
+                                        <div class="box-1 notify-user-img">
+                                            <img src="../assets/images/user-thumbnail.png" alt="">
+                                        </div>
+                                        <div class="box-2" class="text-left">
+                                            <span class="notify-content">
+                                                Lorem ipsum, or lipsum as it is sometimes known, is dummy text
+                                            </span>
+                                        </div>
+                                        <div class="box-3">
+                                            <span class="date-time">Today at 10:25 AM</span>
+                                        </div>
+                                    </li>
+                                    <li class="">
+                                        <div class="box-1 notify-user-img">
+                                            <img src="../assets/images/user-thumbnail.png" alt="">
+                                        </div>
+                                        <div class="box-2" class="text-left">
+                                            <span class="notify-content">
+                                                Lorem ipsum, or lipsum as it is sometimes known, is dummy text
+                                            </span>
+                                        </div>
+                                        <div class="box-3">
+                                            <span class="date-time">Today at 10:25 AM</span>
+                                        </div>
+                                    </li>
+                                    <li class="withOut-read">
+                                        <div class="box-1 notify-user-img">
+                                            <img src="../assets/images/user-thumbnail.png" alt="">
+                                        </div>
+                                        <div class="box-2" class="text-left">
+                                            <span class="notify-content">
+                                                Lorem ipsum, or lipsum as it is sometimes known, is dummy text
+                                            </span>
+                                        </div>
+                                        <div class="box-3">
+                                            <span class="date-time">Today at 10:25 AM</span>
+                                        </div>
+                                    </li>                                
+                                </ul>
+                            </div>                        
+                            <div class="notify-footer">
+                                <div class=""></div>
+                                <div class="notify-lbl-mark-as-read">Mark all As Read</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="user-profile">
+                    <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <span class="user-name">Kathiravan</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="brand">
+        <img src="../assets/images/ic_hundi_logo.svg" alt="">
+    </div>
+
+    <nav id="nav" role="navigation" class="nav-bar-parent">
+        <a href="javascript:void(0)" title="Show navigation">Show navigation</a>
+        <a href="javascript:void(0)" title="Hide navigation">Hide navigation</a>
+        <ul>
+            <li>
+                <span class="icon menu-icon"><i class="fa fa-snowflake-o" aria-hidden="true"></i></span>
+                <a [routerLink]="['/users']" >
+                    User Management
+                </a></li>
+            <li>
+                <span class="icon menu-icon"><i class="fa fa-cubes" aria-hidden="true"></i></span>
+                <a [routerLink]="['/employee']" > <span>Employee Management</span></a>
+                <ul>
+                    <li><a [routerLink]="['/Ot-Config']" >OT-Config</a></li>
+                    <li><a [routerLink]="['/Ot-Config']" >OT-Config 1</a></li>
+                    <li><a [routerLink]="['/Ot-Config']" >OT-Config 2</a></li>
+                </ul>
+            </li>
+            <li>
+                <span class="icon menu-icon"><i class="fa fa-cogs" aria-hidden="true"></i></span>
+                <a [routerLink]="['/Projects']" >Project Management</a></li>
+            <li>
+                <span class="icon menu-icon"><i class="fa fa-glass" aria-hidden="true"></i></span>
+                <a> Employee Advance</a></li>
+            <li>
+                <span class="icon menu-icon"><i class="fa fa-newspaper-o" aria-hidden="true"></i></span>
+                <a><span>Configuration</span></a>
+                <ul>
+                    <li><a [routerLink]="['/Ot-Config']" >OT-Config</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- <div class="user-profile">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            <p class="user-name">Kathiravan <span class="user-designation">Software Engineer</span></p>
+            <div class="profile-panel">
+                <ul>
+                    <li><i class="fa fa-user" aria-hidden="true"></i>Kathiravan</li>
+                    <li><i class="fa fa-desktop" aria-hidden="true"></i>Software Engineer</li>
+                    <li><i class="fa fa-cog" aria-hidden="true"></i>Settings</li>
+                    <li><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</li>
+                </ul>
+            </div>
+        </div> -->
+    </nav>
+</header>

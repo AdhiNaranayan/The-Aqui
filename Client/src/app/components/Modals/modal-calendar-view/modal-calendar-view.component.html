@@ -1,0 +1,197 @@
+<!-- Seller -->
+<!-- <div class="container-fluid">
+  <div class="close-icon">
+    <span (click)="modalRef.hide();">
+      <i class="fa fa-close" aria-hidden="true"></i>
+    </span>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="right">
+        <p class="title">Invoice ID</p>
+        <p class="sub-title">233123</p>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <div class="left">
+        <p class="title">Invoice Amount</p>
+        <p class="sub-title">500.0</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="left">
+        <div class="container sub-content">
+          <div class="col-md-6">
+            <p class="titleOne">Seller Name</p>
+            <p class="sub-titleOne">Aquila</p>
+          </div>
+          <div class="col-md-6">
+            <p class="titleOne">Seller Business</p>
+            <p class="sub-titleOne">Aquila Apparells</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="left">
+        <div class="container sub-content">
+          <div class="col-md-6">
+            <p class="titleOne">Buyer Name</p>
+            <p class="sub-titleOne">Aquila</p>
+          </div>
+          <div class="col-md-6">
+            <p class="titleOne">Buyer Business</p>
+            <p class="sub-titleOne">Aquila Apparells</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>wt</p>
+    <p>wt</p>
+    <p>wt</p>
+  </div>
+</div> -->
+
+<!-- Buyer -->
+<!-- <div class="container-fluid">
+  <div class="buyer-close-icon">
+    <span (click)="modalRef.hide();">
+      <i class="fa fa-close" aria-hidden="true"></i>
+    </span>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="right-buyer">
+          <p class="title-buyer">Invoice ID</p>
+          <p class="sub-title">233123</p>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="left-buyer">
+          <p class="title-buyer">Invoice Amount</p>
+          <p class="sub-title">500.0</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="left-buyer">
+          <div class="container sub-content">
+            <div class="col-md-6">
+              <p class="titleOne-buyer">Seller Name</p>
+              <p class="sub-titleOne">Aquila</p>
+            </div>
+            <div class="col-md-6">
+              <p class="titleOne-buyer">Seller Business</p>
+              <p class="sub-titleOne">Aquila Apparells</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="left-buyer">
+          <div class="container sub-content">
+            <div class="col-md-6">
+              <p class="titleOne-buyer">Buyer Name</p>
+              <p class="sub-titleOne">Aquila</p>
+            </div>
+            <div class="col-md-6">
+              <p class="titleOne-buyer">Buyer Business</p>
+              <p class="sub-titleOne">Aquila Apparells</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>wt</p>
+      <p>wt</p>
+      <p>wt</p>
+    </div>
+  </div>
+</div> -->
+
+<div class="container-fluid">
+  <div class="buyer-close-icon">
+    <span (click)="modalRef.hide();">
+      <i class="fa fa-close" aria-hidden="true"></i>
+    </span>
+  </div>
+
+  <!-- Loop through each invoice -->
+  <ng-container *ngFor="let amount of CalendarAmounts">
+    <div class="container" *ngFor="let detail of amount.Details" class="buy-card">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="right-buyer">
+            <p class="title-buyer">Invoice ID</p>
+            <p class="sub-title">{{ detail.UniqueNumber }}</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="left-buyer">
+            <p class="title-buyer">Invoice Amount</p>
+            <p class="sub-title">{{ detail.Amount }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loop through each detail of the invoice -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="left-buyer">
+            <div class="container sub-content">
+              <div class="col-md-6">
+                <p class="titleOne-buyer">Seller Name</p>
+                <p class="sub-titleOne">{{ detail.Seller.ContactName }}</p>
+              </div>
+              <div class="col-md-6">
+                <p class="titleOne-buyer">Seller Business</p>
+                <p class="sub-titleOne">{{ detail.Business.FirstName }} {{ detail.Business.LastName }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="left-buyer">
+            <div class="container sub-content">
+              <div class="col-md-6">
+                <p class="titleOne-buyer">Buyer Name</p>
+                <p class="sub-titleOne">{{ detail.Buyer.ContactName }}</p>
+              </div>
+              <div class="col-md-6">
+                <p class="titleOne-buyer">Buyer Business</p>
+                <p class="sub-titleOne">{{ detail.BuyerBusiness.FirstName }} {{ detail.BuyerBusiness.LastName }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="footer">
+        <p>wt</p>
+        <p>wt</p>
+        <p>wt</p>
+      </div>
+    </div>
+  </ng-container>
+</div>

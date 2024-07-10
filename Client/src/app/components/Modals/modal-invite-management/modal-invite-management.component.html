@@ -1,0 +1,561 @@
+<section *ngIf="Type && ( Type === 'DefaultPage')">
+  <div class="limiter" style="display: block;">
+    <div class="custom-modal modal-container">
+      <form class="form-horizontal">
+        <div class="modal-close-btn" (click)="modalRefView.hide();">
+          <div class="close-icon">
+            <span>
+              <i class="fa fa-close" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="content-area">
+          <h1>Invite Details</h1>
+          <div class="modal-content-body">
+            <div class="content">
+              <div class="col-sm-12">
+                <div class="row no-margin">
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Contact
+                        Name:</label>
+                      <div class="col-sm-12 col-md-8">
+                        {{InviteInfo?.InvitedToInfo.ContactName | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Email
+                        :</label>
+                      <div class="col-sm-12 col-md-8">
+                        {{InviteInfo?.InvitedToInfo.Email | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Business
+                        Name
+                        :</label>
+                      <div class="col-sm-12 col-md-8">
+                        {{InviteInfo?.BusinessInfo.BusinessName | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Branch
+                        Name
+                        :</label>
+                      <div class="col-sm-12 col-md-8">
+                        {{InviteInfo?.BranchInfo.BranchName | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Mobile
+                        :</label>
+                      <div class="col-sm-12 col-md-8">
+                        {{InviteInfo?.InvitedToInfo.Mobile | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">InviteCategory:</label>
+                      <div class="col-sm-12 col-md-8">
+                        {{InviteInfo?.InviteCategory}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">InviteCustomer
+                        Type
+                        :</label>
+                      <div class="col-sm-12 col-md-8">
+                        {{InviteInfo?.InviteCustomer_Type }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Invite
+                        Status
+                        :</label>
+                      <div class="col-sm-12 col-md-8">
+                        <span *ngIf="InviteInfo?.Invite_Status === 'Pending_Approval'">Pending
+                          Approval</span>
+                        <span *ngIf="InviteInfo?.Invite_Status === 'Accept'">Approved</span>
+                        <span *ngIf="InviteInfo?.Invite_Status === 'Reject'">Rejected</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Credit
+                        Allowed :</label>
+                      <div class="col-sm-12 col-md-8">
+                        {{InviteInfo?.Credit_Allowed }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">PaymentCycle
+                        :</label>
+                      <div class="col-sm-12 col-md-8">
+                        {{InviteInfo?.PaymentCycle }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">PaymentType
+                        :</label>
+                      <div class="col-sm-12 col-md-8">
+                        {{InviteInfo?.PaymentType }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Created
+                        Date:</label>
+                      <div class="col-sm-12 col-md-8">
+                        {{InviteInfo?.createdAt | date: 'd-MMM-y'}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+      <div class="modal-footer">
+        <button type="submit" (click)="modalRefView.hide()" class="btn-blue" aria-label="">
+          <span>Close</span>
+          <span> <i class="fa fa-times" aria-hidden="true"></i> </span>
+        </button>
+      </div>
+      <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+
+      <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+    </div>
+  </div>
+</section>
+
+<div class="limiter" style="display: block;" *ngIf="Type &&  Type === 'Create' && CustomerCategory === 'Seller'">
+  <div class="custom-modal modal-container">
+    <div class="modal-close-btn" (click)="modalRef.hide();">
+      <div class="close-icon">
+        <span>
+          <i class="fa fa-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="content-area">
+      <h1>Create Invite</h1>
+      <div class="modal-content-body">
+        <div class="content">
+          <form [formGroup]="InviteForm">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Select Business</mat-label>
+                      <mat-select formControlName="Business" placeholder="Seller Business Name">
+                        <mat-option>Select Business</mat-option>
+                        <mat-option *ngFor="let Business of BusinessList; let i=index"
+                          [value]="Business._id">{{Business.FirstName + ' '+Business.LastName}}</mat-option>
+                      </mat-select>
+                      <mat-icon matSuffix>business_center</mat-icon>
+                      <!-- <mat-error *ngIf="GetFormControlErrorMessage('required')">Select Any Of Business</mat-error> -->
+                      <mat-error class="mat-error-full margin-top0"
+                        [innerHTML]="GetFormControlErrorMessage('Business')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <mat-select matInput formControlName="Branch" placeholder="Seller Branch Name"
+                      (ngModelChange)="BranchChanges($event)">
+                      <mat-option>Select Branch </mat-option>
+                      <mat-option *ngFor="let Branch of BranchList; let i=index"
+                        [value]="Branch._id">{{Branch.BranchName}}</mat-option>
+                    </mat-select>
+                    <mat-error class="mat-error-full margin-top0" [innerHTML]="GetFormControlErrorMessage('Branch')">
+                    </mat-error>
+                  </div>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput type="number" class="payfield" formControlName="Mobile" placeholder="Mobile Number"
+                      (ngModelChange)="MobileChanges($event)" maxlength="10">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('Mobile')"></mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Mobile Number</mat-label>
+                      <input matInput type="number" class="payfield" formControlName="Mobile"
+                        placeholder="Mobile Number" (ngModelChange)="MobileChanges($event)" maxlength="10">
+                      <mat-icon matSuffix>call</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('Mobile')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput formControlName="ContactName" placeholder="ContactName">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('ContactName')"></mat-error> -->
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Contact Name</mat-label>
+                      <input matInput formControlName="ContactName" placeholder="ContactName">
+                      <mat-icon matSuffix>person</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('ContactName')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Email</mat-label>
+                      <input matInput formControlName="Email" placeholder="Ex. Aquila@example.com">
+                      <mat-icon matSuffix>mail</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('Email')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div> -->
+              <ng-container *ngIf="SellerAndBuyerBusiness.length > 0">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <!-- <mat-select matInput formControlName="BuyerBusiness" placeholder="Buyer Business Name"
+                        (ngModelChange)="BuyerBusinessChanges($event)">
+                        <mat-option>Select Business Name</mat-option>
+                        <mat-option *ngFor="let Business of SellerAndBuyerBusiness; let i=index"
+                          [value]="Business._id">{{Business.FirstName+' '+Business.LastName}}</mat-option>
+                      </mat-select> -->
+                      <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Buyer Business </mat-label>
+                        <mat-select matInput formControlName="BuyerBusiness" placeholder="Aquila"
+                          (ngModelChange)="BuyerBusinessChanges($event)">
+                          <mat-option>Select Buyer Business</mat-option>
+                          <mat-option *ngFor="let Business of SellerAndBuyerBusiness; let i=index"
+                            [value]="Business._id">{{Business.FirstName+' '+Business.LastName}}</mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix>business_center</mat-icon>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <mat-select matInput formControlName="BuyerBranch" placeholder="Buyer Branch Name">
+                        <mat-option>Select Branch Name</mat-option>
+                        <mat-option *ngFor="let Branch of SellerAndBuyerBranch; let i=index"
+                          [value]="Branch._id">{{Branch.BranchName}}</mat-option>
+                      </mat-select>
+                    </div>
+                  </div>
+                </div> -->
+              </ng-container>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput type="number" class="payfield" formControlName="BuyerCreditLimit"
+                      placeholder="Buyer Credit Limit" (change)="trackBusinessAmount($event)">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerCreditLimit')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Buyer Credit Limit</mat-label>
+                      <input matInput type="number" class="payfield" formControlName="BuyerCreditLimit"
+                        placeholder="Buyer Credit Limit" (change)="trackBusinessAmount($event)">
+                      <mat-icon matSuffix>monetization_on</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerCreditLimit')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput type="number" class="payfield" formControlName="BuyerPaymentCycle"
+                      placeholder="Payment Cycle (in Days)" (change)="trackPaymentCycle($event)">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentCycle')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Buyer Payment Cycle</mat-label>
+                      <input matInput type="number" class="payfield" formControlName="BuyerPaymentCycle"
+                        placeholder="Payment Cycle (in Days)" (change)="trackPaymentCycle($event)">
+                      <mat-icon matSuffix>bar_chart</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentCycle')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <mat-select matInput formControlName="BuyerPaymentType" placeholder="Payment Type">
+                      <mat-option>Select Payment Type </mat-option>
+                      <mat-option *ngFor="let Session of CreditTypes; let i=index"
+                        [value]="Session.Key">{{Session.Name}}</mat-option>
+                    </mat-select>
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentType')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Buyer Payment Type</mat-label>
+                      <mat-select matInput formControlName="BuyerPaymentType" placeholder="Payment Type">
+                        <mat-option>Select</mat-option>
+                        <mat-option *ngFor="let Session of CreditTypes; let i=index"
+                          [value]="Session.Key">{{Session.Name}}</mat-option>
+                      </mat-select>
+                      <mat-icon matSuffix>currency_exchange</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentType')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="login-button btn-blue min-wth-200">
+
+              <span>Submit</span>
+            </div> -->
+            <button (click)="SellerSendInvite()" mat-raised-button color="primary">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+    <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+
+    <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+  </div>
+</div>
+
+<div class="limiter" style="display: block;" *ngIf="Type &&  Type === 'Create' && CustomerCategory === 'Buyer'">
+  <div class="custom-modal modal-container">
+    <div class="modal-close-btn" (click)="modalRef.hide();">
+      <div class="close-icon">
+        <span>
+          <i class="fa fa-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="content-area">
+      <h1>Create Invite</h1>
+      <div class="modal-content-body">
+        <div class="content">
+          <form [formGroup]="InviteForm">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <mat-select matInput formControlName="BuyerBusiness" placeholder="Buyer Business Name"
+                      (ngModelChange)="BuyerLoginBusinessChanges($event)">
+                      <mat-option>Select Business </mat-option>
+                      <mat-option *ngFor="let Business of BuyerBusinessList; let i=index"
+                        [value]="Business._id">{{Business.FirstName+' '+Business.LastName}}</mat-option>
+                    </mat-select>
+                    <mat-error class="mat-error-full margin-top0"
+                      [innerHTML]="GetFormControlErrorMessage('BuyerBusiness')"> </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Select Business</mat-label>
+                      <mat-select matInput formControlName="BuyerBusiness" placeholder="Buyer Business Name"
+                        (ngModelChange)="BuyerLoginBusinessChanges($event)" required>
+                        <mat-option>--Select--</mat-option>
+                        <mat-option *ngFor="let Business of BuyerBusinessList; let i=index" [value]="Business._id">
+                          {{Business.FirstName+' '+Business.LastName}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-icon matSuffix>business_center</mat-icon>
+                      <mat-error class="mat-error-full margin-top0"
+                        [innerHTML]="GetFormControlErrorMessage('BuyerBusiness')"> </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <mat-select matInput formControlName="BuyerBranch" placeholder="Buyer Branch Name">
+                      <mat-option>Select Branch </mat-option>
+                      <mat-option *ngFor="let Branch of BuyerBranchList; let i=index"
+                        [value]="Branch._id">{{Branch.BranchName}}</mat-option>
+                    </mat-select>
+                    <mat-error class="mat-error-full margin-top0"
+                      [innerHTML]="GetFormControlErrorMessage('BuyerBranch')"> </mat-error>
+                  </div>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput type="number" class="payfield" formControlName="Mobile" placeholder="Mobile Number"
+                      (ngModelChange)="MobileBuyerChanges($event)">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('Mobile')"></mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Mobile Number</mat-label>
+                      <input matInput type="number" class="payfield" formControlName="Mobile"
+                        placeholder="Mobile Number" (ngModelChange)="MobileBuyerChanges($event)">
+                      <mat-icon matSuffix>mobile</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('Mobile')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput formControlName="ContactName" placeholder="ContactName">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('ContactName')"></mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Contact Name</mat-label>
+                      <input matInput formControlName="ContactName" placeholder="ContactName">
+                      <mat-icon matSuffix>person</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('ContactName')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <input matInput formControlName="Email" placeholder="Email">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('Email')"></mat-error>
+                  </div>
+                </div>
+              </div> -->
+              <ng-container *ngIf="SellerAndBuyerBusiness.length > 0">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <!-- <mat-select matInput formControlName="Business" placeholder="Seller Business Name">
+                        <mat-option>Select Business </mat-option>
+                        <mat-option *ngFor="let Business of SellerAndBuyerBusiness; let i=index"
+                          [value]="Business._id">{{Business.FirstName+' '+Business.LastName}}</mat-option>
+                      </mat-select> -->
+                      <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Seller Business</mat-label>
+                        <mat-select matInput formControlName="Business" placeholder="Seller Business Name" required>
+                          <mat-option>--Select--</mat-option>
+                          <mat-option *ngFor="let Business of SellerAndBuyerBusiness; let i=index"
+                            [value]="Business._id">
+                            {{Business.FirstName+' '+Business.LastName}}
+                          </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix>business_center</mat-icon>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <mat-select matInput formControlName="Branch" placeholder="Seller Branch Name">
+                        <mat-option>Select Business </mat-option>
+                        <mat-option *ngFor="let Branch of SellerAndBuyerBranch; let i=index"
+                          [value]="Branch._id">{{Branch.BranchName}}</mat-option>
+                      </mat-select>
+                    </div>
+                  </div>
+                </div> -->
+              </ng-container>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput type="number" class="payfield" formControlName="BuyerCreditLimit"
+                      placeholder="Buyer Credit Limit" (change)="trackBusinessAmount($event)">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerCreditLimit')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Buyer CreditLimit</mat-label>
+                      <input matInput type="number" class="payfield" formControlName="BuyerCreditLimit"
+                        placeholder="Buyer Credit Limit" (change)="trackBusinessAmount($event)">
+                      <mat-icon matSuffix>paid</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerCreditLimit')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <input matInput type="number" class="payfield" formControlName="BuyerPaymentCycle"
+                      placeholder="Payment Cycle (in Days)" (change)="trackPaymentCycle($event)">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentCycle')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Buyer PaymentCycle</mat-label>
+                      <input matInput type="number" class="payfield" formControlName="BuyerPaymentCycle"
+                        placeholder="Payment Cycle (in Days)" (change)="trackPaymentCycle($event)">
+                      <mat-icon matSuffix>bar_chart</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentCycle')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <mat-select matInput formControlName="BuyerPaymentType" placeholder="Payment Type">
+                      <mat-option>Select Payment Type </mat-option>
+                      <mat-option *ngFor="let Session of CreditTypes; let i=index"
+                        [value]="Session.Key">{{Session.Name}}</mat-option>
+                    </mat-select>
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentType')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Payment Type</mat-label>
+                      <mat-select matInput formControlName="BuyerPaymentType" placeholder="Payment Type" required>
+                        <mat-option>--Select Payment Type--</mat-option>
+                        <mat-option *ngFor="let Session of CreditTypes; let i=index" [value]="Session.Key">
+                          {{Session.Name}}
+                        </mat-option>
+                      </mat-select>
+                      <mat-icon matSuffix>currency_exchange</mat-icon>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('BuyerPaymentType')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="login-button btn-blue min-wth-200">
+              <span (click)="BuyerSendInvite()">Submit</span>
+            </div> -->
+            <button mat-raised-button color="primary" (click)="BuyerSendInvite()">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+    <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+
+    <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+  </div>
+</div>

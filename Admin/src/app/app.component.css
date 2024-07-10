@@ -1,0 +1,244 @@
+ul li {
+    list-style: none;
+  }
+
+  /* .mat-toolbar {
+    padding: 0;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 1001;
+    background: #8abc40 !important
+  } */
+
+  /* .brand-logo {
+    padding: 3px 10px;
+    background: #46f819e1;
+  } */
+   /* .nav-icons {
+    position: absolute;
+    right: 10px;
+  }
+  span.dot {
+    padding: 6px;
+    height: 28px;
+    width: 31px;
+    background-color: #e06028f5;
+    border-radius: 52%;
+    display: inline-block;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: 1s;
+    position: relative;
+    top: 5px;
+  }
+  span.dot i.material-icons {
+    color: #ffffff;
+  }
+   */
+
+  /* sidenavbar css */
+  /* span.toggle-sideNav {
+    color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+  } */
+
+  /*Header Icon Yellow color dot Highlights*/
+  /* span.dot img {
+    width: 36px;
+    top: 2px;
+    left: 4px;
+    position: absolute;
+  } */
+  .active span.dot:before {
+    content: "";
+     width: 13px;
+     height: 13px;
+     border-radius: 10px;
+     position: absolute;
+     background-image: radial-gradient(circle, #ffffff, #ffffff, #FFEB3B, #FFEB3B, #FFEB3B);
+     right: 0px;
+     top: -5px;
+  }
+  .dot.blink:before {
+    display: block;
+    animation: blink 1s linear infinite;
+  }
+
+  @keyframes blink{
+    0%{transform: scale(.50)}
+    25%{transform: scale(1)}
+    50%{transform: scale(1.1)}
+    75%{transform: scale(1)}
+    100%{transform: scale(.50)}
+  }
+  /*Header Icon Yellow color dot Highlights*/
+
+  .userprofile {
+    padding: 10px 10px;
+    background: #f2f3f5;
+    border-bottom: 2px solid #d1d1d1;
+  }
+
+  /* Toaster Notification CSS s:tart */
+  .Toastr_Message {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    right: 10px;
+    top: 10px;
+    z-index: 1051;
+    background-color: #ffffff;
+    width: 345px;
+    height: 60px;
+    border-radius: 2px;
+    box-shadow: 0 11px 15px -7px rgba(0,0,0,.2), 0 24px 38px 3px rgba(0,0,0,.14), 0 9px 46px 8px rgba(0,0,0,.12);
+  }
+  .Message_Icon {
+   background-color: #d8d8d8;
+   line-height: 72px;
+   width: 45px;
+   height: 60px;
+   text-align: center;
+   color: #4c6a7a;
+  }
+  .Message_Icon i{
+    font-size: 30px;
+    margin-bottom: 27px;
+    /* offset-rotate: auto; */
+    -moz-transform: scale(-1, 1);
+    /* -webkit-transform: scale(-1, 1); */
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(1, 1);
+  }
+  .Message {
+   width: 300px;
+   padding: 0px 5px;
+   height: 60px;
+  }
+  .Message .Title{
+   margin: 0px;
+   font-size: 15px;
+   letter-spacing: 0.5px;
+   margin-top: 6px;
+   line-height: 25px;
+  }
+  .Message .body{
+   margin: 0px;
+   font-size: 13px;
+   letter-spacing: 0.1px;
+   font-weight: normal;
+   line-height: 20px;
+  }
+  .Message_Close {
+   position: absolute;
+   right: 0px;
+   top: 0px;
+   text-align: center;
+   color: #ffffff;
+   width: 25px;
+   height: 25px;
+   line-height: 33px;
+   background-color: transparent;
+   cursor: pointer;
+  }
+  .Message_Close i {
+   font-size: 20px;
+   font-weight: 600;
+  }
+  .Toastr_Message.Hidden{
+   display: none;
+  }
+  .Toastr_Message.Warning {
+   background-color: #FDBA29;
+   color: #ffffff;
+  }
+  .Toastr_Message.Success {
+   background-color: #82BD49;
+   color: #ffffff;
+  }
+  .Toastr_Message.Error {
+   background-color: #F03A37;
+   color: #ffffff;
+  }
+  .Toastr_Message.Info {
+   background-color: #21A1F0;
+   color: #ffffff;
+  }
+  .Warning .Message_Icon {
+   background-color: #dea322;
+   color: #ffffff;
+  }
+  .Success .Message_Icon{
+   background-color: #659239;
+   color: #ffffff;
+  }
+  .Error .Message_Icon{
+   background-color: #d03532;
+   color: #ffffff;
+  }
+  .Info .Message_Icon{
+   background-color: #2288c7;
+   color: #ffffff;
+  }
+  .loader {
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  /* bottom: -4px; */
+  top: 60px;
+  }
+  .loader:before{
+  display: block;
+  position: absolute;
+  content: "";
+  left: -100%;
+  width: 100%;
+  top: 1px;
+  height: 3px;
+  background-color: transparent;
+  border-top: 2px dashed;
+  animation: loading 3s linear;
+  }
+  .Warning .loader{
+   background-color: #FDBA29;
+  }
+  .Success .loader{
+   background-color: #82BD49;
+  }
+  .Error .loader{
+   background-color: #F03A37;
+  }
+  .Info .loader{
+   background-color: #21A1F0;
+  }
+  .Warning .loader:before{
+   border-color: #af801b;
+  }
+  .Success .loader:before{
+   border-color: #3e6518;
+  }
+  .Error .loader:before{
+   border-color: #8e1a18;
+  }
+  .Info .loader:before{
+   border-color: #1d73a9;
+  }
+  @keyframes loading {
+    from {left: -100%;}
+    to {left: 0%;}
+  }
+  /* Toaster Notification CSS end */
+
+
+
+
+
+  /* User Notification Panel CSS end */
+
+  .fa-sign-out:before {
+    color: #ffff;
+  }

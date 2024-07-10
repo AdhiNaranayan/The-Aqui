@@ -1,0 +1,98 @@
+.right{
+  background-color: bisque;
+  margin: 6px 0px 6px 1px;
+  padding: 13px 17px;
+  border-radius: 4px;
+}
+
+.right-buyer{
+  background-color: #94A0BF;
+  margin: 6px 0px 6px 1px;
+  padding: 13px 17px;
+  border-radius: 4px;
+}
+
+.left{
+  background-color: bisque;
+  margin: 6px 0px 6px 1px;
+  padding: 13px 17px;
+  border-radius: 4px;
+}
+
+.left-buyer{
+  background-color: #94A0BF;
+  margin: 6px 0px 6px 1px;
+  padding: 13px 17px;
+  border-radius: 4px;
+}
+
+.close-icon {
+  margin: 12px 0px 5px 445px;
+  padding: 3px 2px;
+  position: relative;
+  background-color: orange;
+  font-size: 21px;
+  color: white;
+  cursor: pointer;
+  border-radius: 22px;
+  right: 5px;
+  text-align: center;
+}
+
+.buyer-close-icon {
+  margin: 12px 0px 5px 445px;
+  padding: 3px 2px;
+  position: relative;
+  background-color: #313A64;
+  font-size: 21px;
+  color: white;
+  cursor: pointer;
+  border-radius: 22px;
+  right: 5px;
+  text-align: center;
+}
+
+.title {
+  color: orange;
+  font-size: 17px;
+  text-align: center;
+}
+
+.title-buyer {
+  color: #3737a0;
+  font-size: 17px;
+  text-align: center;
+}
+.sub-title {
+  text-align: center;
+  font-size: 14px;
+  color: black;
+}
+
+.titleOne {
+  color: orange;
+  font-size: 16px;
+}
+
+.titleOne-buyer {
+  color: #3737a0;
+  font-size: 16px;
+}
+
+.sub-content{
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.buy-card{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin: 43px 2px;
+}

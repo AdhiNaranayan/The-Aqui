@@ -1,0 +1,246 @@
+<div class="limiter" style="display: block;">
+  <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="bk-waves-gray" data-name="Layer 1"
+    viewBox="0 0 990.63 1151.42">
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #e8e8e8;
+          opacity: 0.35;
+        }
+
+        .cls-2 {
+          fill: #efefef;
+        }
+      </style>
+    </defs>
+    <title>web bg images</title>
+    <path class="cls-1"
+      d="M990.63,0V1151.42L922.26,999.76C891.54,931.63,872.07,841.21,866,738.27c-5.92-99.5.79-205.82,19.41-307.47,5.38-29.4,2.61-50.9-8.24-63.91-17.14-20.57-61.47-33.35-115.67-33.35-12.72,0-21.32.76-22.49.87l-3.63.41h-3.24c-5.5.07-11.09.1-16.6.1h-.08c-112.1,0-217.5-14.74-313.29-43.83C324.29,267.45,252.6,234.35,189,192.7,79.66,121.05,31.25,48.59,26.08,40.57L0,0Z">
+    </path>
+    <path class="cls-2"
+      d="M990.63,0V968.93c-55.15-122.33-67.18-329.76-31.5-524.63,39-213-228-184.49-228-184.49-471,6-642-259.81-642-259.81Z">
+    </path>
+  </svg>
+  <div class="content-wrapper">
+    <div class="default-container">
+      <!-- <div class="table-head-title" *ngIf="CustomerCategory === 'Seller'">
+        <h4>User Management</h4>
+      </div>
+      <div class="Buyer-head-title" *ngIf="CustomerCategory === 'Buyer'">
+        <h4>User Management</h4>
+      </div> -->
+      <div>
+        <a class="create-button-btn animated fadeInDown" (click)="CreateUser()">Create New</a>
+        <a class="create-icon-btn animated fadeInDown" (click)="CreateUser()"> </a>
+      </div>
+      <br>
+      <br>
+      <div class="tbl-filter-container">
+        <div class="tbl-row-display">
+          <span class="label-show-limits">
+            show Limits
+          </span>
+          <mat-form-field>
+            <mat-select [(ngModel)]="LimitCount" (ngModelChange)="Pagination_Action(1)">
+              <mat-option [value]="6">6</mat-option>
+              <mat-option [value]="12">12</mat-option>
+              <mat-option [value]="30">30</mat-option>
+              <mat-option [value]="60">60</mat-option>
+              <mat-option [value]="120">120</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="">
+          <div class="filter-parent">
+            <ng-container *ngFor="let Filter of FiltersArray; let i=index">
+              <div *ngIf="Filter.Active" class="filter-result">
+                <div class="filter-info">
+                  <span class="label"> {{Filter.DisplayName}} </span>
+                  <span *ngIf="Filter.Type === 'String' && Filter.Key === 'ContactName'" class="value"> {{
+                    Filter.Value}} </span>
+                  <span *ngIf="Filter.Type === 'String' && Filter.Key === 'Email'" class="value">
+                    {{ Filter.Value }} </span>
+                  <span *ngIf="Filter.Type === 'String' && Filter.Key === 'Mobile'" class="value">
+                    {{ Filter.Value }} </span>
+                </div>
+                <span class="Filter-close">
+                  <i class="fa fa-close" (click)="RemoveFilter(i)"></i>
+                </span>
+              </div>
+            </ng-container>
+            <div class="filter-icon" (click)="openFilterModal(template)"><span><i class="fa fa-filter"
+                  aria-hidden="true"></i></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper" *ngIf="OwnerOfUsers.length > 0">
+        <ng-container *ngFor="let user of OwnerOfUsers;let i=index">
+          <div class="box">
+            <div class="wd-header">{{user?.ContactName}}
+              <div class="wd-icon">
+                <span class="material-icons" (click)="ViewCustomer(i)">remove_red_eye</span>
+                <span class="material-icons" (click)="EditUserDetails(i)">mode_edit</span>
+              </div>
+            </div>
+            <div class="wd-content">
+              <table class="wd-table">
+                <tbody>
+                  <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td>{{user?.Email}}</td>
+                  </tr>
+                  <tr>
+                    <td>Mobile</td>
+                    <td>:</td>
+                    <td>{{user?.Mobile}}</td>
+                  </tr>
+                  <tr>
+                    <td>CustomerCategory</td>
+                    <td>:</td>
+                    <td>{{user?.CustomerCategory}}</td>
+                  </tr>
+                  <tr>
+                    <td>CustomerType</td>
+                    <td>:</td>
+                    <td>{{user?.CustomerType}}</td>
+                  </tr>
+                  <tr>
+                    <td>Created Date</td>
+                    <td>:</td>
+                    <td> {{user?.createdAt | date: 'd-MMM-y'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="No-data-found" *ngIf="OwnerOfUsers.length === 0 ">No User To Display</div>
+      <div class="pagination-container">
+        <div class="go-page">
+          <div class="number-go-page ">
+            <span class="lbl-go-page  label-show-limits">Go Page</span>
+            <input type="number" style="border:none" autocomplete="off" min="1" max="{{PagesArray.length}}"
+              [(ngModel)]="GoToPage">
+            <span class="bnt-go-page">
+              <span class="txt" (click)="Pagination_Action(GoToPage)">GO</span>
+            </span>
+          </div>
+        </div>
+        <div class="show-records">
+          <div class="txt-show-records" [innerHTML]="ShowingText"></div>
+          <!-- <div class="txt-show-records">Showing <span>1</span> to <span>5</span> out of <span>97</span>  entries</div> -->
+        </div>
+
+        <div class="pagination-number">
+          <ul class="pagination hidden-xs">
+            <li>
+              <a class="{{PagePrevious['Class']}}" (click)="Pagination_Action(PagePrevious['Value'])"
+                matTooltip="Previous">
+                <p><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <li *ngFor="let Page of PagesArray; let i=index" class="{{Page.Class}}" [ngClass]="{'active': Page.Active}"
+              (click)="Pagination_Action(Page.Value)">
+              <a>
+                <p>{{Page.Text}}</p>
+              </a>
+            </li>
+            <li class="{{PageNext['Class']}}" (click)="Pagination_Action(PageNext['Value'])" matTooltip="Next">
+              <a>
+                <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <!-- <li>
+                            <a class="" matTooltip="Previous">
+                               <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+                            </a>
+                         </li> -->
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+    <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+
+    <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+  </div>
+</div>
+<ng-template #template>
+  <div class="limiter" style="display: block;">
+    <div class="custom-modal modal-container">
+      <div class="modal-close-btn" (click)="modalReference.hide();">
+        <div class="close-icon">
+          <span>
+            <i class="fa fa-close" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+      <div class="content-area">
+        <h1>User Filters</h1>
+        <div class="modal-content-body">
+          <div class="content">
+            <form [formGroup]="FilterFGroup">
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Contact Name</mat-label>
+                        <input matInput formControlName="ContactName" placeholder="Contact Name">
+                        <mat-icon matSuffix>badge</mat-icon>
+                        <mat-error [innerHTML]="GetFormControlErrorMessage('ContactName')"></mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Mobile Number</mat-label>
+                        <input matInput formControlName="Mobile" placeholder="Mobile">
+                        <mat-icon matSuffix>call</mat-icon>
+                        <mat-error [innerHTML]="GetFormControlErrorMessage('Mobile')">
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>E-mail</mat-label>
+                        <input matInput formControlName="Email" placeholder="E-mail">
+                        <mat-icon matSuffix>mail</mat-icon>
+                        <mat-error [innerHTML]="GetFormControlErrorMessage('Email')"></mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button mat-fab extended color="warn" *ngIf="FilterFGroupStatus" (click)="ResetFilters()">
+          <mat-icon>clear_All</mat-icon>
+          Reset
+        </button>
+
+        <button mat-fab extended color="primary" [disabled]="!FilterFGroupStatus"
+          [ngClass]="{'disabled': !FilterFGroupStatus}" (click)="SubmitFilters()">
+          <mat-icon>search</mat-icon>
+          Search
+        </button>
+      </div>
+      <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+
+      <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+    </div>
+  </div>
+</ng-template>

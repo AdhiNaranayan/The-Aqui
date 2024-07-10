@@ -1,0 +1,40 @@
+.inv-tab {
+  margin: 50px 80px;
+  padding: 0px 20px;
+}
+
+
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #FAA300; /* Change the background color */
+
+}
+
+/* Change the font color of the tab labels */
+::ng-deep .mat-tab-group.mat-primary .mat-tab-label,
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-tab-label {
+  color: #1B1A55;;
+  transition: color 0.3s ease;  /* Smooth transition for color change */
+}
+
+/* Change the font color on hover */
+::ng-deep .mat-tab-group.mat-primary .mat-tab-label:hover,
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-tab-label:hover {
+  color: #1B1A55;/* Color on hover */
+}
+
+/* Change the font color when tab is active */
+::ng-deep .mat-tab-group.mat-primary .mat-tab-label.mat-tab-label-active,
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-tab-label.mat-tab-label-active {
+  color: #FAA300;;  /* Color when the tab is active */
+}
+
+/* Change the ripple effect color on click */
+/* ::ng-deep .mat-tab-group.mat-primary .mat-tab-label.mat-tab-label-active .mat-ripple-element,
+::ng-deep .mat-tab-nav-bar.mat-primary .mat-tab-label.mat-tab-label-active .mat-ripple-element {
+  background-color:  #FFDD95;;
+} */
+
+
+

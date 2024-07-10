@@ -1,0 +1,441 @@
+header.main-header {
+    box-shadow: 0px 8px 16px #9e9e9e59;
+    background: #313A66;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+}
+.sub-header {
+    width: 100%;
+    background: #f2940c;
+    height: 20px;
+    text-align: right;
+}
+.sub-header ul li {
+    margin-left: 10px;
+}
+.brand{
+    float: left;
+}
+.brand img {
+    max-width: 60px;
+    width: 100%;
+}
+.user-profile {
+    color: #fff;
+    text-align: right;
+    font-weight: 500;
+    font-style: italic;
+}
+span.user-name {
+    margin: 0 5px;
+}
+.icon .fa{ color: #ffffff; }
+
+
+/*#nav > ul {
+     padding: 0;
+	 margin: 0;
+	 position: relative;
+    right: 7.5em; 
+}
+*/
+
+#nav {
+    display: flex;
+    justify-content: flex-end;
+}
+.nav-bar-parent ul {
+    margin-right: 10px;
+}
+
+			#nav > a
+			{
+				display: none;
+			}
+
+			#nav li
+			{
+				position: relative;
+			}
+				#nav li a
+				{
+                    color: #ffffff;
+                    display: block;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 30px;
+				}
+
+			#nav span:after
+			{
+				width: 0;
+				height: 0;
+				border: 0.313em solid transparent; /* 5 */
+				border-bottom: none;
+				border-top-color: rgb(242, 148, 12);
+				content: '';
+				vertical-align: middle;
+				display: inline-block;
+				position: relative;
+				right: -0.313em; /* 5 */
+			}
+
+			/* first level */
+
+				#nav > ul > li
+				{
+                    padding: 10px 30px;
+                    display: inline-block;
+                    text-align: center;
+				}
+					/* #nav > ul > li > a
+					{
+						height: 100%;
+						font-size: 1.5em; 
+						line-height: 2.5em;  
+						text-align: center;
+					} */
+						
+						#nav > ul > li:hover > a,
+                        #nav > ul:not( :hover ) > li.active > a,
+                        #nav > ul > li ul> li:hover > a,
+                        #nav > ul:not( :hover ) > ul li.active > a,
+                        #nav >ul > li:hover .menu-icon .fa,
+                        #nav >ul > li.active .menu-icon .fa
+                        
+						{
+							font-weight: 500;
+                            color: rgb(242, 148, 12);
+                            text-decoration: none;
+						}
+
+
+				/* second level */
+
+				#nav li ul
+				{
+					background-color: rgb(255, 255, 255)fff;
+					box-shadow: 1px 1px 10px 1px #9e9e9e7a;
+					display: none;
+					position: absolute;
+					top: 100%;
+					padding: 0;
+					margin-top: 0px !important;
+				}
+					#nav li:hover ul, #nav li.active ul
+					{
+						display: block;
+					}
+                        #nav li:not( :first-child ):hover ul,
+                        #nav li.active ul
+						{
+							left: -1px;
+						}
+						
+							#nav li ul li:hover,
+							#nav li ul:not( :hover ) li.active a
+							{
+                                box-shadow: 1px 1px 10px 1px #9e9e9e7a;
+							}
+#nav ul li:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: rgb(242, 148, 12);
+    height: 4px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+#nav ul li:hover:before, #nav ul li.active:before, #nav ul li ul li:hover {
+    right: 0;
+    z-index: 1;
+}
+.menu-icon:after {
+    border: none !important;
+}
+
+
+		@media only screen and ( max-width: 40em ) /* 640 */
+		{
+			html
+			{
+				font-size: 75%; /* 12 */
+			}
+
+			#nav
+			{
+				position: relative;
+				top: auto;
+				left: auto;
+			}
+				#nav > a
+				{
+					width: 3.125em;
+					height: 3.125em;
+					text-align: left;
+					text-indent: -9999px;
+					background-color: rgb(242, 148, 12);
+					position: relative;
+					position: absolute;
+					z-index: 99;
+					top: -55px;
+					right: 6px;
+				}
+					#nav > a:before,
+					#nav > a:after
+					{
+						position: absolute;
+						border: 2px solid rgb(255, 255, 255);
+						top: 35%;
+						left: 25%;
+						right: 25%;
+						content: '';
+					}
+					#nav > a:after
+					{
+						top: 60%;
+					}
+
+				#nav:not( :target ) > a:first-of-type,
+				#nav:target > a:last-of-type
+				{
+					display: block;
+				}
+
+
+			/* first level */
+
+			#nav > ul
+			{
+				height: auto;
+				display: block;
+				position: absolute;
+				left: 10px;
+				right: 0;
+				background: rgb(255, 255, 255);
+				box-shadow: 0px 9px 10px 3px #9e9e9e82;
+				border-bottom-left-radius: 15px;
+				border-bottom-right-radius: 15px;
+			}
+				#nav:target > ul
+				{
+					display: block;
+				}
+				#nav > ul > li
+				{
+					width: 100%;
+					float: none;
+				}
+					#nav > ul > li > a
+					{
+						height: auto;
+						text-align: left;
+						padding: 0 0.833em; /* 20 (24) */
+					}
+						#nav > ul > li:not( :last-child ) > a
+						{
+							border-right: none;
+							border-bottom: 1px solid rgb(242, 148, 12);
+						}
+
+
+				/* second level */
+
+				#nav li ul
+				{
+					position: static;
+					padding: 1.25em; /* 20 */
+					padding-top: 0;
+				}
+		}
+
+
+
+#nav ul li {
+	padding: 7px 15px;
+	display: inline-block;
+	position: relative;
+	transition: 0.6s;
+}
+/* #nav ul li:hover {
+		box-shadow: 1px 1px 10px 1px #9e9e9e7a;
+		transition: 0.6s;
+		border-bottom: 4px solid rgb(242, 148, 12);
+} */
+#nav > ul > li:hover, #nav > ul:not( :hover ) > li.active {
+	box-shadow: 1px 1px 10px 1px #9e9e9e7a;
+}
+
+/* 1st sub level*/
+#nav li ul li {
+	width: 100%;
+	min-width: 150px;
+    padding: 5px 12px;
+    background: rgb(49, 58, 102);
+    text-align: left;
+}
+
+#nav ul li.active, #nav li ul li.active {
+	/* box-shadow: 1px 1px 10px 1px #9e9e9e7a;
+    border-bottom: 4px solid rgb(242, 148, 12); */
+    box-shadow: 1px 1px 10px 1px #9e9e9e7a;
+}
+#nav li ul li.active a {
+	font-weight: 500;
+	color: rgb(242, 148, 12);
+}
+.nav-bar-parent ul li:last-child ul {
+    left: -25px !important;
+}
+
+
+
+
+
+/* notification panel start*/
+.notification {
+    position: relative;
+}
+span.new-notify {
+    position: absolute;
+    background: #313a66;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    color: #fff;
+    left: -6px;
+    top: 0px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 12px;
+}
+.notify-panel-wrapper {
+    z-index: 1;
+    position: relative;
+    top: -20px;
+    display: none;
+}
+.sub-header ul li .notification:hover .notify-panel-wrapper {
+    /* display: block; */
+}
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffffff;
+    position: absolute;
+    top: 20px;
+    right: -3px;
+}
+.notify-panel {
+    position: absolute;
+    background: #fff;
+    min-width: 350px;
+    right: -85px;
+    top: 30px;
+    z-index: 1;
+    box-shadow: 1px 1px 20px 14px #2323233d;
+    /* padding: 12px; */
+}
+.notification-list {
+    max-height:220px;
+    overflow: auto;
+}
+.notification-list ul li {
+    display: grid;
+    grid-template-columns: 0fr 1fr;
+    grid-gap: 5px;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 2px;
+    color: #313a66;
+    padding: 3px 6px;
+    cursor: default;
+}
+.notification-list ul li:hover {
+    text-shadow: 2px 2px 8px #9E9E9E;
+}
+.notification-list ul li .box-1.notify-user-img img {
+    max-width: 40px;
+    padding-top: 3px;
+}
+.notification-list ul li .box-2 {
+    padding-left: 5px;
+}
+.notification-list ul li .box-3{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: right;
+}
+.notification-list ul li.withOut-read {
+    background: #ececec;
+}
+.notification-list ul li span.date-time {
+    font-size: 13px;
+    color: #777;
+}
+.notify-header div, .notify-footer div {
+    display: inline-block;
+}
+.notify-header {
+    text-align: left;
+    padding: 10px;
+    background: #f2940c;
+    color: #fff;
+}
+.notify-label {
+    text-transform: capitalize;
+    letter-spacing: 0.7px;
+    font-weight: 500;
+}
+.notify-new {
+    float: right;
+    color: white;
+    background: #313a66;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 22px;
+}
+.notify-new span.notify-lbl-new {
+    top: 24px;
+    right: 12px;
+    position: absolute;
+    font-size: 10px;
+    text-align: center;
+    color: #ffffff;
+    font-style: italic;
+}
+.notify-footer {
+    text-align: left;
+    padding: 5px;
+    background: #313a66;
+	color: #fff;
+	display: flex;
+    justify-content: space-between;
+}
+.notify-lbl-mark-as-read {    
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.5s;
+    padding: 10px 5px;
+    line-height: 0;
+}
+.notify-lbl-mark-as-read:hover {
+    box-shadow: 0px 1px 4px #9e9e9e8f;
+    color: #f2940c;
+}
+/* notification panel start*/

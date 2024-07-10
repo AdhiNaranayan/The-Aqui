@@ -1,0 +1,12 @@
+@media screen and (min-width: 992px) {
+    .user-create-form .form-group label, .user-filter-form .form-group label {
+      line-height: 50px;
+      white-space: nowrap;
+    }
+  }
+
+  @media screen and (max-width: 991px){
+    .pagination-container, .go-page, .pagination-number, .show-records{
+        flex-grow: 0 !important;
+    }
+  }

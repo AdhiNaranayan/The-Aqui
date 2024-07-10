@@ -1,0 +1,130 @@
+<div class="limiter " style="display: block;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="bk-waves-gray" data-name="Layer 1"
+    viewBox="0 0 990.63 1151.42">
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #e8e8e8;
+          opacity: 0.35;
+        }
+
+        .cls-2 {
+          fill: #efefef;
+        }
+      </style>
+    </defs>
+    <title>web bg images</title>
+    <path class="cls-1"
+      d="M990.63,0V1151.42L922.26,999.76C891.54,931.63,872.07,841.21,866,738.27c-5.92-99.5.79-205.82,19.41-307.47,5.38-29.4,2.61-50.9-8.24-63.91-17.14-20.57-61.47-33.35-115.67-33.35-12.72,0-21.32.76-22.49.87l-3.63.41h-3.24c-5.5.07-11.09.1-16.6.1h-.08c-112.1,0-217.5-14.74-313.29-43.83C324.29,267.45,252.6,234.35,189,192.7,79.66,121.05,31.25,48.59,26.08,40.57L0,0Z">
+    </path>
+    <path class="cls-2"
+      d="M990.63,0V968.93c-55.15-122.33-67.18-329.76-31.5-524.63,39-213-228-184.49-228-184.49-471,6-642-259.81-642-259.81Z">
+    </path>
+  </svg>
+
+
+
+</div>
+
+<div class="content-wrappers">
+  <div class="default-container tbl-client-container">
+    <!-- <div class="table-head-title">
+      <h4>Calendar</h4>
+    </div> -->
+  </div>
+</div>
+
+<!-- <div class="content-wrappers mt-5" >
+  <div class="default-container tbl-client-container">
+    <div class="Buyer-head-title">
+      <h4>Dashboard</h4>
+    </div>
+  </div>
+</div> -->
+
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-md-12">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <!-- <mat-card-title>
+            <h2>{{ getFormattedDate() }}</h2>
+          </mat-card-title> -->
+          <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+          <!-- calendar.component.html -->
+
+          <!-- calendar.component.html -->
+
+          <div class="calendar-container">
+
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <h2>{{ getFormattedDate()}}</h2>
+                </div>
+                <div class="col-md-4">
+                  <!-- <div class="input-group">
+                    <select class="custom-select" id="inputGroupSelect04" [(ngModel)]="selectedYear"
+                      (change)="onYearChange()">
+                      <option *ngFor="let year of getSelectableYears()" [value]="year">{{ year }}</option>
+                    </select>
+                  </div> -->
+                </div>
+                <div class="col-md-4">
+                  <button class="previous" (click)="getPreviousMonth()">
+                    <img src="../../../assets/images/web_icons/back.png" alt="Previous">
+                  </button>
+                  <button class="next" (click)="getNextMonth()">
+                    <img src="../../../assets/images/web_icons/next.png" alt="Next">
+                  </button>
+                </div>
+              </div>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Sun</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let week of getDaysInMonth(currentDate.getFullYear(), currentDate.getMonth())">
+                  <td *ngFor="let day of week" [class.empty-cell]="day === 0" [class.today]="isToday(day)"
+                    (click)="onDateClick(day)">
+                    {{ day !== 0 ? day : '' }}
+                    <div *ngFor="let event of events">
+                      <div *ngIf="parseDate(event.Date).getDate() === day">
+
+                        <ng-container *ngIf="CustomerCategory === 'Buyer'">
+                          <span class="buy-Amnt">₹ {{ event.InvoiceAmount > 0 ? event.InvoiceAmount : '' }}</span>
+                        </ng-container>
+                        <ng-container *ngIf="CustomerCategory === 'Seller'">
+                          <!-- <span class="buy-Amnt">{{ event.InvoiceAmount > 0 ? '₹ ' + event.InvoiceAmount : '' }}</span> -->
+                          <span class="Sell-Amnt">{{ event.InvoiceAmount > 0 ? '₹ ' + event.InvoiceAmount : '' }}</span>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <!-- <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button> -->
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

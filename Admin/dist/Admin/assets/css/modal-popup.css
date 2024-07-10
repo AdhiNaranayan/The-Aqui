@@ -1,0 +1,67 @@
+.custom-modal.modal-container {
+    /* min-height: 350px; */
+    position: relative;
+}
+.custom-modal.modal-container svg {
+    position: absolute;
+}
+.custom-modal.modal-container .modal-close-btn {
+    position: absolute;
+    top: 0;
+    width: 70px;
+    height: 70px;
+    background: #f2940c;
+    font-size: 26px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 70px;
+    cursor: pointer;
+    z-index: 1;
+}
+.custom-modal.modal-container .modal-close-btn .close-icon {
+    position: absolute;
+    top: 13px;
+    left: 20px;
+}
+.custom-modal.modal-container .content-area {
+    position: relative;
+}
+.custom-modal.modal-container .content-area h1 {
+    text-align: center;
+    padding-top: 10px;
+}
+.custom-modal.modal-container .content-area .modal-content-body {
+    max-height: 440px;
+    /* min-height: 208px; */
+    overflow: auto;
+    margin: 15px 25px;
+    padding: 15px;    
+    box-shadow: inset 0 0 6px 0px #efefef;
+    z-index: 1;
+    position: relative;
+}
+.custom-modal.modal-container .modal-footer {
+    background: #efefef1c;
+    padding: 10px;
+    padding-bottom: 15px;
+    border: 0;
+    z-index: 1;
+    position: relative;
+}
+.custom-modal.modal-container .modal-footer .btn-blue {
+    margin-top: 0;
+    text-align: left;
+    border: 0;
+}
+.custom-modal.modal-container .modal-footer .btn-blue span .fa {
+    padding-left: 10px;
+    color: #f1930c;
+    float: right;
+    font-size: 18px;
+}
+
+
+
+/* overwrite default modal css start */
+.modal-content {
+    border: none !important;
+}

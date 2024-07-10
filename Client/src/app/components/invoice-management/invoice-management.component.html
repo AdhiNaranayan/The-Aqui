@@ -1,0 +1,713 @@
+<div class="limiter" style="display: block;">
+  <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="bk-waves-gray" data-name="Layer 1"
+    viewBox="0 0 990.63 1151.42">
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #e8e8e8;
+          opacity: 0.35;
+        }
+
+        .cls-2 {
+          fill: #efefef;
+        }
+      </style>
+    </defs>
+    <title>web bg images</title>
+    <path class="cls-1"
+      d="M990.63,0V1151.42L922.26,999.76C891.54,931.63,872.07,841.21,866,738.27c-5.92-99.5.79-205.82,19.41-307.47,5.38-29.4,2.61-50.9-8.24-63.91-17.14-20.57-61.47-33.35-115.67-33.35-12.72,0-21.32.76-22.49.87l-3.63.41h-3.24c-5.5.07-11.09.1-16.6.1h-.08c-112.1,0-217.5-14.74-313.29-43.83C324.29,267.45,252.6,234.35,189,192.7,79.66,121.05,31.25,48.59,26.08,40.57L0,0Z">
+    </path>
+    <path class="cls-2"
+      d="M990.63,0V968.93c-55.15-122.33-67.18-329.76-31.5-524.63,39-213-228-184.49-228-184.49-471,6-642-259.81-642-259.81Z">
+    </path>
+  </svg>
+  <div class="content-wrapper">
+    <div class="default-container">
+      <!-- <div class="table-head-title" *ngIf="CustomerCategory === 'Seller'">
+        <h4>Invoices </h4>
+      </div> -->
+      <!-- <div class="Buyer-head-title" *ngIf="CustomerCategory === 'Buyer'">
+        <h4>Invoices</h4>
+      </div> -->
+      <div *ngIf="this.CustomerCategory === 'Seller'">
+        <a class="create-button-btn animated fadeInDown" (click)="CreateInvoice()">Create New</a>
+        <a class="create-icon-btn animated fadeInDown" (click)="CreateInvoice()"> </a>
+        <br>
+        <br>
+      </div>
+
+      <!-- <div class="col-md-12">
+        <div class="row">
+          <div class=" col-md-7">
+            <label class="text-left side-field-title"> </label>
+            <div class="wrapper-slide">
+            </div>
+          </div>
+          <div class="col-md-5">
+            <label class="text-left side-field-title"> <b>Invoice Status spilt</b> </label>
+            <div class="wrapper-slide">
+              <div *ngFor="let Invoice of InvoiceStatusArr;let i=index;" class="boxStatus"
+                [ngClass]="{'active': ActiveInvoiceStatus === Invoice?.Key }">
+                <span class="generate-btn btn-delivery-lst" (click)="ChangeInvoiceStatus(Invoice.Key)"> {{Invoice.Name}}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!--Modified Tab -->
+      <div class="container-fluid mt-1">
+        <div class="row">
+          <div class="col-md-12">
+            <mat-tab-group class="inv-tab" mat-stretch-tabs mat-align-tabs="center"
+              (selectedIndexChange)="tabChanged($event)">
+              <mat-tab *ngFor="let Invoice of InvoiceStatusArr">
+                <ng-template mat-tab-label>
+                  <button style="background: none; border: none; padding: 0; cursor: pointer;">
+                    <span>{{ Invoice.Name }}
+                      <!-- <span *ngIf="this.CustomerCategory === 'Seller'">
+                        <span class="badge badge-pill badge-seller"
+                          *ngIf="Invoice.Name === 'Open'">{{OpenCounts}}</span>
+                        <span class="badge badge-pill badge-seller"
+                          *ngIf="Invoice.Name === 'Accept'">{{AcceptedCounts}}</span>
+                        <span class="badge badge-pill badge-seller"
+                          *ngIf="Invoice.Name === 'Dispute'">{{DisputedCounts}}</span>
+                      </span>
+                      <span *ngIf="this.CustomerCategory === 'Buyer'">
+                        <span class="badge badge-pill badge-buyer" *ngIf="Invoice.Name === 'Open'">{{OpenCounts}}</span>
+                        <span class="badge badge-pill badge-buyer"
+                          *ngIf="Invoice.Name === 'Accept'">{{AcceptedCounts}}</span>
+                        <span class="badge badge-pill badge-buyer"
+                          *ngIf="Invoice.Name === 'Dispute'">{{DisputedCounts}}</span>
+                      </span> -->
+
+                    </span>
+                  </button>
+                </ng-template>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="tbl-filter-container">
+        <div class="tbl-row-display">
+          <span class="label-show-limits">
+            show Limits
+          </span>
+          <mat-form-field *ngIf="ActiveInvoiceStatus === 'Open' && this.CustomerCategory === 'Buyer'">
+            <mat-select [(ngModel)]="LimitCount" (ngModelChange)="BuyerPendingPagination_Action(1)">
+              <mat-option [value]="6">6</mat-option>
+              <mat-option [value]="12">12</mat-option>
+              <mat-option [value]="30">30</mat-option>
+              <mat-option [value]="60">60</mat-option>
+              <mat-option [value]="120">120</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field *ngIf="ActiveInvoiceStatus === 'Accepted' && this.CustomerCategory === 'Buyer'">
+            <mat-select [(ngModel)]="LimitCount" (ngModelChange)="BuyerAcceptPagination_Action(1)">
+              <mat-option [value]="6">6</mat-option>
+              <mat-option [value]="12">12</mat-option>
+              <mat-option [value]="30">30</mat-option>
+              <mat-option [value]="60">60</mat-option>
+              <mat-option [value]="120">120</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field *ngIf="ActiveInvoiceStatus === 'Disputed' && this.CustomerCategory === 'Buyer'">
+            <mat-select [(ngModel)]="LimitCount" (ngModelChange)="BuyerDisputedPagination_Action(1)">
+              <mat-option [value]="6">6</mat-option>
+              <mat-option [value]="12">12</mat-option>
+              <mat-option [value]="30">30</mat-option>
+              <mat-option [value]="60">60</mat-option>
+              <mat-option [value]="120">120</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field *ngIf="ActiveInvoiceStatus === 'Open' && this.CustomerCategory === 'Seller'">
+            <mat-select [(ngModel)]="LimitCount" (ngModelChange)="SellerPendingPagination_Action(1)">
+              <mat-option [value]="6">6</mat-option>
+              <mat-option [value]="12">12</mat-option>
+              <mat-option [value]="30">30</mat-option>
+              <mat-option [value]="60">60</mat-option>
+              <mat-option [value]="120">120</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field *ngIf="ActiveInvoiceStatus === 'Accepted' && this.CustomerCategory === 'Seller'">
+            <mat-select [(ngModel)]="LimitCount" (ngModelChange)="SellerAcceptPagination_Action(1)">
+              <mat-option [value]="6">6</mat-option>
+              <mat-option [value]="12">12</mat-option>
+              <mat-option [value]="30">30</mat-option>
+              <mat-option [value]="60">60</mat-option>
+              <mat-option [value]="120">120</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field *ngIf="ActiveInvoiceStatus === 'Disputed' && this.CustomerCategory === 'Seller'">
+            <mat-select [(ngModel)]="LimitCount" (ngModelChange)="SellerDisputedPagination_Action(1)">
+              <mat-option [value]="6">6</mat-option>
+              <mat-option [value]="12">12</mat-option>
+              <mat-option [value]="30">30</mat-option>
+              <mat-option [value]="60">60</mat-option>
+              <mat-option [value]="120">120</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="">
+          <div class="filter-parent">
+            <ng-container *ngFor="let Filter of FiltersArray; let i=index">
+              <div *ngIf="Filter.Active" class="filter-result">
+                <div class="filter-info">
+                  <span class="label"> {{Filter.DisplayName}} </span>
+                  <span *ngIf="Filter.Type === 'String' && Filter.Key === 'InvoiceNumber'" class="value"> {{
+                    Filter.Value}} </span>
+                  <span *ngIf="Filter.Type === 'String' && Filter.Key === 'InvoiceAmount'" class="value">
+                    {{ Filter.Value}} </span>
+                </div>
+                <span class="Filter-close">
+                  <i class="fa fa-close" (click)="RemoveFilter(i)"></i>
+                </span>
+              </div>
+            </ng-container>
+            <div class="filter-icon" (click)="openFilterModal(template)"><span><i class="fa fa-filter"
+                  aria-hidden="true"></i></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-4" *ngIf="ActiveInvoiceStatus === 'Open' && this.CustomerCategory === 'Buyer'">
+        <div class="row">
+          <div class="col-md-8"></div>
+          <div class="col-md-4">
+            <!-- <div class="wrapper-slide">
+              <div *ngFor="let Invoice of InvoiceStatusArray;let i=index;"
+                [ngClass]="{'active': ActiveAcceptAndDisputed === Invoice?.Key }">
+                <span class="generate-btn btn btn-delivery-lst" (click)="SwitchToAcceptAndDisputed(Invoice.Key)">
+                  {{Invoice.Name}} &nbsp;<img *ngIf="Invoice.Name === 'Accept'"
+                    src="../../../assets/images/MobileIcons/ic_accept.png" alt="Accept" width="20px" height="20px">
+                  <img *ngIf="Invoice.Name === 'Dispute'" src="../../../assets/images/MobileIcons/ic_disput.png"
+                    alt="Dispute" width="20px" height="20px"> </span>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper" *ngIf="InvoiceDetails.length > 0 && this.CustomerCategory === 'Buyer'">
+        <ng-container *ngFor="let invoice of InvoiceDetails;let i=index">
+          <div [ngClass]="{'box-paid': invoice.PaidORUnpaid === 'Paid', 'box-unpaid': invoice.PaidORUnpaid !== 'Paid'}">
+
+            <div class="wd-header">{{invoice?.InvoiceNumber}}
+              <div class="sts-icon">
+                <img src="../../../assets/images/MobileIcons/ic_fullypaid.png" alt="Fully Paid" width="20px"
+                  height="20px" *ngIf="invoice.PaidORUnpaid === 'Paid'">
+                <!-- <img src="../../../assets/images/MobileIcons/partiallypaidone.png" alt="Fully Paid" width="20px"
+                  height="20px">
+                <img src="../../../assets/images/MobileIcons/partiallypaidtwo.png" alt="Fully Paid" width="20px"
+                  height="20px"> -->
+                <img src="../../../assets/images/MobileIcons/partiallypaidthree.png" alt="Fully Paid" width="20px"
+                  height="20px" *ngIf="invoice.PaidORUnpaid === 'Unpaid'">
+              </div>
+              <div class="wd-icon">
+                <span class="material-icons" (click)="ViewInvoicesDetails(i)">
+                  <img src="../../../assets/images/MobileIcons/ic_eye.png" class="mb-2" alt="View" height="20px"
+                    width="20px">
+                </span>
+                <span class="material-icons" (click)="ResInv(invoice)" *ngIf="invoice?.InvoiceStatus === 'Pending'">
+                  <img src="../../../assets/images/MobileIcons/ic_accept.png" class="mb-2" alt="Accept" height="20px"
+                    width="20px">
+                </span>
+                <!-- (click)="ResInv(invoice)" -->
+                <!-- <span class="material-icons">
+                    <div *ngIf="ActiveInvoiceStatus === 'Open'">
+                      <mat-checkbox [checked]="invoice.WaitingFroApproval" (change)="WaitForApproval($event, i)"
+                        [disabled]="DisableCheckBox && !(this.InvoiceDetails[i].WaitingForApproval)">
+                      </mat-checkbox>
+                    </div>
+                  </span> -->
+              </div>
+            </div>
+            <div class="wd-content">
+              <table class="wd-table">
+                <tbody>
+                  <tr>
+                    <td>Seller</td>
+                    <td>:</td>
+                    <td>{{invoice?.Seller?.ContactName}}</td>
+                  </tr>
+                  <tr>
+                    <td>Mobile</td>
+                    <td>:</td>
+                    <td>{{invoice?.Seller?.Mobile}}</td>
+                  </tr>
+                  <tr>
+                    <td>Seller Business Name</td>
+                    <td>:</td>
+                    <td>{{invoice?.Business?.FirstName + ' ' + invoice?.Business?.LastName}}</td>
+                  </tr>
+                  <tr>
+                    <td>InvoiceAmount</td>
+                    <td>:</td>
+                    <td>{{invoice?.InvoiceAmount}}</td>
+                  </tr>
+                  <tr>
+                    <td>Paid Amount</td>
+                    <td>:</td>
+                    <td>{{invoice?.PaidAmount}}</td>
+                  </tr>
+                  <tr>
+                    <td>Remaining Amount</td>
+                    <td>:</td>
+                    <td> {{invoice?.RemainingAmount}} </td>
+                  </tr>
+                  <tr>
+                    <td>Invoice Date</td>
+                    <td>:</td>
+                    <td> {{invoice?.InvoiceDate | date: 'd-MMM-y'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="wrapper" *ngIf="InvoiceDetails.length > 0 && this.CustomerCategory === 'Seller'">
+        <ng-container *ngFor="let invoice of InvoiceDetails;let i=index">
+          <div [ngClass]="{'box-paid': invoice.PaidORUnpaid === 'Paid', 'box-unpaid': invoice.PaidORUnpaid !== 'Paid'}">
+            <div class="wd-header">{{invoice.InvoiceNumber}}
+              <div class="sts-icon">
+                <img src="../../../assets/images/MobileIcons/ic_fullypaid.png" alt="Fully Paid" width="20px"
+                  height="20px" *ngIf="invoice.PaidORUnpaid === 'Paid'">
+                <!-- <img src="../../../assets/images/MobileIcons/partiallypaidone.png" alt="Fully Paid" width="20px"
+                  height="20px">
+                <img src="../../../assets/images/MobileIcons/partiallypaidtwo.png" alt="Fully Paid" width="20px"
+                  height="20px"> -->
+                <img src="../../../assets/images/MobileIcons/partiallypaidthree.png" alt="Fully Paid" width="20px"
+                  height="20px" *ngIf="invoice.PaidORUnpaid === 'Unpaid'">
+              </div>
+              <div class="wd-icon">
+                <span class="material-icons" (click)="ViewInvoicesDetails(i)">
+                  <img src="../../../assets/images/MobileIcons/ic_eye.png" class="mb-2" alt="View" height="20px"
+                    width="20px">
+                </span>
+                <span class="material-icons"
+                  *ngIf="invoice?.InvoiceStatus === 'Pending' || invoice?.InvoiceStatus === 'Disputed'"
+                  (click)="EditInvoicesDetails(i)">
+                  <img src="../../../assets/images/MobileIcons/pencil.png" class="mb-2" alt="Edit" width="20px"
+                    height="18px">
+                </span>
+              </div>
+            </div>
+            <div class="wd-content">
+              <table class="wd-table">
+                <tbody>
+                  <tr>
+                    <td>Buyer</td>
+                    <td>:</td>
+                    <td>{{invoice?.buyer?.ContactName}}</td>
+                  </tr>
+                  <tr>
+                    <td>Mobile</td>
+                    <td>:</td>
+                    <td>{{invoice?.buyer?.Mobile}}</td>
+                  </tr>
+                  <tr>
+                    <td>Buyer Business Name</td>
+                    <td>:</td>
+                    <td>{{invoice?.BuyerBusiness?.FirstName +' '+invoice?.BuyerBusiness?.LastName}}</td>
+                  </tr>
+                  <tr>
+                    <td>InvoiceAmount</td>
+                    <td>:</td>
+                    <td>{{invoice?.InvoiceAmount}}</td>
+                  </tr>
+                  <!-- <tr *ngIf="invoice?.RemainingAmount !== 0"> -->
+                  <tr>
+                    <td>Paid Amount</td>
+                    <td>:</td>
+                    <td>{{invoice?.PaidAmount}}</td>
+                  </tr>
+                  <tr>
+                    <td>Remaining Amount</td>
+                    <td>:</td>
+                    <td>{{invoice?.RemainingAmount}}</td>
+                  </tr>
+                  <tr>
+                    <td>Invoice Date</td>
+                    <td>:</td>
+                    <td> {{invoice?.InvoiceDate | date: 'd-MMM-y'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+
+
+
+      <div class="No-data-found" *ngIf="InvoiceDetails.length === 0 ">No Invoices To Display</div>
+
+      <div class="pagination-contxainer" *ngIf="ActiveInvoiceStatus === 'Open' && this.CustomerCategory === 'Buyer'">
+        <div class="go-page">
+          <div class="number-go-page ">
+            <span class="lbl-go-page  label-show-limits">Go Page</span>
+            <input type="number" style="border:none" autocomplete="off" min="1" max="{{PagesArray.length}}"
+              [(ngModel)]="GoToPage">
+            <span class="bnt-go-page">
+              <span class="txt" (click)="BuyerPendingPagination_Action(GoToPage)">GO</span>
+            </span>
+          </div>
+        </div>
+        <div class="show-records">
+          <div class="txt-show-records" [innerHTML]="ShowingText"></div>
+          <!-- <div class="txt-show-records">Showing <span>1</span> to <span>5</span> out of <span>97</span>  entries</div> -->
+        </div>
+
+        <div class="pagination-number">
+          <ul class="pagination hidden-xs">
+            <li>
+              <a class="{{PagePrevious['Class']}}" (click)="BuyerPendingPagination_Action(PagePrevious['Value'])"
+                matTooltip="Previous">
+                <p><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <li *ngFor="let Page of PagesArray; let i=index" class="{{Page.Class}}" [ngClass]="{'active': Page.Active}"
+              (click)="BuyerPendingPagination_Action(Page.Value)">
+              <a>
+                <p>{{Page.Text}}</p>
+              </a>
+            </li>
+            <li class="{{PageNext['Class']}}" (click)="BuyerPendingPagination_Action(PageNext['Value'])"
+              matTooltip="Next">
+              <a>
+                <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <!-- <li>
+                            <a class="" matTooltip="Previous">
+                               <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+                            </a>
+                         </li> -->
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="pagination-container" *ngIf="ActiveInvoiceStatus === 'Accepted' && this.CustomerCategory === 'Buyer'">
+        <div class="go-page">
+          <div class="number-go-page ">
+            <span class="lbl-go-page  label-show-limits">Go Page</span>
+            <input type="number" style="border:none" autocomplete="off" min="1" max="{{PagesArray.length}}"
+              [(ngModel)]="GoToPage">
+            <span class="bnt-go-page">
+              <span class="txt" (click)="BuyerAcceptPagination_Action(GoToPage)">GO</span>
+            </span>
+          </div>
+        </div>
+        <div class="show-records">
+          <div class="txt-show-records" [innerHTML]="ShowingText"></div>
+          <!-- <div class="txt-show-records">Showing <span>1</span> to <span>5</span> out of <span>97</span>  entries</div> -->
+        </div>
+
+        <div class="pagination-number">
+          <ul class="pagination hidden-xs">
+            <li>
+              <a class="{{PagePrevious['Class']}}" (click)="BuyerAcceptPagination_Action(PagePrevious['Value'])"
+                matTooltip="Previous">
+                <p><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <li *ngFor="let Page of PagesArray; let i=index" class="{{Page.Class}}" [ngClass]="{'active': Page.Active}"
+              (click)="BuyerAcceptPagination_Action(Page.Value)">
+              <a>
+                <p>{{Page.Text}}</p>
+              </a>
+            </li>
+            <li class="{{PageNext['Class']}}" (click)="BuyerAcceptPagination_Action(PageNext['Value'])"
+              matTooltip="Next">
+              <a>
+                <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <!-- <li>
+                            <a class="" matTooltip="Previous">
+                               <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+                            </a>
+                         </li> -->
+          </ul>
+
+        </div>
+
+      </div>
+      <div class="pagination-container" *ngIf="ActiveInvoiceStatus === 'Disputed' && this.CustomerCategory === 'Buyer'">
+        <div class="go-page">
+          <div class="number-go-page ">
+            <span class="lbl-go-page  label-show-limits">Go Page</span>
+            <input type="number" style="border:none" autocomplete="off" min="1" max="{{PagesArray.length}}"
+              [(ngModel)]="GoToPage">
+            <span class="bnt-go-page">
+              <span class="txt" (click)="BuyerDisputedPagination_Action(GoToPage)">GO</span>
+            </span>
+          </div>
+        </div>
+        <div class="show-records">
+          <div class="txt-show-records" [innerHTML]="ShowingText"></div>
+          <!-- <div class="txt-show-records">Showing <span>1</span> to <span>5</span> out of <span>97</span>  entries</div> -->
+        </div>
+
+        <div class="pagination-number">
+          <ul class="pagination hidden-xs">
+            <li>
+              <a class="{{PagePrevious['Class']}}" (click)="BuyerDisputedPagination_Action(PagePrevious['Value'])"
+                matTooltip="Previous">
+                <p><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <li *ngFor="let Page of PagesArray; let i=index" class="{{Page.Class}}" [ngClass]="{'active': Page.Active}"
+              (click)="BuyerDisputedPagination_Action(Page.Value)">
+              <a>
+                <p>{{Page.Text}}</p>
+              </a>
+            </li>
+            <li class="{{PageNext['Class']}}" (click)="BuyerDisputedPagination_Action(PageNext['Value'])"
+              matTooltip="Next">
+              <a>
+                <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <!-- <li>
+                            <a class="" matTooltip="Previous">
+                               <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+                            </a>
+                         </li> -->
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="pagination-container" *ngIf="ActiveInvoiceStatus === 'Open' && this.CustomerCategory === 'Seller'">
+        <div class="go-page">
+          <div class="number-go-page ">
+            <span class="lbl-go-page  label-show-limits">Go Page</span>
+            <input type="number" style="border:none" autocomplete="off" min="1" max="{{PagesArray.length}}"
+              [(ngModel)]="GoToPage">
+            <span class="bnt-go-page">
+              <span class="txt" (click)="SellerPendingPagination_Action(GoToPage)">GO</span>
+            </span>
+          </div>
+        </div>
+        <div class="show-records">
+          <div class="txt-show-records" [innerHTML]="ShowingText"></div>
+          <!-- <div class="txt-show-records">Showing <span>1</span> to <span>5</span> out of <span>97</span>  entries</div> -->
+        </div>
+
+        <div class="pagination-number">
+          <ul class="pagination hidden-xs">
+            <li>
+              <a class="{{PagePrevious['Class']}}" (click)="SellerPendingPagination_Action(PagePrevious['Value'])"
+                matTooltip="Previous">
+                <p><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <li *ngFor="let Page of PagesArray; let i=index" class="{{Page.Class}}" [ngClass]="{'active': Page.Active}"
+              (click)="SellerPendingPagination_Action(Page.Value)">
+              <a>
+                <p>{{Page.Text}}</p>
+              </a>
+            </li>
+            <li class="{{PageNext['Class']}}" (click)="SellerPendingPagination_Action(PageNext['Value'])"
+              matTooltip="Next">
+              <a>
+                <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <!-- <li>
+                            <a class="" matTooltip="Previous">
+                               <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+                            </a>
+                         </li> -->
+          </ul>
+
+        </div>
+
+      </div>
+
+      <div class="pagination-container"
+        *ngIf="ActiveInvoiceStatus === 'Accepted' && this.CustomerCategory === 'Seller'">
+        <div class="go-page">
+          <div class="number-go-page ">
+            <span class="lbl-go-page  label-show-limits">Go Page</span>
+            <input type="number" style="border:none" autocomplete="off" min="1" max="{{PagesArray.length}}"
+              [(ngModel)]="GoToPage">
+            <span class="bnt-go-page">
+              <span class="txt" (click)="SellerAcceptPagination_Action(GoToPage)">GO</span>
+            </span>
+          </div>
+        </div>
+        <div class="show-records">
+          <div class="txt-show-records" [innerHTML]="ShowingText"></div>
+          <!-- <div class="txt-show-records">Showing <span>1</span> to <span>5</span> out of <span>97</span>  entries</div> -->
+        </div>
+
+        <div class="pagination-number">
+          <ul class="pagination hidden-xs">
+            <li>
+              <a class="{{PagePrevious['Class']}}" (click)="SellerAcceptPagination_Action(PagePrevious['Value'])"
+                matTooltip="Previous">
+                <p><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <li *ngFor="let Page of PagesArray; let i=index" class="{{Page.Class}}" [ngClass]="{'active': Page.Active}"
+              (click)="SellerAcceptPagination_Action(Page.Value)">
+              <a>
+                <p>{{Page.Text}}</p>
+              </a>
+            </li>
+            <li class="{{PageNext['Class']}}" (click)="SellerAcceptPagination_Action(PageNext['Value'])"
+              matTooltip="Next">
+              <a>
+                <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <!-- <li>
+                            <a class="" matTooltip="Previous">
+                               <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+                            </a>
+                         </li> -->
+          </ul>
+
+        </div>
+
+      </div>
+      <div class="pagination-container"
+        *ngIf="ActiveInvoiceStatus === 'Disputed' && this.CustomerCategory === 'Seller'">
+        <div class="go-page">
+          <div class="number-go-page ">
+            <span class="lbl-go-page  label-show-limits">Go Page</span>
+            <input type="number" style="border:none" autocomplete="off" min="1" max="{{PagesArray.length}}"
+              [(ngModel)]="GoToPage">
+            <span class="bnt-go-page">
+              <span class="txt" (click)="SellerDisputedPagination_Action(GoToPage)">GO</span>
+            </span>
+          </div>
+        </div>
+        <div class="show-records">
+          <div class="txt-show-records" [innerHTML]="ShowingText"></div>
+          <!-- <div class="txt-show-records">Showing <span>1</span> to <span>5</span> out of <span>97</span>  entries</div> -->
+        </div>
+
+        <div class="pagination-number">
+          <ul class="pagination hidden-xs">
+            <li>
+              <a class="{{PagePrevious['Class']}}" (click)="SellerDisputedPagination_Action(PagePrevious['Value'])"
+                matTooltip="Previous">
+                <p><i class="fa fa-angle-double-left" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <li *ngFor="let Page of PagesArray; let i=index" class="{{Page.Class}}" [ngClass]="{'active': Page.Active}"
+              (click)="SellerDisputedPagination_Action(Page.Value)">
+              <a>
+                <p>{{Page.Text}}</p>
+              </a>
+            </li>
+            <li class="{{PageNext['Class']}}" (click)="SellerDisputedPagination_Action(PageNext['Value'])"
+              matTooltip="Next">
+              <a>
+                <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+              </a>
+            </li>
+            <!-- <li>
+                            <a class="" matTooltip="Previous">
+                               <p><i class="fa fa-angle-double-right" aria-hidden="true"></i></p>
+                            </a>
+                         </li> -->
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+    <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+
+    <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="limiter" style="display: block;">
+    <div class="custom-modal modal-container">
+      <div class="modal-close-btn" (click)="modalReference.hide();">
+        <div class="close-icon">
+          <span>
+            <i class="fa fa-close" aria-hidden="true"></i>
+          </span>
+        </div>
+      </div>
+      <div class="content-area">
+        <h1>Invoice Filters</h1>
+        <div class="modal-content-body">
+          <div class="content">
+            <form [formGroup]="FilterFGroup">
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-md-12 mt-5">
+                    <div class="form-group">
+                      <!-- <input matInput formControlName="InvoiceNumber" placeholder="Invoice Number">
+                      <span class="us-icon"> <img src="../../../assets/images/web_icons/number-blocks.png" alt="">
+                      </span>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceNumber')">
+                      </mat-error> -->
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Invoice Number</mat-label>
+                        <input matInput formControlName="InvoiceNumber" placeholder="Invoice Number">
+                        <mat-icon matSuffix>pin</mat-icon>
+                        <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceNumber')">
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <!-- <input matInput formControlName="InvoiceAmount" placeholder="Invoice Amount">
+                      <span class="us-icon"> <img src="../../../assets/images/web_icons/amounts.png" alt="">
+                        <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceAmount')">
+                        </mat-error>
+                      </span> -->
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Invoice Amount</mat-label>
+                        <input matInput formControlName="InvoiceAmount" placeholder="Invoice Amount">
+                        <mat-icon matSuffix>currency_rupee</mat-icon>
+                        <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceAmount')"></mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+
+        <button mat-fab extended color="warn" *ngIf="FilterFGroupStatus" (click)="ResetFilters()">
+          <mat-icon>close_small</mat-icon>
+          Reset
+        </button>
+
+        <button mat-fab extended color="primary" [disabled]="!FilterFGroupStatus"
+          [ngClass]="{'disabled': !FilterFGroupStatus}" (click)="SubmitFilters()">
+          <mat-icon>search</mat-icon>
+          Submit
+        </button>
+      </div>
+      <app-seller-theme *ngIf="CustomerCategory === 'Seller'"></app-seller-theme>
+
+      <app-buyer-theme *ngIf="CustomerCategory === 'Buyer'"></app-buyer-theme>
+    </div>
+  </div>
+</ng-template>

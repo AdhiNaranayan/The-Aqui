@@ -1,0 +1,56 @@
+<div class="limiter">
+
+  <div class="custom-modal modal-container">
+    <div class="modal-close-btn">
+      <div class="close-icon">
+        <span>
+          <i class="fa fa-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="session-time-out">
+      <div class="modal-logo-img">
+        <div class="logo">
+          <img src="../../../../assets/images/ic_hundi_logo.svg" alt="brand-logo">
+        </div>
+      </div>
+      <div class="security-img">
+        <img src="../../../../assets/images/Security_Lock-01-512.png" alt="security-img">
+      </div>
+
+      <div class="content">
+        <h1>
+          {{UserData.ContactName}}
+        </h1>
+        <h2>
+          Your Session Expired Please Re-login to Renew
+        </h2>
+        <form [formGroup]="LoginForm">
+          <div class="row justify-content-center">
+            <div class="col-md-9 pwd-input">
+              <div class="form-group">
+                <!-- <input type="password" matInput formControlName="Password" placeholder="PASSWORD">
+                                <mat-error [innerHTML]="GetFormControlErrorMessage('Password')"></mat-error> -->
+                <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input type="password" matInput formControlName="Password" placeholder="Password">
+                  <mat-icon matSuffix>key</mat-icon>
+                  <mat-error [innerHTML]="GetFormControlErrorMessage('Password')"></mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="login-button btn-blue min-wth-200">
+        <span (click)="Login()" [ngClass]="{'disabled': LoginForm.invalid}">Submit</span>
+
+        <div class="switch-account-container">
+
+          <!-- <br> -->
+          <!-- <a (click)="GoToLogin()">Switch Accounts</a> -->
+        </div>
+      </div>
+    </div>
+  </div>

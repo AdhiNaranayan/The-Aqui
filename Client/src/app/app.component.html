@@ -1,0 +1,349 @@
+<!-- <ngx-spinner bdColor="rgba(0, 0, 0, 1)" template="<img src='assets/images/loader-aquila.gif' />">
+</ngx-spinner> -->
+
+<ng-container *ngFor="let Toastr of ToastrList; let i=index">
+  <div class="Toastr_Message animated bounceInDown" [ngClass]="Toastr.Type" [style.top.px]="Toastr.Top">
+    <!-- <div class="loader"></div> -->
+    <div class="Message_Icon">
+      <i *ngIf="Toastr.Type === 'Success'" class="material-icons">check_circle</i>
+      <i *ngIf="Toastr.Type === 'Info'" class="material-icons">info</i>
+      <i *ngIf="Toastr.Type === 'Warning'" class="material-icons">error</i>
+      <i *ngIf="Toastr.Type === 'Error'" class="material-icons">cancel</i>
+    </div>
+    <div class="Message">
+      <h6 class="Title"> {{Toastr.Type}} Message </h6>
+      <h6 class="body"> {{Toastr.Message | slice:0:42}} {{Toastr.Message?.length > 42 ? '...' : ' ' }} </h6>
+    </div>
+    <div class="Message_Close" (click)="HideToastr(i)">
+      <i class="material-icons">close</i>
+    </div>
+  </div>
+</ng-container>
+
+
+
+<mat-toolbar class="Seller-toolbar" *ngIf="UserLoggedIn && AllCategory[0] === 'Seller'">
+  <!-- *ngIf="this.UserInfo.CustomerCategory === 'Buyer'" -->
+  <div class="brand-logo">
+    <img src="../../../assets/images/ic_hundi_logo.svg" alt="Aquila Logo" width="60" height="64" />
+    <!-- <span>Aquila Hundi</span> -->
+  </div>
+  <span class="toggle-sidenav" (click)="SideNavToggle()">
+    <!-- <i matTooltip="Menus" class="material-icons">list</i> -->
+    <i class="fa fa-bars fs-6" aria-hidden="true"></i>
+
+  </span>
+
+  <!--Toolbar right side Icons links-->
+  <!-- <span>{{ pageTitle$ | async }}</span> -->
+  <!-- <span class="spacer"></span> -->
+  <ng-container *ngFor="let item of navItems">
+    <a *ngIf="isActive(item.link)" [routerLink]="item.link" class="Page-title">{{ item.name }}</a>
+  </ng-container>
+
+  <ng-container *ngIf="currentRoute === '/dashboard'">
+  <div class="nav-icons header-main-menu " *ngIf="showIcons">
+    <a>
+      <span class="dot">
+        <span class="NotifyCount">{{Notification.length}}</span>
+        <span (click)="NotifyPanelToggle();GetNotificationList();"><i class="fa fa-bell-o notify-icon"
+            aria-hidden="true"></i></span>
+        <div class="notify-panel" [style.display]="ShowNotifyPanel ? 'block' : 'none'">
+          <div class="arrow-up"></div>
+          <div class="notify-header">
+            <div class="fl-left"> Notifications </div>
+            <div class="fl-right"><b></b> </div>
+          </div>
+          <div class="notify-content-body">
+            <ng-container>
+              <ul class="notify-list notification_sub_list">
+                <li class="notify-un-read " *ngFor="let Notify of Notification;let i=index"
+                  (click)="handleMessageClick(Notify)">
+                  <!-- <span class="notify-no">{{i + 1}}</span> -->
+                  <!-- <p class="notify-msg" (click)="Redirect(Notify.CustomerID, i)" > <span>{{ Notify?.Message }}</span> </p>
+                  <span *ngIf="!Notify?.Message_Viewed" class="new-badge">New</span> -->
+                  <span class="notify-msg">{{ Notify?.Notification_Type }}</span>
+                  <p class="notify-sub-msg">{{ Notify?.Message}}
+                    <span *ngIf="!Notify?.Message_Viewed" class="new-badge">New</span>
+                    <span class="new-badge animated fadeIn infinite"></span>
+                    <span class="notify-dateTime">
+                      <time></time>
+                    </span>
+                  </p>
+                </li>
+              </ul>
+            </ng-container>
+          </div>
+
+          <!-- <span>{{ pageTitle$ | async }}</span> -->
+          <!-- <span class="spacer"></span> -->
+
+          <div class="notify-footer" *ngIf="Notification.length !== 0">
+            <button class="fl-left notify-text-hover" (click)="DeleteAllRead()"> Delete All Read </button>
+            <button class="fl-right notify-text-hover" (click)="MarkAllAsRead()"> Mark all As Read </button>
+          </div>
+        </div>
+      </span>
+    </a>
+
+    <!-- <a (click)="LogOut()" class="logout"> <span class="dot"> <img matTooltip="LogOut"
+          src="assets/images/05-logout.png" /> </span> </a> -->
+    <span (click)="LogOut()"><i class="logout fa fa-sign-out"></i>
+    </span>
+
+  </div>
+</ng-container>
+</mat-toolbar>
+
+<mat-toolbar class="Buyer-toolbar" *ngIf="UserLoggedIn && AllCategory[0] === 'Buyer'">
+  <!-- *ngIf="this.UserInfo.CustomerCategory === 'Buyer'" -->
+  <div class="brand-logo">
+    <img src="../../../assets/images/ic_hundi_logo.svg" alt="Aquila Logo" width="60" height="64" />
+    <!-- <span>Aquila Hundi</span> -->
+  </div>
+  <span class="toggle-sidenav" (click)="SideNavToggle()">
+    <!-- <i matTooltip="Menus" class="material-icons">list</i> -->
+    <i class="fa fa-bars fs-6" aria-hidden="true"></i>
+
+  </span>
+
+  <!--Toolbar right side Icons links-->
+
+  <ng-container *ngFor="let item of navItems">
+    <a *ngIf="isActive(item.link)" [routerLink]="item.link" class="Page-title">{{ item.name }}</a>
+  </ng-container>
+
+  <ng-container *ngIf="currentRoute === '/dashboard'">
+  <div class="nav-icons header-main-menu " *ngIf="showIcons">
+    <a>
+      <span class=" dot">
+        <span class="NotifyCount" (click)="GetNotificationCount();">{{NotifyCount}}</span>
+        <span (click)="NotifyPanelToggle()"><i class="fa fa-bell-o notify-icon" aria-hidden="true"></i></span>
+        <div class="notify-panel" [style.display]="ShowNotifyPanel ? 'block' : 'none'">
+          <div class="arrow-up"></div>
+          <div class="notify-header">
+            <div class="fl-left"> Notifications </div>
+            <div class="fl-right"><b></b> </div>
+          </div>
+          <div class="notify-content-body">
+            <ng-container>
+              <ul class="notify-list notification_sub_list">
+                <li class="notify-un-read UnClickable" *ngFor="let Notify of Notification;let i=index">
+                  <!-- <span class="notify-no">{{i + 1}}</span> -->
+                  <!-- <p class="notify-msg" (click)="Redirect(Notify.CustomerID, i)" > <span>{{ Notify?.Message }}</span> </p>
+                  <span *ngIf="!Notify?.Message_Viewed" class="new-badge">New</span> -->
+                  <span class="notify-msg">{{ Notify?.Notification_Type }}</span>
+                  <p class="notify-sub-msg">{{ Notify?.Message}}
+                    <!-- <span class="new-badge">New</span> -->
+                    <span class="new-badge animated fadeIn infinite"></span>
+                    <span class="notify-dateTime">
+                      <time></time>
+                    </span>
+                </li>
+              </ul>
+            </ng-container>
+          </div>
+          <div class="notify-footer">
+            <button class="fl-left notify-text-hover" (click)="DeleteAllRead()"> Delete All Read </button>
+            <button class="fl-right notify-text-hover" (click)="MarkAllAsRead()"> Mark all As Read </button>
+          </div>
+        </div>
+      </span>
+    </a>
+
+
+    <!-- <a (click)="LogOut()" class="logout"> <span class="dot"> <img matTooltip="LogOut"
+          src="assets/images/05-logout.png" /> </span> </a> -->
+    <span (click)="LogOut()"><i class="logout fa fa-sign-out"></i>
+    </span>
+
+  </div>
+</ng-container>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="example-container" [hasBackdrop]="false">
+  <mat-sidenav #SideNav [mode]="SideNameMode" *ngIf="UserLoggedIn" [fixedInViewport]="true" [fixedTopGap]="50">
+
+    <div class="userprofile" *ngIf="UserLoggedIn">
+      <header [class.Seller-header]="AllCategory[0] === 'Seller'" [class.Buyer-header]="AllCategory[0] === 'Buyer'">
+        <div class="user-name-details">
+          <div class="user-img-info">
+            <div *ngIf="CustomerProfile?.Img === true">
+              <img [src]="this.File_Name" class="bg-info rounded-circle" alt="Customer Profile Image" width="90"
+                height="94">
+            </div>
+            <div *ngIf="CustomerProfile?.Img === false">
+              <img src="../assets/images/sidebarIcon/profile-icon .png" alt="" width="90" height="94">
+            </div>
+          </div>
+
+          <div class="container mt-2">
+            <h4 class="text-head">{{CustomerProfile?.ContactName}}</h4>
+            <span class="text-head">{{CustomerProfile?.Mobile}}</span>
+          </div>
+          <div class="container tab-Content">
+            <!-- <div class="container mt-3 toggle-button-clr-chg"> -->
+            <div class="Tab-Group" #staticTabs *ngIf="this.UserInfo.CustomerCategory === 'BothBuyerAndSeller'">
+              <tabset [justified]="true" type="pills">
+                <tab class="sidenav-tab sell-tab" heading="Seller" (selectTab)="SelectedTab($event)"></tab>
+                <tab class="sidenav-tab buyr-tab" heading="Buyer" (selectTab)="SelectedTab($event)"></tab>
+              </tabset>
+            </div>
+            <!-- </div> -->
+          </div>
+
+
+          <!-- <div class="container">
+            <div class="switches-container" *ngIf="this.UserInfo.CustomerCategory === 'BothBuyerAndSeller'">
+              <input type="radio" id="switchMonthly" name="switchPlan" value="Seller" checked="checked" />
+              <input type="radio" id="switchYearly" name="switchPlan" value="Yearly" />
+              <label for="switchMonthly">Buyer</label>
+              <label for="switchYearly">Seller</label>
+              <div class="switch-wrapper">
+                <div class="switch">
+                  <div (selectTab)="SelectedTab($event)">Buyer</div>
+                  <div (selectTab)="SelectedTab($event)">Seller</div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </header>
+
+
+    </div>
+
+    <!-- <div class="Tab-Group" #staticTabs *ngIf="this.UserInfo.CustomerCategory === 'BothBuyerAndSeller'">
+      <tabset [justified]="true" type="pills">
+        <tab class="sidenav-tab" heading="Seller" (selectTab)="SelectedTab($event)"></tab>
+        <tab heading="Buyer" (selectTab)="SelectedTab($event)"></tab>
+      </tabset>
+    </div> -->
+
+
+    <div class="aqui-main-menus">
+      <nav class="sidebar-nav">
+        <ul>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/dashboard']" href="#">
+              <img src="../assets/images/sidebarIcon/dashboard-icon.png" alt="Dashboard">
+              <span TextTranslate>SideMenuDashboard</span></a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/business']"><img src="../assets/images/MobileIcons/ic_bottom_mybusiness_seller.png"
+                alt="Business">
+              <span class="" TextTranslate>SideMenuBusiness_Management</span></a>
+          </li>
+          <li routerLinkActive="active" *ngIf="UserInfo?.CustomerType === 'Owner'">
+            <a [routerLink]="['/invite-management']"><img src="../assets/images/sidebarIcon/invite-icon.png"
+                alt="Invite">
+              <span class="" TextTranslate>SideMenuInvite_Management</span></a>
+          </li>
+          <li routerLinkActive="active" *ngIf="AllCategory[0] === 'Seller'">
+            <a [routerLink]="['/seller-and-buyer']"><img src="../assets/images/MobileIcons/ic_bottom_buyer_seller.png"
+                alt="">
+              <span class="" TextTranslate>SideMenuBuyer</span></a>
+          </li>
+          <li routerLinkActive="active" *ngIf="AllCategory[0] === 'Buyer'">
+            <a [routerLink]="['/seller-and-buyer']"><img src="../assets/images/MobileIcons/ic_bottom_buyer_seller.png"
+                alt="">
+              <span class="" TextTranslate>SideMenuSeller</span></a>
+          </li>
+          <li routerLinkActive="active">
+            <!-- E:\GIT\RemovalOfBranchFunctionality\Calendar\Aquila-Hundi-master\Client\src\assets\images\sidebarIcon\invoice-icon.png -->
+            <a [routerLink]="['/invoice']"><img src="../assets/images/MobileIcons/ic_bottom_invoices_seller.png"
+                alt="Invoice">
+              <span class="" TextTranslate>SideMenuInvoice_Management</span></a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/payment']"><img src="../assets/images/MobileIcons/ic_bottom_payments_seller.png"
+                alt="Payment">
+              <span class="" TextTranslate>SideMenuPayment_Management</span></a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/profile']"><img src="../assets/images/sidebarIcon/profile-icon .png" alt="Profile">
+              <span class="" TextTranslate>profile</span></a>
+          </li>
+          <li routerLinkActive="active" *ngIf="UserInfo?.CustomerType === 'Owner'">
+            <a [routerLink]="['/user-management']"><img src="../assets/images/sidebarIcon/usermangement-icon.png"
+                alt="User">
+              <span class="" TextTranslate>SideMenuUser_Management</span></a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/support-manage']"><img src="../assets/images/sidebarIcon/support-icon.png"
+                alt="Support">
+              <span class="" TextTranslate>SideMenuSupport_Management</span></a>
+          </li>
+          <!-- <li routerLinkActive="active" *ngIf="AllCategory[0] === 'Seller'">
+            <a [routerLink]="['/temporary-management']"><img src="../../../assets/images/icon/ic_edit_name.svg" alt="">
+              <span class="" TextTranslate>RequestForCredit</span></a>
+          </li> -->
+          <!-- <li routerLinkActive="active" *ngIf="AllCategory[0] === 'Buyer'">
+            <a [routerLink]="['/temporary-management']"><img src="../assets/images/sidebarIcon/requestcredit-icon.png"
+                alt="Request credit">
+              <span class="" TextTranslate>BuyerRequestForCredit</span></a>
+          </li> -->
+          <li routerLinkActive="active">
+            <a [routerLink]="['/Calendar']"><img src="../assets/images/sidebarIcon/calendar-icon.png" alt="Calendar">
+              <span class="" TextTranslate>SideMenuCalendar</span></a>
+          </li>
+          <li routerLinkActive="active" class="mb-5" style="cursor: pointer;">
+            <a (click)="LogOut()"><img src="../../../assets/images/icon/ic_edit_name.svg" alt="">
+              <span class="" TextTranslate>SideMenuLogout</span></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </mat-sidenav>
+  <!-- <mat-sidenav-content
+  [ngStyle]="{ 'padding': UserLoggedIn ? '0px' : '0px', 'margin-top': UserLoggedIn ? '50px' : '0px'}"
+  > -->
+  <mat-sidenav-content>
+    <app-seller-theme *ngIf="AllCategory[0] === 'Seller'"></app-seller-theme>
+
+    <app-buyer-theme *ngIf="AllCategory[0] === 'Buyer'"></app-buyer-theme>
+
+    <!-- toolbar -->
+
+
+
+
+    <div class="container-fluid mt-5">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+
+<!-- <div class="material clearfix">
+  <div class="profile">
+    <input id="toggle" type="checkbox" class="plus">
+    <label for="toggle" class="toggle"><span>{{currentLan}}</span></label>
+    <div class="links">
+      <a (click)="changeLan('en')" data-title="English">
+        <span> en </span>
+      </a>
+      <a (click)="changeLan('hi')" data-title="हिन्दी">
+        <span> hi </span>
+      </a>
+      <a (click)="changeLan('ta')" data-title="தமிழ்">
+        <span> ta </span>
+      </a>
+      <a (click)="changeLan('ml')" data-title="മലയാളം">
+        <span> ml </span>
+      </a>
+      <a (click)="changeLan('kn')" data-title="कन्नड़">
+        <span> kn </span>
+      </a>
+      <a (click)="changeLan('te')" data-title="तेलुगू">
+        <span> te </span>
+      </a>
+    </div>
+  </div>
+</div> -->

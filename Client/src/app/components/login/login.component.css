@@ -1,0 +1,665 @@
+.aqu-content-between {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   -webkit-box-pack: justify;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
+   -ms-flex-wrap: wrap;
+   flex-wrap: wrap;
+ }
+ @media only screen and (max-width: 767px) {
+   .aqu-none-767 {
+     display: none !important;
+   }
+ }
+ @media only screen and (max-width: 991px) {
+   .aqu-none-991 {
+     display: none !important;
+   }
+ }
+ /*========================================================================
+ 3. Template Animation
+ =========================================================================*/
+ .aqu-login-pg-animation {
+   position: relative;
+   z-index: 1;
+   width: 100%;
+   opacity: 0;
+   overflow: hidden;
+   -webkit-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+ }
+ .aqu-login-pg-animation .aqu-transformY-50 {
+   opacity: 0;
+   -webkit-transform: translateY(50px);
+   -ms-transform: translateY(50px);
+   transform: translateY(50px);
+ }
+ .loaded.aqu-login-pg-animation {
+   opacity: 1;
+   display: flex;
+   align-items: center;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transformY-50 {
+   -webkit-transform: translateY(0);
+   -ms-transform: translateY(0);
+   transform: translateY(0);
+   opacity: 1;
+   -webkit-transition: all 1s ease-in-out;
+   -o-transition: all 1s ease-in-out;
+   transition: all 1s ease-in-out;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-1 {
+   -webkit-transition-delay: 0.1s;
+   -o-transition-delay: 0.1s;
+   transition-delay: 0.1s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-2 {
+   -webkit-transition-delay: 0.2s;
+   -o-transition-delay: 0.2s;
+   transition-delay: 0.2s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-3 {
+   -webkit-transition-delay: 0.3s;
+   -o-transition-delay: 0.3s;
+   transition-delay: 0.3s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-4 {
+   -webkit-transition-delay: 0.4s;
+   -o-transition-delay: 0.4s;
+   transition-delay: 0.4s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-5 {
+   -webkit-transition-delay: 0.5s;
+   -o-transition-delay: 0.5s;
+   transition-delay: 0.5s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-6 {
+   -webkit-transition-delay: 0.6s;
+   -o-transition-delay: 0.6s;
+   transition-delay: 0.6s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-7 {
+   -webkit-transition-delay: 0.7s;
+   -o-transition-delay: 0.7s;
+   transition-delay: 0.7s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-8 {
+   -webkit-transition-delay: 0.8s;
+   -o-transition-delay: 0.8s;
+   transition-delay: 0.8s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-9 {
+   -webkit-transition-delay: 0.9s;
+   -o-transition-delay: 0.9s;
+   transition-delay: 0.9s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-10 {
+   -webkit-transition-delay: 1s;
+   -o-transition-delay: 1s;
+   transition-delay: 1s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-11 {
+   -webkit-transition-delay: 1.1s;
+   -o-transition-delay: 1.1s;
+   transition-delay: 1.1s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-12 {
+   -webkit-transition-delay: 1.2s;
+   -o-transition-delay: 1.2s;
+   transition-delay: 1.2s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-13 {
+   -webkit-transition-delay: 1.3s;
+   -o-transition-delay: 1.3s;
+   transition-delay: 1.3s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-14 {
+   -webkit-transition-delay: 1.4s;
+   -o-transition-delay: 1.4s;
+   transition-delay: 1.4s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-15 {
+   -webkit-transition-delay: 1.5s;
+   -o-transition-delay: 1.5s;
+   transition-delay: 1.5s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-16 {
+   -webkit-transition-delay: 1.6s;
+   -o-transition-delay: 1.6s;
+   transition-delay: 1.6s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-17 {
+   -webkit-transition-delay: 1.7s;
+   -o-transition-delay: 1.7s;
+   transition-delay: 1.7s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-18 {
+   -webkit-transition-delay: 1.8s;
+   -o-transition-delay: 1.8s;
+   transition-delay: 1.8s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-19 {
+   -webkit-transition-delay: 1.9s;
+   -o-transition-delay: 1.9s;
+   transition-delay: 1.9s;
+ }
+ .loaded.aqu-login-pg-animation .aqu-transition-delay-20 {
+   -webkit-transition-delay: 2s;
+   -o-transition-delay: 2s;
+   transition-delay: 2s;
+ }
+
+ .OTP-Generate {
+  background-color: rgb(242, 148, 10);
+  border: none;
+  border-radius: 10px;
+  margin-left: -15px;
+  color: #ffff;
+ }
+
+
+/*========================================================================
+7. Demo Layout Four
+=========================================================================*/
+.aqu-login-pg-layout {
+   min-height: 100vh;
+   position: relative;
+   z-index: 1;
+ }
+ /* .aqu-login-pg-layout:before {
+   position: absolute;
+   z-index: 0;
+   background-color: #f2940c;
+   content: "";
+   min-height: 100%;
+   width: 35vw;
+   top: 0;
+   left: 0;
+ } */
+ .aqu-login-pg-layout .aqu-bg-wrap {
+   padding: 6vh 0 8vh 15vw;
+   min-height: 100vh;
+ }
+ @media only screen and (max-width: 1199px) {
+   .aqu-login-pg-layout .aqu-bg-wrap {
+     padding: 8vh 0 8vh 10vw;
+   }
+ }
+ @media only screen and (max-width: 991px) {
+   .aqu-login-pg-layout .aqu-bg-wrap {
+     padding: 6vh 0 6vh 6vw;
+   }
+ }
+ @media only screen and (max-width: 767px) {
+   .aqu-login-pg-layout .aqu-bg-wrap {
+     padding: 5vh 4vw;
+   }
+ }
+ .aqu-login-pg-layout .aqu-checkbox-area {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   -webkit-box-pack: justify;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
+   margin-bottom: 30px;
+   -ms-flex-wrap: wrap;
+   flex-wrap: wrap;
+ }
+ .aqu-login-pg-layout .aqu-bg-color {
+   background-color: #ffffff;
+   min-height: 100vh;
+   width: 100%;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: cover;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   -webkit-box-pack: start;
+   -ms-flex-pack: start;
+   justify-content: flex-start;
+   padding: 30px;
+ }
+ @media only screen and (max-width: 991px) {
+   .aqu-login-pg-layout .aqu-bg-color {
+     padding: 15px;
+   }
+ }
+ @media only screen and (max-width: 767px) {
+   .aqu-login-pg-layout .aqu-bg-color {
+     min-height: 100%;
+     padding: 20px 30px;
+     -webkit-box-pack: center;
+     -ms-flex-pack: center;
+     justify-content: center;
+   }
+ }
+ .aqu-login-pg-layout .aqu-bg-img {
+   padding: 40px 50px;
+   min-height: 100%;
+   width: 100%;
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-size: cover;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   -webkit-box-pack: justify;
+   -ms-flex-pack: justify;
+   justify-content: space-between;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   position: relative;
+   z-index: 1;
+ }
+ @media only screen and (max-width: 991px) {
+   .content-wrapper { margin: 10px 0px !important; }
+   .aqu-login-pg-layout .aqu-bg-img {
+     padding: 30px 20px;
+   }
+ }
+ @media only screen and (max-width: 991px) {
+   .aqu-login-pg-layout .aqu-bg-img {
+     padding: 30px;
+   }
+ }
+ .aqu-login-pg-layout .aqu-bg-img:before {
+   content: "";
+   height: 100%;
+   width: 100%;
+   background-color: rgb(242, 148, 10);
+   left: 0;
+   top: 0;
+   position: absolute;
+   z-index: 0;
+ }
+ .aqu-login-pg-layout .aqu-bg-img:after {
+   content: "";
+   right: 0;
+   top: 20%;
+   position: absolute;
+   z-index: 1;
+   width: 0;
+   height: 0;
+   border-top: 15px solid transparent;
+   border-right: 20px solid #fff;
+   border-bottom: 15px solid transparent;
+ }
+ .aqu-login-pg-layout .aqu-header {
+   height: 100%;
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   -webkit-box-flex: 1;
+   -ms-flex: 1;
+   flex: 1;
+   justify-content: center;
+   text-align: center;
+ }
+ .aqu-login-pg-layout .aqu-header .aqu-logo {
+   display: block;
+   margin-bottom: 35px;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 45%;
+ }
+ .aqu-login-pg-layout .aqu-header h1 {
+   color: #fff;
+   font-size: 36px;
+   font-weight: 500;
+   margin-bottom: 10px;
+ }
+ @media only screen and (max-width: 991px) {
+   .aqu-login-pg-layout .aqu-header h1 {
+     font-size: 30px;
+   }
+ }
+ @media only screen and (max-width: 767px) {
+   .aqu-login-pg-layout .aqu-header h1 {
+     font-size: 28px;
+   }
+ }
+ .aqu-login-pg-layout .aqu-header p {
+   color: #fff;
+ }
+ .aqu-login-pg-layout .aqu-content {
+   padding: 10px 30px;
+   /* max-width: 460px; */
+   width: 100%;
+ }
+ /* @media only screen and (max-width: 1199px) {
+   .aqu-login-pg-layout .aqu-content {
+     padding: 0;
+   }
+ } */
+ .aqu-login-pg-layout .aqu-form {
+   margin-top: 20px;
+ }
+ .aqu-login-pg-layout .aqu-form h2 {
+   font-weight: 700;
+   margin-bottom: 5px;
+ }
+ .aqu-login-pg-layout .aqu-form p {
+   margin-bottom: 30px;
+   font-size: 17px;
+ }
+ .aqu-login-pg-layout .aqu-form .form-group {
+   position: relative;
+   z-index: 1;
+   margin-bottom: 0.5rem;
+ }
+ .aqu-login-pg-layout .aqu-form .form-group .field-icon {
+   position: absolute;
+   z-index: 1;
+   right: 24px;
+   bottom: 11px;
+   padding: 0 5px;
+   color: #c5c5c5;
+   font-size: 14px;
+ }
+ .aqu-login-pg-layout .aqu-form .form-group.has-error .field-icon {
+   bottom: 30px;
+}
+ .aqu-login-pg-layout .aqu-form .form-group .field-icon:before {
+   padding: 10px 10px;
+ }
+ .aqu-login-pg-layout .aqu-form .form-control {
+   max-height: 35px;
+   padding: 5px 20px 5px 10px;
+   border-radius: 0;
+ }
+ .aqu-login-pg-layout .aqu-btn-fill {
+   font-family: 'Roboto', sans-serif;
+   cursor: pointer;
+   display: inline-block;
+   font-size: 17px;
+   font-weight: 500;
+   -webkit-box-shadow: none;
+   box-shadow: none;
+   outline: none;
+   border: 0;
+   color: #fff;
+   border-radius: 3px;
+   background-color: #313a64;
+   padding: 10px 36px;
+   margin-bottom: 10px;
+   width: 100%;
+   -webkit-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+ }
+ .aqu-login-pg-layout .aqu-btn-fill:hover {
+   background-color: #313a64;
+   border-color: #313a64;
+ }
+ .aqu-login-pg-layout .aqu-btn-fill:focus {
+   outline: none;
+ }
+ .aqu-login-pg-layout ul.aqu-socials {
+   text-align: center;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li {
+   display: inline-block;
+   margin-right: 4px;
+ }
+
+ @media only screen and (max-width: 575px) {
+   .aqu-login-pg-layout ul.aqu-socials li {
+     margin-right: 2px;
+   }
+ }
+ .aqu-login-pg-layout ul.aqu-socials li:last-child {
+   margin-right: 0;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li a {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   align-items: center;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   justify-content: center;
+   font-size: 14px;
+   height: 40px;
+   width: 40px;
+   color: #ffffff;
+   border-radius: 50%;
+   border: 1px solid;
+   -webkit-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-facebook a {
+   background-color: #3b5998;
+   border-color: #3b5998;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-facebook a:hover {
+   background-color: transparent;
+   color: #3b5998;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-twitter a {
+   background-color: #00acee;
+   border-color: #00acee;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-twitter a:hover {
+   background-color: transparent;
+   color: #00acee;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-google a {
+   background-color: #CC3333;
+   border-color: #CC3333;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-google a:hover {
+   background-color: transparent;
+   color: #CC3333;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-instagram a {
+   background-color: #3f729b;
+   border-color: #3f729b;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-instagram a:hover {
+   background-color: transparent;
+   color: #3f729b;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-linkedin a {
+   background-color: #0077B5;
+   border-color: #0077B5;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-linkedin a:hover {
+   background-color: transparent;
+   color: #0077B5;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-youtube a {
+   background-color: #c4302b;
+   border-color: #c4302b;
+ }
+ .aqu-login-pg-layout ul.aqu-socials li.aqu-youtube a:hover {
+   background-color: transparent;
+   color: #c4302b;
+ }
+ .aqu-login-pg-layout .switcher-text {
+   color: #55d1ff;
+   font-size: 15px;
+   margin-left: 3px;
+   -webkit-transition: all 0.3s ease-in-out;
+   -o-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+ }
+ .aqu-login-pg-layout .switcher-text:last-child {
+  margin-left: 258px;
+ }
+ .aqu-login-pg-layout .switcher-text:hover {
+   color: #666;
+ }
+ .aqu-login-pg-layout .switcher-text.active {
+   color: #666;
+ }
+ .aqu-login-pg-layout .checkbox {
+   padding-left: 5px;
+ }
+ .aqu-login-pg-layout .checkbox label {
+   padding-left: 20px;
+   color: #a4a4a4;
+   margin-bottom: 0;
+   font-size: 15px;
+   position: relative;
+ }
+ .aqu-login-pg-layout .checkbox label:before {
+   content: "";
+   position: absolute;
+   width: 15px;
+   height: 15px;
+   top: 4px;
+   left: 0;
+   margin-left: -5px;
+   border: 1px solid;
+   border-color: #dcdcdc;
+   border-radius: 3px;
+   background-color: #fff;
+   -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+   -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+   transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+ }
+ .aqu-login-pg-layout .checkbox label:after {
+   position: absolute;
+   margin-left: -20px;
+   padding-left: 3px;
+   font-size: 10px;
+   color: #555555;
+ }
+ .aqu-login-pg-layout .checkbox input[type="checkbox"] {
+   display: none;
+ }
+ .aqu-login-pg-layout .checkbox input[type="checkbox"]:checked + label::after {
+   font-family: 'FontAwesome';
+   content: "\f00c";
+   font-weight: 900;
+   color: #ffffff;
+   left: 15px;
+   top: 4px;
+ }
+ .aqu-login-pg-layout .checkbox input[type="checkbox"]:checked + label::before {
+   background-color: #313a64;
+   border-color: #313a64;
+ }
+ .aqu-login-pg-layout .aqu-footer {
+   text-align: center;
+ }
+ .aqu-qr-code-wrapper {
+   width: 38%;
+   background: #fff;
+   text-align: center;
+   margin: 20px auto;
+   margin-bottom: 30px;
+}
+
+.aqu-button-icon-group {
+   margin-bottom: 2em;
+   margin: 0 auto;
+   text-align: center;
+   z-index: 1;
+}
+.aqu-button-icon-group .aqu-play-store-icon,
+.aqu-button-icon-group .aqu-apple-mbl-icon {
+   display: inline-block;
+   width: 40px;
+   height: 40px;
+   background: #ffffff;
+   padding: 10px !important;
+   margin: 0 10px;
+   text-align: center;
+   line-height: 0px;
+   border-radius: 50%;
+   cursor: pointer;
+   transition: 0.5s;
+}
+
+.aqu-login-pg-layout .aqu-form .form-group label.asterisk:after {
+   content: "*";
+   color: red;
+   padding: 0 3px;
+   position: absolute;
+   top: -4px;
+   font-size: 16px;
+}
+.aqu-login-pg-layout .aqu-form .form-group.has-error label {
+   color: red;
+}
+.aqu-login-pg-layout .aqu-form .form-group.has-error .form-control {
+   border-bottom: 1px solid red !important;
+}
+.aqu-login-pg-layout .aqu-form .form-group.has-error span.input-error {
+   color: red;
+   font-size: 12px;
+   position: relative;
+   top: -2px;
+   font-style: italic;
+   letter-spacing: 0.4px;
+   font-weight: 500;
+}
+
+.aqu-radio-button-area ul.radio-groups li {
+   display: inline-block;
+   margin-right: 20px;
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before {
+   background-color: #313a64;
+}
+.custom-radio  .custom-control-label { cursor: pointer;}
+.user-links { display: flex; justify-content: space-between;}
+.user-links .switcher-text { color: #313a64;font-weight: 600; }
+.user-links .switcher-text:hover { color: #f2940c; }
+
+
+.aqu-login-pg-layout .aqu-form .form-group.has-error {display: none;}
+
+.aqu-login-pg-layout .content-wrapper {
+   margin: 0 auto;
+   box-shadow: 0 0 11px #000;
+   position: relative;
+   max-width: 900px;
+   padding: 0;
+}
+
+.aqu-login-pg-layout .content-wrapper svg.bk-waves-yellow {
+   position: absolute;
+   bottom: 0 !important;
+   left: 0;
+}
+
+.aqu-login-pg-layout .content-wrapper svg.bk-waves-gray {
+   position: absolute;
+   right: 0;
+}
+
+img {
+   max-width: 100%;
+   height: auto;
+}

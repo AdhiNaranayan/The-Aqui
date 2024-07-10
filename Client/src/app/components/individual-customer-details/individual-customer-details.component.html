@@ -1,0 +1,58 @@
+<div class="limiter" style="display: block;">
+    <div class="content-wrapper">
+        <div class="default-container">
+            <div class="table-head-title" >
+                <h4 *ngIf="this.CustomerCategory === 'Seller'">Buyer Details </h4>
+                <h4 *ngIf="this.CustomerCategory === 'Buyer'">Seller Details</h4>
+            </div> 
+            </div> 
+            <br>
+        <div class="wrapper" *ngIf="ChartArr.length > 0 ">
+            <ng-container *ngFor="let Customer of ChartArr;let i=index">
+                <div class="box">
+                    <div class="wd-header">{{Customer?.ContactName}}
+                    </div>
+                    <div class="wd-header">{{Customer?.BusinessName}}
+                    </div>
+                    <span> Total Credit Limit: {{Customer?.CreditLimit}}</span>
+                    <div class="grid-container">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <canvas baseChart [data]="Customer.ChData" [labels]="Customer.ChLabel"
+                                        [colors]="chartColors" [chartType]="Customer.ChType"
+                                        [options]="Customer.ChOptions" [plugins]="Customer.ChPlugins"
+                                        [legend]="Customer.ChLegend">
+                                    </canvas>
+                                </div>
+                        
+                            </div>
+                            <div class="row" >
+                                <div class="col-sm-4 OverDue" >
+                                    <span style="font-size: 13px;">Overdue : {{Customer?.OverDueAmounts}}</span>
+                                    <mat-progress-bar mode="determinate" value="{{Customer?.OverDuePercentages}}"></mat-progress-bar>
+                                </div>
+                                <div class="col-sm-4 DueToday" >
+                                    <span style="font-size: 13px;">DueToday : {{Customer?.DueTodayAmounts}}</span>
+                                    <mat-progress-bar mode="determinate" value="{{Customer?.DueTodayPercentages}}"></mat-progress-bar>
+                                </div>
+                                <div class="col-sm-4 Upcoming" >
+                                    <span style="font-size: 13px;">UpComing : {{Customer?.UpComingAmounts}}</span>
+                                    <mat-progress-bar mode="determinate" value="{{Customer?.UpComingPercentages}}"></mat-progress-bar>
+                                </div>                                         
+                              </div>  
+                              <br> 
+                              <div class="col-sm-8"></div> 
+                              <div class="col-sm-4" *ngIf="this.CustomerCategory === 'Seller'">
+                                    <button (click)="BuyerDetails(i)">Buyer</button>                              
+                              </div>    
+                              <div class="col-sm-4" *ngIf="this.CustomerCategory === 'Buyer'">
+                                <button (click)="BuyerDetails(i)">Seller</button>                              
+                          </div>                                                       
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+

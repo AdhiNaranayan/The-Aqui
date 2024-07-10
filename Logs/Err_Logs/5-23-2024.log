@@ -1,0 +1,10 @@
+[2024-05-23T13:45:14.520] [ERROR] Error - {"Error_Name":"Un Caught Exception","Error_Address":"","Error_Message":"TypeError: Cannot set properties of undefined (setting 'Seller')"}
+[2024-05-23T17:03:42.492] [ERROR] Error - {"Error_Name":"Un Caught Exception","Error_Address":"","Error_Message":"Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters"}
+[2024-05-23T22:05:49.437] [ERROR] Error - {"Error_Name":"Un Caught Exception","Error_Address":"","Error_Message":"TypeError: Cannot set properties of undefined (setting 'Seller')"}
+[2024-05-23T22:08:34.426] [ERROR] Error - {"Error_Name":"Un Caught Exception","Error_Address":"","Error_Message":"TypeError: Cannot set properties of undefined (setting 'Seller')"}
+[2024-05-23T22:09:00.870] [ERROR] Error - {"Error_Name":"Un Caught Exception","Error_Address":"","Error_Message":"TypeError: Cannot set properties of undefined (setting 'Seller')"}
+[2024-05-23T22:09:18.936] [ERROR] Error - {"Error_Name":"Un Caught Exception","Error_Address":"","Error_Message":"TypeError: Cannot set properties of undefined (setting 'Seller')"}
+[2024-05-23T22:09:59.740] [ERROR] Error - {"Error_Name":"Un Caught Exception","Error_Address":"","Error_Message":"TypeError: Cannot set properties of undefined (setting 'Seller')"}
+[2024-05-23T22:10:33.878] [ERROR] Error - {"Error_Name":"Un Caught Exception","Error_Address":"","Error_Message":"TypeError: Cannot set properties of undefined (setting 'Seller')"}
+[2024-05-23T23:02:43.008] [ERROR] Error - {"Error_Name":"Un Caught Exception","Error_Address":"","Error_Message":"TypeError: Cannot set properties of undefined (setting 'Seller')"}
+[2024-05-23T23:03:32.362] [ERROR] Error - {"Error_Name":"Un Caught Exception","Error_Address":"","Error_Message":"TypeError: Cannot set properties of undefined (setting 'Seller')"}

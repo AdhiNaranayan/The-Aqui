@@ -1,0 +1,60 @@
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* background-color: #fff; */
+    color: #444;
+    position: relative;
+    z-index: 1;
+}
+
+.box {
+    background-color: #f9f9f9;
+    color: rgb(49, 58, 100);
+    border: 5px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 15px;
+    min-height: 220px;
+    box-shadow: 3px 3px 10px #2323233d;
+}
+.wd-header {
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.wd-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.wd-icon i {
+    color: #f2940c;
+    font-size: 20px;
+    line-height: 22px;
+    margin: 0 4px;
+    cursor: pointer;
+    display: none;
+}
+span.material-icons {
+    color: #f2940c;
+    line-height: 22px;
+    cursor: pointer;
+    font-size: 22px;
+    margin-right: 3px;
+    transition: 0.5s;
+}
+span.material-icons:last-child {
+    margin-right: 0;
+}
+span.material-icons:hover {
+    color: #313a64;
+}
+table.wd-table {
+    width: 100%;
+}
+table.wd-table tbody tr td {
+    border-bottom: 1px solid #efefef;
+    padding: 5px;
+}

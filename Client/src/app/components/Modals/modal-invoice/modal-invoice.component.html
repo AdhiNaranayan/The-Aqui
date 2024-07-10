@@ -1,0 +1,864 @@
+<section *ngIf="Type && ( Type === 'DefaultPage')">
+  <div class="limiter" style="display: block;">
+    <div class="custom-modal modal-container">
+      <form class="form-horizontal">
+        <div class="modal-close-btn" (click)="modalRefView.hide();">
+          <div class="close-icon">
+            <span>
+              <i class="fa fa-close" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
+        <div class="content-area">
+          <h1>Invoice Details</h1>
+          <div class="modal-content-body">
+            <div class="content">
+              <div class="col-sm-12">
+                <div class="row no-margin">
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Seller
+                        Name:</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.Seller?.ContactName | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Seller
+                        Business Name
+                        :</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.Business?.FirstName+ ' ' + InvoiceDetails?.Business?.LastName | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Seller
+                        Branch Name
+                        :</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.BranchInfo?.BranchName | titlecase}}
+                      </div>
+                    </div>
+                  </div> -->
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Buyer
+                        Name
+                        :</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.Buyer?.ContactName | titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Buyer
+                        Business Name
+                        :</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.BuyerBusiness?.FirstName + ' ' + InvoiceDetails?.BuyerBusiness?.LastName |
+                        titlecase}}
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Buyer
+                        Branch Name
+                        :</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.BuyerBranchInfo?.BranchName | titlecase}}
+                      </div>
+                    </div>
+                  </div> -->
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">InvoiceNumber:</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.InvoiceNumber}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">InvoiceAmount
+                        :</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.InvoiceAmount }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">InvoiceDescription
+                        :</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.InvoiceDescription }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">InvoiceDate
+                        :</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.InvoiceDate | date: 'd-MMM-y'}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">InvoiceStatus
+                        :</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.InvoiceStatus }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">Created
+                        Date:</label>
+                      <div class="col-sm-12 col-md-8" style="margin: auto;">
+                        {{InvoiceDetails?.createdAt | date: 'd-MMM-y'}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group form-group-sm col-md-12">
+                    <div class="row">
+                      <label class="col-sm-12 col-md-4 col-form-label text-lg-right lbl">
+                        Invoice Attachment Files:</label>
+                      <div class="col-sm-12 col-md-3" style="margin: 20px;"
+                        *ngFor="let item of InvoiceDetails?.InvoiceAttachments; let i=index">
+                        <div class="row">
+                          <img src="{{'http://localhost:3002/APP_API/Invoice/' + item.fileName}}"
+                            class="InvoiceAttachments-preview" (click)="downloadImage(item.fileName)"
+                            [matTooltip]="'Download ' + item.fileName" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+      <div class="modal-footer">
+        <button type="submit" (click)="modalRefView.hide()" class="btn-blue" aria-label="">
+          <span>Close</span>
+          <span> <i class="fa fa-times" aria-hidden="true"></i> </span>
+        </button>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="bk-waves-yellow" data-name="Layer 1"
+        viewBox="0 0 1920 80.97">
+        <defs>
+          <style>
+            .cls-1 {
+              fill: #f2940c;
+            }
+
+            .cls-2 {
+              fill: #efaa0f;
+            }
+
+            .cls-3 {
+              fill: #e58910;
+            }
+          </style>
+        </defs>
+        <title>web bg images</title>
+        <path class="cls-1" d="M0,26.27q8.58-1.56,17-3-8.43,1.9-17,4Z"></path>
+        <path class="cls-2"
+          d="M1920,26.27V81H0V26.27q13-2.36,25.59-4.39C211.19,59,361.59,64.1,465.42,61.8c36.44-.81,68.89-2.57,98.36-4.92C731,43.52,802.22,10.9,960,23.16c17.07,1.32,35.15,3.17,54.48,5.63,119.59,15.21,185.88,40.8,321,30,7.32-.59,14.21-1.23,20.71-1.92,101.7-10.79,110-33.76,237.32-46.09C1631.11,7.15,1745.7-2,1894.41,21.88Q1907,23.92,1920,26.27Z">
+        </path>
+        <path class="cls-1"
+          d="M1920,16.61V81H0V26.27q13-2.36,25.59-4.39C174.3-2,288.89,7.15,326.46,10.79c127.33,12.33,135.62,35.3,237.32,46.09,6.5.69,13.39,1.33,20.71,1.92,135.15,10.79,201.44-14.8,321-30,19.33-2.46,37.41-4.31,54.48-5.63,157.78-12.26,229,20.36,396.22,33.72,29.47,2.35,61.92,4.11,98.36,4.92,103.83,2.3,254.23-2.79,439.83-39.92Q1907.1,19.35,1920,16.61Z">
+        </path>
+        <path class="cls-3"
+          d="M905.52,28.79c18.66-2.37,36.16-4.18,52.7-5.49-16.54,1.76-34,4.19-52.7,7.39-119.59,20.49-185.88,55-321,40.42-7.32-.79-14.21-1.66-20.71-2.58C490.87,58.11,466,39.26,410.79,23.3c55.18,11.85,80.08,25.84,153,33.58,6.5.69,13.39,1.33,20.71,1.92C719.64,69.59,785.93,44,905.52,28.79Z">
+        </path>
+        <path class="cls-3"
+          d="M1887.31,23.29C1705,71.56,1557.08,78.21,1454.58,75.15c-36.44-1.09-68.89-3.46-98.36-6.62-112.67-12.13-181.75-36-263.08-45.27,81.33,6.88,150.41,24.62,263.08,33.62,29.47,2.35,61.92,4.11,98.36,4.92C1557.08,64.07,1705,59.14,1887.31,23.29Z">
+        </path>
+        <path class="cls-2"
+          d="M326.46,6.45C362.5,11.15,389,17,410.79,23.3c-21.78-4.68-48.29-9-84.33-12.51C288.89,7.15,174.3-2,25.59,21.88q-4.28.69-8.58,1.42c2.87-.66,5.73-1.29,8.58-1.91C174.3-10.79,288.89,1.55,326.46,6.45Z">
+        </path>
+        <path class="cls-1"
+          d="M1093.14,23.26c-39.39-3.32-81.66-4.1-133.14-.1l-1.78.14,1.78-.19C1011.48,17.72,1053.75,18.77,1093.14,23.26Z">
+        </path>
+        <path class="cls-1" d="M1920,14.29v2.32q-12.9,2.75-25.59,5.27l-7.1,1.41,7.1-1.9Q1907.1,18,1920,14.29Z">
+        </path>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="limiter" style="display: block;" *ngIf="Type && ( Type === 'Create')">
+  <div class="custom-modal modal-container">
+    <div class="modal-close-btn" (click)="modalRef.hide();">
+      <div class="close-icon">
+        <span>
+          <i class="fa fa-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="content-area">
+      <h1>Create Invoice</h1>
+      <div class="modal-content-body">
+        <div class="content">
+          <form [formGroup]="InvoiceForm">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Select Business</mat-label>
+                      <mat-select matInput formControlName="Business" placeholder="Business Name"
+                        (ngModelChange)="BusinessChanges($event)" required>
+                        <mat-option>Select Business</mat-option>
+                        <mat-option *ngFor="let Business of BusinessList; let i=index"
+                          [value]="Business._id">{{Business.FirstName + ' '+ Business.LastName}}</mat-option>
+                      </mat-select>
+                      <!-- <mat-icon matSuffix>business_center</mat-icon> -->
+                      <mat-error class="mat-error-full margin-top0"
+                        [innerHTML]="GetFormControlErrorMessage('Business')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Branch</label>
+                    <mat-select matInput formControlName="Branch" placeholder="Branch Name"
+                      (ngModelChange)="BranchChanges($event)">
+                      <mat-option>Select Business </mat-option>
+                      <mat-option *ngFor="let Branch of BranchList; let i=index"
+                        [value]="Branch._id">{{Branch.BranchName}}</mat-option>
+                    </mat-select>
+                    <mat-error class="mat-error-full margin-top0" [innerHTML]="GetFormControlErrorMessage('Branch')">
+                    </mat-error>
+                  </div>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Buyer</mat-label>
+                      <mat-select matInput formControlName="Buyer" placeholder="Buyer Name"
+                        (ngModelChange)="BuyerChanges($event)" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let Buyer of BuyerDetails; let i=index"
+                          [value]="Buyer._id">{{Buyer.ContactName}}</mat-option>
+                      </mat-select>
+                      <mat-error class="mat-error-full margin-top0" [innerHTML]="GetFormControlErrorMessage('Buyer')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Buyer Business</mat-label>
+                      <mat-select matInput formControlName="BuyerBusiness" placeholder="Buyer Business"
+                        (ngModelChange)="BuyerBusinessChanges($event)" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let BuyerBusiness of BuyerBusinessList; let i=index"
+                          [value]="BuyerBusiness._id">{{BuyerBusiness.FirstName +' '+
+                          BuyerBusiness.LastName}}</mat-option>
+                      </mat-select>
+                      <mat-error class="mat-error-full margin-top0"
+                        [innerHTML]="GetFormControlErrorMessage('BuyerBusiness')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Buyer Branch</label>
+                    <mat-select matInput formControlName="BuyerBranch" placeholder="Buyer Branch Name"
+                      (ngModelChange)="BuyerBranchChanges($event)">
+                      <mat-option>Select Buyer Branch</mat-option>
+                      <mat-option *ngFor="let BuyerBranch of BuyerBranchList; let i=index"
+                        [value]="BuyerBranch._id">{{BuyerBranch.BranchName}}</mat-option>
+                    </mat-select>
+                    <mat-error class="mat-error-full margin-top0"
+                      [innerHTML]="GetFormControlErrorMessage('BuyerBranch')"> </mat-error>
+                    <span class="Available-Credit" *ngIf="this.InvoiceForm.get('BuyerBranch').status === 'VALID'">
+                      Available
+                      Credit
+                      Balance: {{BuyerBranchCredit.AvailableCreditLimit}}
+                      <span
+                        *ngIf="BuyerBranchCredit.ExtraUnitizedCreditLimit !== 0">{{BuyerBranchCredit.ExtraUnitizedCreditLimit}}</span>
+                    </span>
+                  </div>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <label>Invoice Number</label>
+                    <input matInput formControlName="InvoiceNumber" placeholder="InvoiceNumber">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceNumber')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Invoice Number</mat-label>
+                      <input matInput formControlName="InvoiceNumber" placeholder="InvoiceNumber">
+                      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceNumber')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <label>Invoice Date</label>
+                    <input matInput formControlName="InvoiceDate" placeholder="InvoiceDate" (click)="InvoiceDate.open()"
+                      [matDatepicker]="InvoiceDate" (keypress)="NotAllow()" (keydown)="ClearInput($event)">
+                    <mat-icon matSuffix>event</mat-icon>
+                    <mat-datepicker touchUi #InvoiceDate></mat-datepicker>
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceDate')"></mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Choose a date</mat-label>
+                      <input matInput formControlName="InvoiceDate" placeholder="MM/DD/YYYY"
+                        (click)="InvoiceDate.open()" [matDatepicker]="InvoiceDate" (keypress)="NotAllow()"
+                        (keydown)="ClearInput($event)">
+                      <mat-hint>MM/DD/YYYY</mat-hint>
+                      <mat-datepicker touchUi #InvoiceDate></mat-datepicker>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceDate')"></mat-error>
+                      <!-- <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker> -->
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <label>Invoice Amount</label>
+                    <span class="avail text-danger">c</span>
+                    <input matInput type="number" class="payfield" formControlName="InvoiceAmount"
+                      placeholder="InvoiceAmount" (change)="trackInvoiceAmount($event)">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceAmount')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Invoice Amount</mat-label>
+                      <input matInput type="number" class="payfield" formControlName="InvoiceAmount"
+                        placeholder="InvoiceAmount" (change)="trackInvoiceAmount($event)">
+                      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                      <mat-hint class="avail text-danger">AvailableLimit: {{AvailCredBusnsAmount}}</mat-hint>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceAmount')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <label>Description</label>
+                    <input matInput formControlName="InvoiceDescription" placeholder="InvoiceDescription"
+                      maxlength="350">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceDescription')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Description</mat-label>
+                      <input matInput formControlName="InvoiceDescription" placeholder="InvoiceDescription"
+                        maxlength="350">
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceDescription')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8" style="margin-top: 30px;">
+                  <ng-container formArrayName="InvoiceAttachments">
+                    <div class="row">
+                      <div class="col-md-12 ">
+                        <div *ngFor="let fileName of GetFormArray('InvoiceAttachments'); let i=index"
+                          [formGroupName]="i" class="col-md-12">
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-10">
+                                <ng-container>
+                                  <input #fileInput type='file' formControlName="fileName"
+                                    (change)="onFileChange($event, i)" style="display:none;"
+                                    accept=".PNG, .png, JPEG, .jpeg, JPG, .jpg, .GIF, .gif">
+                                  <ng-container *ngIf="!ReadonlyPage && !InvoiceDetailsDisabled">
+                                    <span class="UploadBtn"
+                                      [ngClass]="{'Uploaded': fileName.get('InvoicePreviewAvailable').value === true}"
+                                      (click)="fileInput.click()">
+                                      <i class="material-icons"> cloud_upload </i>
+                                      <span *ngIf="fileName.get('InvoicePreviewAvailable').value === true">
+                                        Change Invoice File </span>
+                                      <span *ngIf="!fileName.get('InvoicePreviewAvailable').value === true">
+                                        Upload Invoice File </span>
+                                    </span>
+                                    <span *ngIf="fileName.get('InvoicePreviewAvailable').value === true"
+                                      class="UploadViewBtn" (click)="fileName.get('ShowInvoiceFiles').value = true">
+                                      View Invoice File </span>
+                                  </ng-container>
+                                  <ng-container *ngIf="ReadonlyPage || InvoiceDetailsDisabled">
+                                    <span class="UploadBtn"
+                                      [ngClass]="{'Uploaded': fileName.get('InvoicePreviewAvailable').value === true}"
+                                      (click)="fileName.get('ShowInvoiceFiles').value = true">
+                                      <i class="material-icons">
+                                        photo_size_select_actual </i>
+                                      <span *ngIf="fileName.get('InvoicePreviewAvailable').value === true">
+                                        View Invoice File </span>
+                                      <span *ngIf="!fileName.get('InvoicePreviewAvailable').value === true">
+                                        No Invoice File </span>
+                                    </span>
+                                  </ng-container>
+                                </ng-container>
+                              </div>
+                              <div class="col-md-2">
+                                <span class="btn-remove-minus" (click)="RemoveInvoice(i)"><i
+                                    class="fa fa-minus"></i></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div *ngIf="fileName.get('ShowInvoiceFiles').value" class="ECGView">
+                            <span class="CloseBtn" (click)="fileName.get('ShowInvoiceFiles').value = false"> x
+                            </span>
+                            <div class="ImgSection">
+                              <img [ngStyle]="{'max-height': screenHeight + 'px', 'max-width': screenWidth + 'px' }"
+                                src="{{fileName.get('InvoicePreview').value}}" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="col-md-4">
+                  <div class="ADDBusiness">
+                    <button class="add-invoice-image" (click)="AddInvoice()">
+                      Add Images
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="login-button btn-blue min-wth-200">
+              <span (click)="Submit()">Submit</span>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="bk-waves-yellow" data-name="Layer 1"
+      viewBox="0 0 1920 80.97">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #f2940c;
+          }
+
+          .cls-2 {
+            fill: #efaa0f;
+          }
+
+          .cls-3 {
+            fill: #e58910;
+          }
+        </style>
+      </defs>
+      <title>web bg images</title>
+      <path class="cls-1" d="M0,26.27q8.58-1.56,17-3-8.43,1.9-17,4Z"></path>
+      <path class="cls-2"
+        d="M1920,26.27V81H0V26.27q13-2.36,25.59-4.39C211.19,59,361.59,64.1,465.42,61.8c36.44-.81,68.89-2.57,98.36-4.92C731,43.52,802.22,10.9,960,23.16c17.07,1.32,35.15,3.17,54.48,5.63,119.59,15.21,185.88,40.8,321,30,7.32-.59,14.21-1.23,20.71-1.92,101.7-10.79,110-33.76,237.32-46.09C1631.11,7.15,1745.7-2,1894.41,21.88Q1907,23.92,1920,26.27Z">
+      </path>
+      <path class="cls-1"
+        d="M1920,16.61V81H0V26.27q13-2.36,25.59-4.39C174.3-2,288.89,7.15,326.46,10.79c127.33,12.33,135.62,35.3,237.32,46.09,6.5.69,13.39,1.33,20.71,1.92,135.15,10.79,201.44-14.8,321-30,19.33-2.46,37.41-4.31,54.48-5.63,157.78-12.26,229,20.36,396.22,33.72,29.47,2.35,61.92,4.11,98.36,4.92,103.83,2.3,254.23-2.79,439.83-39.92Q1907.1,19.35,1920,16.61Z">
+      </path>
+      <path class="cls-3"
+        d="M905.52,28.79c18.66-2.37,36.16-4.18,52.7-5.49-16.54,1.76-34,4.19-52.7,7.39-119.59,20.49-185.88,55-321,40.42-7.32-.79-14.21-1.66-20.71-2.58C490.87,58.11,466,39.26,410.79,23.3c55.18,11.85,80.08,25.84,153,33.58,6.5.69,13.39,1.33,20.71,1.92C719.64,69.59,785.93,44,905.52,28.79Z">
+      </path>
+      <path class="cls-3"
+        d="M1887.31,23.29C1705,71.56,1557.08,78.21,1454.58,75.15c-36.44-1.09-68.89-3.46-98.36-6.62-112.67-12.13-181.75-36-263.08-45.27,81.33,6.88,150.41,24.62,263.08,33.62,29.47,2.35,61.92,4.11,98.36,4.92C1557.08,64.07,1705,59.14,1887.31,23.29Z">
+      </path>
+      <path class="cls-2"
+        d="M326.46,6.45C362.5,11.15,389,17,410.79,23.3c-21.78-4.68-48.29-9-84.33-12.51C288.89,7.15,174.3-2,25.59,21.88q-4.28.69-8.58,1.42c2.87-.66,5.73-1.29,8.58-1.91C174.3-10.79,288.89,1.55,326.46,6.45Z">
+      </path>
+      <path class="cls-1"
+        d="M1093.14,23.26c-39.39-3.32-81.66-4.1-133.14-.1l-1.78.14,1.78-.19C1011.48,17.72,1053.75,18.77,1093.14,23.26Z">
+      </path>
+      <path class="cls-1" d="M1920,14.29v2.32q-12.9,2.75-25.59,5.27l-7.1,1.41,7.1-1.9Q1907.1,18,1920,14.29Z">
+      </path>
+    </svg>
+  </div>
+</div>
+
+<div class="limiter" style="display: block;" *ngIf="Type && ( Type === 'Update')">
+  <div class="custom-modal modal-container">
+    <div class="modal-close-btn" (click)="modalRef.hide();">
+      <div class="close-icon">
+        <span>
+          <i class="fa fa-close" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div class="content-area">
+      <h1>Edit Invoice</h1>
+      <div class="modal-content-body">
+        <div class="content">
+          <form [formGroup]="InvoiceForm">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <label>Business</label>
+                    <mat-select matInput formControlName="Business" placeholder="Business Name"
+                      (ngModelChange)="BusinessChanges($event)">
+                      <mat-option>Select Business </mat-option>
+                      <mat-option *ngFor="let Business of BusinessList; let i=index"
+                        [value]="Business._id">{{Business.FirstName +' '+Business.LastName }}</mat-option>
+                    </mat-select>
+                    <mat-error class="mat-error-full margin-top0" [innerHTML]="GetFormControlErrorMessage('Business')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Business</mat-label>
+                      <mat-select matInput formControlName="Business" placeholder="Business Name"
+                        (ngModelChange)="BusinessChanges($event)">
+                        <mat-option>Select Business </mat-option>
+                        <mat-option *ngFor="let Business of BusinessList; let i=index"
+                          [value]="Business._id">{{Business.FirstName +' '+Business.LastName }}</mat-option>
+                      </mat-select>
+                      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                      <mat-error class="mat-error-full margin-top0"
+                        [innerHTML]="GetFormControlErrorMessage('Business')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Branch</label>
+                    <mat-select matInput formControlName="Branch" placeholder="Branch Name"
+                      (ngModelChange)="BranchChanges($event)">
+                      <mat-option>Select Business </mat-option>
+                      <mat-option *ngFor="let Branch of BranchList; let i=index"
+                        [value]="Branch._id">{{Branch.BranchName}}</mat-option>
+                    </mat-select>
+                    <mat-error class="mat-error-full margin-top0" [innerHTML]="GetFormControlErrorMessage('Branch')">
+                    </mat-error>
+                  </div>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <label>Buyer</label>
+                    <mat-select matInput formControlName="Buyer" placeholder="Buyer Name"
+                      (ngModelChange)="BuyerChanges($event)">
+                      <mat-option>Select Buyer </mat-option>
+                      <mat-option *ngFor="let Buyer of BuyerDetails; let i=index"
+                        [value]="Buyer?._id">{{Buyer?.ContactName}}</mat-option>
+                    </mat-select>
+                    <mat-error class="mat-error-full margin-top0" [innerHTML]="GetFormControlErrorMessage('Buyer')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Buyer</mat-label>
+                      <mat-select matInput formControlName="Buyer" placeholder="Buyer Name"
+                        (ngModelChange)="BuyerChanges($event)">
+                        <mat-option>Select Buyer </mat-option>
+                        <mat-option *ngFor="let Buyer of BuyerDetails; let i=index"
+                          [value]="Buyer?._id">{{Buyer?.ContactName}}</mat-option>
+                      </mat-select>
+                      <mat-error class="mat-error-full margin-top0" [innerHTML]="GetFormControlErrorMessage('Buyer')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <label>Buyer Business</label>
+                    <mat-select matInput formControlName="BuyerBusiness" placeholder="Buyer Business Name"
+                      (ngModelChange)="BuyerBusinessChanges($event)">
+                      <mat-option>Select Buyer Business</mat-option>
+                      <mat-option *ngFor="let BuyerBusiness of BuyerBusinessList; let i=index"
+                        [value]="BuyerBusiness?._id">{{BuyerBusiness.FirstName +' '+ BuyerBusiness.LastName
+                        }}</mat-option>
+                    </mat-select>
+                    <mat-error class="mat-error-full margin-top0"
+                      [innerHTML]="GetFormControlErrorMessage('BuyerBusiness')"> </mat-error> -->
+                    <mat-form-field appearance="outline" class="">
+                      <mat-label>Buyer Business</mat-label>
+                      <mat-select matInput formControlName="BuyerBusiness" placeholder="Buyer Business Name"
+                        (ngModelChange)="BuyerBusinessChanges($event)">
+                        <mat-option>Select Buyer Business</mat-option>
+                        <mat-option *ngFor="let BuyerBusiness of BuyerBusinessList; let i=index"
+                          [value]="BuyerBusiness?._id">{{BuyerBusiness.FirstName +' '+ BuyerBusiness.LastName
+                          }}</mat-option>
+                      </mat-select>
+                      <mat-error class="mat-error-full margin-top0"
+                        [innerHTML]="GetFormControlErrorMessage('BuyerBusiness')"> </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Buyer Branch</label>
+                    <mat-select matInput formControlName="BuyerBranch" placeholder="Buyer Branch Name">
+                      <mat-option>Select Buyer Branch</mat-option>
+                      <mat-option *ngFor="let BuyerBranch of BuyerBranchList; let i=index"
+                        [value]="BuyerBranch._id">{{BuyerBranch.BranchName}}</mat-option>
+                    </mat-select>
+                    <mat-error class="mat-error-full margin-top0"
+                      [innerHTML]="GetFormControlErrorMessage('BuyerBranch')"> </mat-error>
+                    <span class="Available-Credit" *ngIf="this.InvoiceForm.get('BuyerBranch').status === 'VALID'">
+                      Available
+                      Credit
+                      Balance: {{BuyerBranchCredit.AvailableCreditLimit}}
+                      <span
+                        *ngIf="BuyerBranchCredit.ExtraUnitizedCreditLimit !== 0">{{BuyerBranchCredit.ExtraUnitizedCreditLimit}}</span>
+                    </span>
+                  </div>
+                </div>
+              </div> -->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <label>Invoice Number</label>
+                    <input matInput formControlName="InvoiceNumber" placeholder="InvoiceNumber">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceNumber')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Invoice Number</mat-label>
+                      <input matInput formControlName="InvoiceNumber" placeholder="InvoiceNumber">
+                      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceNumber')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <label>Invoice Date</label>
+                    <input matInput formControlName="InvoiceDate" placeholder="InvoiceDate" (click)="InvoiceDate.open()"
+                      [matDatepicker]="InvoiceDate" (keypress)="NotAllow()" (keydown)="ClearInput($event)">
+                    <mat-icon matSuffix>event</mat-icon>
+                    <mat-datepicker touchUi #InvoiceDate></mat-datepicker>
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceDate')"></mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Invoice Date</mat-label>
+                      <input matInput formControlName="InvoiceDate" placeholder="MM/DD/YYY" (click)="InvoiceDate.open()"
+                        [matDatepicker]="InvoiceDate" (keypress)="NotAllow()" (keydown)="ClearInput($event)">
+                      <!-- <mat-icon matSuffix>event</mat-icon> -->
+                      <mat-datepicker touchUi #InvoiceDate></mat-datepicker>
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceDate')"></mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <label>Invoice Amount</label>
+                    <input matInput type="number" class="payfield" formControlName="InvoiceAmount"
+                      placeholder="InvoiceAmount" (change)="EdittrackInvoiceAmount($event)">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceAmount')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Invoice Amount</mat-label>
+                      <input matInput type="number" class="payfield" formControlName="InvoiceAmount"
+                        placeholder="InvoiceAmount" (change)="EdittrackInvoiceAmount($event)">
+                      <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceAmount')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <!-- <label>Description</label>
+                    <input matInput formControlName="InvoiceDescription" placeholder="InvoiceDescription"
+                      maxlength="350">
+                    <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceDescription')">
+                    </mat-error> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                      <mat-label>Description</mat-label>
+                      <input matInput formControlName="InvoiceDescription" placeholder="InvoiceDescription"
+                        maxlength="350">
+                      <mat-error [innerHTML]="GetFormControlErrorMessage('InvoiceDescription')">
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8" style="margin-top: 30px;">
+                  <ng-container formArrayName="InvoiceAttachments">
+                    <div class="row">
+                      <div class="col-md-12 ">
+                        <div *ngFor="let fileName of GetFormArray('InvoiceAttachments'); let i=index"
+                          [formGroupName]="i" class="col-md-12">
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-md-10">
+                                <ng-container>
+                                  <input #fileInput type='file' formControlName="fileName"
+                                    (change)="onFileChange($event, i)" style="display:none;"
+                                    accept=".PNG, .png, JPEG, .jpeg, JPG, .jpg, .GIF, .gif">
+                                  <ng-container *ngIf="!ReadonlyPage && !InvoiceDetailsDisabled">
+                                    <span class="UploadBtn"
+                                      [ngClass]="{'Uploaded': fileName.get('InvoicePreviewAvailable').value === true}"
+                                      (click)="fileInput.click()">
+                                      <i class="material-icons"> cloud_upload </i>
+                                      <span *ngIf="fileName.get('InvoicePreviewAvailable').value === true">
+                                        Change Invoice File </span>
+                                      <span *ngIf="!fileName.get('InvoicePreviewAvailable').value === true">
+                                        Upload Invoice File </span>
+                                    </span>
+                                    <span *ngIf="fileName.get('InvoicePreviewAvailable').value === true"
+                                      class="UploadViewBtn" (click)="fileName.get('ShowInvoiceFiles').value = true">
+                                      View Invoice File </span>
+                                  </ng-container>
+                                  <ng-container *ngIf="ReadonlyPage || InvoiceDetailsDisabled">
+                                    <span class="UploadBtn"
+                                      [ngClass]="{'Uploaded': fileName.get('InvoicePreviewAvailable').value === true}"
+                                      (click)="fileName.get('ShowInvoiceFiles').value = true">
+                                      <i class="material-icons">
+                                        photo_size_select_actual </i>
+                                      <span *ngIf="fileName.get('InvoicePreviewAvailable').value === true">
+                                        View Invoice File </span>
+                                      <span *ngIf="!fileName.get('InvoicePreviewAvailable').value === true">
+                                        No Invoice File </span>
+                                    </span>
+                                  </ng-container>
+                                </ng-container>
+                              </div>
+                              <div class="col-md-2">
+                                <span class="btn-remove-minus" (click)="RemoveInvoice(i)"><i
+                                    class="fa fa-minus"></i></span>
+                              </div>
+                            </div>
+                          </div>
+                          <div *ngIf="fileName.get('ShowInvoiceFiles').value" class="ECGView">
+                            <span class="CloseBtn" (click)="fileName.get('ShowInvoiceFiles').value = false"> x
+                            </span>
+                            <div class="ImgSection">
+                              <img [ngStyle]="{'max-height': screenHeight + 'px', 'max-width': screenWidth + 'px' }"
+                                src="{{fileName.get('InvoicePreview').value}}" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="col-md-4">
+                  <div class="ADDBusiness">
+                    <button class="add-invoice-image" (click)="AddInvoice()">
+                      Add Images
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="login-button btn-blue min-wth-200">
+              <span (click)="Update()">Update</span>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" class="bk-waves-yellow" data-name="Layer 1"
+      viewBox="0 0 1920 80.97">
+      <defs>
+        <style>
+          .cls-1 {
+            fill: #f2940c;
+          }
+
+          .cls-2 {
+            fill: #efaa0f;
+          }
+
+          .cls-3 {
+            fill: #e58910;
+          }
+        </style>
+      </defs>
+      <title>web bg images</title>
+      <path class="cls-1" d="M0,26.27q8.58-1.56,17-3-8.43,1.9-17,4Z"></path>
+      <path class="cls-2"
+        d="M1920,26.27V81H0V26.27q13-2.36,25.59-4.39C211.19,59,361.59,64.1,465.42,61.8c36.44-.81,68.89-2.57,98.36-4.92C731,43.52,802.22,10.9,960,23.16c17.07,1.32,35.15,3.17,54.48,5.63,119.59,15.21,185.88,40.8,321,30,7.32-.59,14.21-1.23,20.71-1.92,101.7-10.79,110-33.76,237.32-46.09C1631.11,7.15,1745.7-2,1894.41,21.88Q1907,23.92,1920,26.27Z">
+      </path>
+      <path class="cls-1"
+        d="M1920,16.61V81H0V26.27q13-2.36,25.59-4.39C174.3-2,288.89,7.15,326.46,10.79c127.33,12.33,135.62,35.3,237.32,46.09,6.5.69,13.39,1.33,20.71,1.92,135.15,10.79,201.44-14.8,321-30,19.33-2.46,37.41-4.31,54.48-5.63,157.78-12.26,229,20.36,396.22,33.72,29.47,2.35,61.92,4.11,98.36,4.92,103.83,2.3,254.23-2.79,439.83-39.92Q1907.1,19.35,1920,16.61Z">
+      </path>
+      <path class="cls-3"
+        d="M905.52,28.79c18.66-2.37,36.16-4.18,52.7-5.49-16.54,1.76-34,4.19-52.7,7.39-119.59,20.49-185.88,55-321,40.42-7.32-.79-14.21-1.66-20.71-2.58C490.87,58.11,466,39.26,410.79,23.3c55.18,11.85,80.08,25.84,153,33.58,6.5.69,13.39,1.33,20.71,1.92C719.64,69.59,785.93,44,905.52,28.79Z">
+      </path>
+      <path class="cls-3"
+        d="M1887.31,23.29C1705,71.56,1557.08,78.21,1454.58,75.15c-36.44-1.09-68.89-3.46-98.36-6.62-112.67-12.13-181.75-36-263.08-45.27,81.33,6.88,150.41,24.62,263.08,33.62,29.47,2.35,61.92,4.11,98.36,4.92C1557.08,64.07,1705,59.14,1887.31,23.29Z">
+      </path>
+      <path class="cls-2"
+        d="M326.46,6.45C362.5,11.15,389,17,410.79,23.3c-21.78-4.68-48.29-9-84.33-12.51C288.89,7.15,174.3-2,25.59,21.88q-4.28.69-8.58,1.42c2.87-.66,5.73-1.29,8.58-1.91C174.3-10.79,288.89,1.55,326.46,6.45Z">
+      </path>
+      <path class="cls-1"
+        d="M1093.14,23.26c-39.39-3.32-81.66-4.1-133.14-.1l-1.78.14,1.78-.19C1011.48,17.72,1053.75,18.77,1093.14,23.26Z">
+      </path>
+      <path class="cls-1" d="M1920,14.29v2.32q-12.9,2.75-25.59,5.27l-7.1,1.41,7.1-1.9Q1907.1,18,1920,14.29Z">
+      </path>
+    </svg>
+  </div>
+</div>
+
+
+<script>
+  $('#myCarousel').carousel({
+    interval: 4000
+  })
+
+  $('.carousel .item').each(function () {
+    var next = $(this).next();
+    if (!next.length) {
+      next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+
+    for (var i = 0; i < 2; i++) {
+      next = next.next();
+      if (!next.length) {
+        next = $(this).siblings(':first');
+      }
+
+      next.children(':first-child').clone().appendTo($(this));
+    }
+  });
+</script>

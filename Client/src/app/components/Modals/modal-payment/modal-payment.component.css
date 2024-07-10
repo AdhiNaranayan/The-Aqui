@@ -1,0 +1,174 @@
+.PaymentDate {
+    float: right;
+    position: relative;
+    margin-top: -31px;
+}
+
+
+/* Add and Minus button css start*/
+.btn-add-plus,
+.btn-remove-minus {
+ -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18),
+    0 4px 15px 0 rgba(0, 0, 0, 0.15);
+ box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+ width: 25px;
+ height: 25px;
+ z-index: 1;
+ display: inline-block;
+ -webkit-transition: all 0.2s ease-in-out;
+ -o-transition: all 0.2s ease-in-out;
+ transition: all 0.2s ease-in-out;
+ margin: 0px;
+ /* -webkit-border-radius: 50%; */
+ padding: 0;
+ cursor: pointer;
+ text-align: center;
+ font-size: 1.2rem;
+ border-radius: 2px ;
+}
+.btn-add-plus {
+ background: linear-gradient(40deg, #ffd86f, #fc6262) !important;
+}
+.btn-remove-minus {
+ background-image: linear-gradient(to right, #ff0302 0%, #fc3a2b 100%);
+ margin-top: 6px;
+ margin-left: 0;
+}
+
+span.btn-remove-minus i.fa.fa-minus, span.btn-add-plus i.fa.fa-plus {
+ color: white;
+ position: relative;
+ top: 5px;
+}
+
+.btn-add-plus:hover,
+.btn-remove-minus:hover {
+ box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.col-md-12.ADDBusiness {
+  margin-left: 64%;
+}
+
+.btn-blue, .btn-yellow {
+  color: #fff;
+  transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 15px 20px;
+  min-width: 130px;
+  margin: 8px 101px;
+  margin-top: 42px;
+  display: inline-block;
+  box-shadow: 4px 4px 7px 0px #9e9e9e8c;
+  border-radius: 0;
+  letter-spacing: 0.5px;
+  margin-left: 40%;
+}
+
+
+.UploadBtn{
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 30px auto;
+  align-items: center;
+  max-width: 200px;
+  padding: 5px 10px;
+  background: linear-gradient(to right,rgb(148, 148, 148) 0,rgb(223, 223, 223) 100%);
+  color: #fff;
+  border-radius: 5px;
+}
+.UploadBtn.Uploaded{
+  background: #f2940c;
+}
+.UploadViewBtn{
+  cursor: pointer;
+  margin-left: 15px;
+  font-weight: 500;
+  color: #313a64;
+}
+
+.ECGView{
+  position: fixed;
+  left: 50%;
+  top: calc(50% + 25px);
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  max-height: calc(100% - 85px);
+  max-width: 100%;
+
+}
+.ECGView .CloseBtn{
+  position: absolute;
+   background: #a9a9a9;
+   width: 30px;
+   height: 30px;
+   display: block;
+   color: #fff;
+   cursor: pointer;
+   font-size: 25px;
+   line-height: 25px;
+   text-align: center;
+   border-radius: 50px;
+   top: -15px;
+   right: -15px;
+}
+.ECGView .ImgSection{
+  border: 2px solid #c8c8c8;
+}
+.ECGView .ImgSection img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+button.add-invoice-image {
+  background-color: #f2940c;
+  border: none;
+  border-radius: 10px;
+  width: 50%;
+  float: right;
+  color: #ffff;
+}
+
+.content-table{
+  z-index: 2;
+  margin: 0px 37px 23px 0px;
+  width: 100%;
+  position: relative;
+}
+
+.table.table-hover.table-responsive.tbl-shadow {
+  width: 103%;
+}
+
+.payfield::-webkit-outer-spin-button,
+.payfield::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.payfield[type=number]{
+  -moz-appearance: textfield;
+}
+
+
+table{
+  width: 100%;
+}
+
+
+.mat-header-cell {
+  font-weight: bold;
+}
+
+.mat-cell {
+  padding: 8px 16px;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
